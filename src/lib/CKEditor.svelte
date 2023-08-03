@@ -2,13 +2,15 @@
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
     export let value = '';
+    let element;
 
     ClassicEditor
         .create(value)
         .then(newEditor => {
-            document.querySelector('#ckeditor').appendChild(newEditor.ui.element);
+            element.appendChild(newEditor.ui.element);
             newEditor.model.document.on('change:data', () => {
                 value = newEditor.getData();
+                console.log(value);
             })
         })
         .catch(err => {
@@ -16,4 +18,4 @@
         });
 </script>
 
-<div id="ckeditor"/>
+<div bind:this={element}/>

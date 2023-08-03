@@ -1,8 +1,10 @@
+<svelte:options customElement={{tag: 'switchable-editor',shadow: 'none'}} />
+
 <script lang="ts">
     import CKEditor from './lib/CKEditor.svelte'
     import Buttons from "./lib/Buttons.svelte";
 
-    export let value = 'Test value';
+    export let value = '';
     let html = true;
 
     function handleHtml() {
