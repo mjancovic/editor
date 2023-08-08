@@ -2,6 +2,7 @@
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
+    export let buttons = [];
 
     function onHtml() {
         dispatch('html', {});
@@ -11,5 +12,10 @@
     }
 </script>
 
-<button class="HTMLEditor" on:click={onHtml}>HTML</button>
-<button class="PlainEditor" on:click={onPlain}>Plain</button>
+<div>
+    <button class="HTMLEditor" on:click={onHtml}>HTML</button>
+    <button class="PlainEditor" on:click={onPlain}>Plain</button>
+    {#each buttons as button}
+        <button class={button.style} title={button.text} on:click={button.handler}>{button.text}</button>
+    {/each}
+</div>

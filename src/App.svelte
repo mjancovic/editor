@@ -5,7 +5,8 @@
     import Buttons from "./lib/Buttons.svelte";
 
     export let value = '';
-    let html = true;
+    export let buttons = [];
+    export let html = true;
 
     function handleHtml() {
         if (html) return;
@@ -27,5 +28,5 @@
             <textarea bind:value/>
         {/if}
     </div>
-    <Buttons on:html={handleHtml} on:plain={handlePlain}/>
+    <Buttons on:html={handleHtml} on:plain={handlePlain} bind:buttons/>
 </main>
