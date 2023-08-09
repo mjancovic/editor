@@ -1,16 +1,19 @@
 <script>
-    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+    import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 
     export let value = '';
-    let element;
+    let editorElement;
+    let toolbarElement;
 
-    ClassicEditor
-        .create(value)
+    DecoupledEditor
+        .create(value , {
+            toolbar: ['bold', 'italic', 'strikethrough', 'underline', 'fontColor', 'fontBackgroundColor', 'fontFamily', 'fontSize', '|', 'numberedList', 'bulletedList', '|', 'outdent', 'indent', 'blockQuote', '|', 'link', '|', 'uploadImage', 'imageUpload', 'insertTable', '|', 'undo', 'redo']
+        })
         .then(newEditor => {
-            element.appendChild(newEditor.ui.element);
+            toolbarElement.appendChild(newEditor.ui.view.toolbar.element);
+            editorElement.appendChild(newEditor.ui.view.editable.element);
             newEditor.model.document.on('change:data', () => {
                 value = newEditor.getData();
-                console.log(value);
             })
         })
         .catch(err => {
@@ -18,4 +21,5 @@
         });
 </script>
 
-<div bind:this={element}/>
+<div bind:this={toolbarElement}/>
+<div bind:this={editorElement}/>

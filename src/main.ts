@@ -1,2 +1,2 @@
-export * from './App.svelte'
-export * from './lib/CKEditorClassic.svelte'
+export * from './App.svelte';
+export * from './lib/CKEditor5Document.svelte';
