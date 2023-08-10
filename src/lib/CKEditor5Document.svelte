@@ -2,8 +2,11 @@
 
 <script>
     import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+    import ImageUploadAdapter from './CKEditor5ImageUploadAdapter.ts';
 
-    export let items = ['bold', 'italic', 'strikethrough', 'underline', 'fontColor', 'fontBackgroundColor', 'fontFamily', 'fontSize', '|', 'numberedList', 'bulletedList', '|', 'outdent', 'indent', 'blockQuote', '|', 'link', '|', 'uploadImage', 'imageUpload', 'insertTable', '|', 'undo', 'redo'];
+    export let insertImageServiceUrl = '';
+    export let getImageServiceUrl = '';
+    export let items = ['bold', 'italic', 'strikethrough', 'underline', 'fontColor', 'fontBackgroundColor', 'fontFamily', 'fontSize', '|', 'numberedList', 'bulletedList', '|', 'outdent', 'indent', 'blockQuote', '|', 'link', '|', 'uploadImage', 'insertTable', '|', 'undo', 'redo'];
     export let value = '';
     export let placeHolder = '';
     export let change = (evt, data) => {
@@ -14,10 +17,17 @@
     let editorElement;
     let toolbarElement;
 
+    function ImageUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            return new ImageUploadAdapter(loader, insertImageServiceUrl, getImageServiceUrl);
+        };
+    }
+
     DecoupledEditor
         .create(value, {
             placeholder: placeHolder,
-            toolbar: items
+            toolbar: items,
+            extraPlugins: [ImageUploadAdapterPlugin]
         })
         .then(newEditor => {
             editor = newEditor;
