@@ -25,6 +25,36 @@
         };
     }
 
+    function getCursor(writer, root) {
+        const range = writer.createRangeIn(root);
+        for (const value of range.getWalker()) {
+            const node = value.item;
+            if (node.is('$textProxy') && node.data != '' && node.data.includes('||msg||')) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    export function setCursorPositionAtPlaceholder(placeholder) {
+        if (editor == null) {
+            return;
+        }
+        editor.focus();
+        editor.model.change(writer => {
+            const cursor = getCursor(writer, editor.model.document.getRoot());
+            if (cursor != null) {
+                writer.setSelection(writer.createPositionBefore(cursor));
+                writer.remove(cursor);
+                const texts = cursor.data.split(placeholder);
+                writer.insertText(texts[0], editor.model.document.selection.getFirstPosition());
+                const position = editor.model.document.selection.getFirstPosition();
+                writer.insertText(texts[1], editor.model.document.selection.getFirstPosition());
+                writer.setSelection(position);
+            }
+        });
+    }
+
     DecoupledEditor
         .create(value, {
             placeholder: placeHolder,
