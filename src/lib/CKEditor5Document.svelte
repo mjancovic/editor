@@ -55,6 +55,24 @@
         });
     }
 
+    export function setCursorPosition(jsonString) {
+        if (editor == null) {
+            return;
+        }
+        editor.focus();
+        editor.model.change(writer => {
+            let jsonObject = JSON.parse(jsonString);
+            if (jsonObject.root == null || jsonObject.path == null || jsonObject.stickiness == null) {
+                return;
+            }
+            let root = editor.model.document.getRoot(jsonObject.root);
+            if (root == null) {
+                return;
+            }
+            writer.setSelection(writer.createPositionFromPath(root, jsonObject.path, jsonObject.stickiness));
+        });
+    }
+
     DecoupledEditor
         .create(value, {
             placeholder: placeHolder,
