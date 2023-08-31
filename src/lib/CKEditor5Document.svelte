@@ -55,21 +55,21 @@
         });
     }
 
-    export function setCursorPosition(jsonString) {
+    export function setCursorPositionFromJSONString(positionJSONString) {
         if (editor == null) {
             return;
         }
         editor.focus();
         editor.model.change(writer => {
-            let jsonObject = JSON.parse(jsonString);
-            if (jsonObject.root == null || jsonObject.path == null || jsonObject.stickiness == null) {
+            let positionJSONObject = JSON.parse(positionJSONString);
+            if (positionJSONObject.root == null || positionJSONObject.path == null || positionJSONObject.stickiness == null) {
                 return;
             }
-            let root = editor.model.document.getRoot(jsonObject.root);
+            let root = editor.model.document.getRoot(positionJSONObject.root);
             if (root == null) {
                 return;
             }
-            writer.setSelection(writer.createPositionFromPath(root, jsonObject.path, jsonObject.stickiness));
+            writer.setSelection(writer.createPositionFromPath(root, positionJSONObject.path, positionJSONObject.stickiness));
         });
     }
 
