@@ -19,7 +19,7 @@ import {CodeBlock} from '@ckeditor/ckeditor5-code-block';
 import {HorizontalLine} from '@ckeditor/ckeditor5-horizontal-line';
 import {RemoveFormat} from '@ckeditor/ckeditor5-remove-format';
 import {SpecialCharacters, SpecialCharactersEssentials} from '@ckeditor/ckeditor5-special-characters';
-import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
+import {MediaEmbed} from '@ckeditor/ckeditor5-media-embed';
 import {UploadAdapter} from '@ckeditor/ckeditor5-adapter-ckfinder';
 
 export default class CKEditor5Classic extends ClassicEditor {
@@ -139,6 +139,31 @@ export default class CKEditor5Classic extends ClassicEditor {
                 {model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2'},
                 {model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3'}
             ]
+        },
+        image: {
+            resizeOptions: [
+                {
+                    name: 'resizeImage:25',
+                    value: '25',
+                    icon: 'small'
+                },
+                {
+                    name: 'resizeImage:50',
+                    value: '50',
+                    icon: 'medium'
+                },
+                {
+                    name: 'resizeImage:75',
+                    value: '75',
+                    icon: 'large'
+                },
+                {
+                    name: 'resizeImage:original',
+                    value: null,
+                    icon: 'original'
+                },
+            ],
+            toolbar: ['toggleImageCaption', 'imageTextAlternative', '|', 'imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|', 'imageStyle:wrapText', 'imageStyle:breakText', '|', 'resizeImage:25', 'resizeImage:50', 'resizeImage:75', 'resizeImage:original']
         },
         language: 'en'
     };
