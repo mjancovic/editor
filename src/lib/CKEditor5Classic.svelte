@@ -8,6 +8,7 @@
     export let insertImageServiceUrl = '';
     export let getImageServiceUrl = '';
     export let items = ['undo', 'redo', '|', 'heading', 'bold', 'italic', 'strikethrough', 'underline', 'fontColor', 'fontBackgroundColor', 'fontFamily', 'fontSize', '|', 'numberedList', 'bulletedList', '|', 'outdent', 'indent', 'blockQuote', '|', 'alignment', '|', 'link', 'imageUpload', 'mediaEmbed', 'horizontalLine', 'specialCharacters', 'code', 'codeBlock', 'insertTable', '|', 'style', '|', 'removeFormat', 'selectAll', '|', 'sourceEditing']
+    export let allowHtmlSupport = false;
     export let value = '';
     export let placeHolder = '';
     export let lang = 'en';
@@ -77,6 +78,16 @@
             placeholder: placeHolder,
             toolbar: items,
             extraPlugins: [ImageUploadAdapterPlugin],
+            htmlSupport: {
+                allow: allowHtmlSupport ? [
+                    {
+                        name: /.*/,
+                        attributes: true,
+                        classes: true,
+                        styles: true
+                    }
+                ] : []
+            },
             language: {
                 ui: lang
             }

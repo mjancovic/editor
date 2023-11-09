@@ -140,16 +140,6 @@ export default class CKEditor5Classic extends ClassicEditor {
                 {model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3'}
             ]
         },
-        htmlSupport: {
-            allow: [
-                {
-                    name: /.*/,
-                    attributes: true,
-                    classes: true,
-                    styles: true
-                }
-            ]
-        },
         language: 'en'
     };
 }
