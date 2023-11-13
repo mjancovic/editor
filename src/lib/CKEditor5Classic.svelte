@@ -25,11 +25,11 @@
         };
     }
 
-    function getCursor(writer, root) {
+    function getCursor(placeholder, writer, root) {
         const range = writer.createRangeIn(root);
         for (const value of range.getWalker()) {
             const node = value.item;
-            if (node.is('$textProxy') && node.data != '' && node.data.includes('||msg||')) {
+            if (node.is('$textProxy') && node.data != '' && node.data.includes(placeholder)) {
                 return node;
             }
         }
@@ -42,7 +42,7 @@
         }
         editor.focus();
         editor.model.change(writer => {
-            const cursor = getCursor(writer, editor.model.document.getRoot());
+            const cursor = getCursor(placeholder, writer, editor.model.document.getRoot());
             if (cursor != null) {
                 writer.setSelection(writer.createPositionBefore(cursor));
                 writer.remove(cursor);
