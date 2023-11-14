@@ -73,6 +73,10 @@
         });
     }
 
+    $: if (editor != null && editor.editing.view.document.getRoot( 'main' ).placeholder != placeHolder) {
+        editor.editing.view.document.getRoot( 'main' ).placeholder = placeHolder;
+    }
+
     CKEditor5Classic
         .create(value, {
             placeholder: placeHolder,
