@@ -3,7 +3,6 @@
 <script>
     import CKEditor5Classic from './CKEditor5Classic.ts';
     import ImageUploadAdapter from './CKEditor5ImageUploadAdapter.ts';
-    import './CKEditor5Translations.ts';
 
     export let insertImageServiceUrl = '';
     export let getImageServiceUrl = '';
