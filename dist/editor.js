@@ -670,12 +670,12 @@ var z8 = Np((Me, Be) => {
       o = "insert", r = "delete";
     const a = n.length, l = e.length, c = l - a, u = {}, d = {};
     function h(p) {
-      const _ = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, A = _ > v ? -1 : 1;
-      u[p + A] && (u[p] = u[p + A].slice(0)), u[p] || (u[p] = []), u[p].push(_ > v ? o : r);
-      let F = Math.max(_, v), T = F - p;
-      for (; T < a && F < l && t(n[T], e[F]); )
-        T++, F++, u[p].push("equal");
-      return F;
+      const _ = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, y = d[p + 1] !== void 0 ? d[p + 1] : -1, v = _ > y ? -1 : 1;
+      u[p + v] && (u[p] = u[p + v].slice(0)), u[p] || (u[p] = []), u[p].push(_ > y ? o : r);
+      let P = Math.max(_, y), L = P - p;
+      for (; L < a && P < l && t(n[L], e[P]); )
+        L++, P++, u[p].push("equal");
+      return P;
     }
     let f = 0, m;
     do {
@@ -2093,12 +2093,12 @@ Read more: ${m1}#error-${n}`;
       return f;
     o.set(n, r), Wv(n) ? n.forEach(function(_) {
       r.add(Mi(_, e, t, _, n, o));
-    }) : zv(n) && n.forEach(function(_, v) {
-      r.set(v, Mi(_, e, t, v, n, o));
+    }) : zv(n) && n.forEach(function(_, y) {
+      r.set(y, Mi(_, e, t, y, n, o));
     });
     var m = c ? l ? X_ : pr : l ? Ji : ba, p = u ? void 0 : m(n);
-    return kw(p || n, function(_, v) {
-      p && (v = _, _ = n[v]), ma(r, v, Mi(_, e, t, v, n, o));
+    return kw(p || n, function(_, y) {
+      p && (y = _, _ = n[y]), ma(r, y, Mi(_, e, t, y, n, o));
     }), r;
   }
   var wy = 4;
@@ -2156,9 +2156,9 @@ Read more: ${m1}#error-${n}`;
         break;
       }
       if (f) {
-        if (!Ty(e, function(v, A) {
-          if (!Ey(f, A) && (m === v || s(m, v, t, i, o)))
-            return f.push(A);
+        if (!Ty(e, function(y, v) {
+          if (!Ey(f, v) && (m === y || s(m, y, t, i, o)))
+            return f.push(v);
         })) {
           h = !1;
           break;
@@ -2235,18 +2235,18 @@ Read more: ${m1}#error-${n}`;
     o.set(n, e), o.set(e, n);
     for (var _ = r; ++d < l; ) {
       h = a[d];
-      var v = n[h], A = e[h];
+      var y = n[h], v = e[h];
       if (i)
-        var F = r ? i(A, v, h, e, n, o) : i(v, A, h, n, e, o);
-      if (!(F === void 0 ? v === A || s(v, A, t, i, o) : F)) {
+        var P = r ? i(v, y, h, e, n, o) : i(y, v, h, n, e, o);
+      if (!(P === void 0 ? y === v || s(y, v, t, i, o) : P)) {
         p = !1;
         break;
       }
       _ || (_ = h == "constructor");
     }
     if (p && !_) {
-      var T = n.constructor, L = e.constructor;
-      T != L && "constructor" in n && "constructor" in e && !(typeof T == "function" && T instanceof T && typeof L == "function" && L instanceof L) && (p = !1);
+      var L = n.constructor, $ = e.constructor;
+      L != $ && "constructor" in n && "constructor" in e && !(typeof L == "function" && L instanceof L && typeof $ == "function" && $ instanceof $) && (p = !1);
     }
     return o.delete(n), o.delete(e), p;
   }
@@ -2296,47 +2296,47 @@ Read more: ${m1}#error-${n}`;
     if (typeof n != "function")
       throw new TypeError(i2);
     e = bl(e) || 0, te(t) && (u = !!t.leading, d = "maxWait" in t, o = d ? n2(bl(t.maxWait) || 0, e) : o, h = "trailing" in t ? !!t.trailing : h);
-    function f(C) {
-      var I = i, P = s;
-      return i = s = void 0, c = C, r = n.apply(P, I), r;
+    function f(A) {
+      var R = i, x = s;
+      return i = s = void 0, c = A, r = n.apply(x, R), r;
     }
-    function m(C) {
-      return c = C, a = setTimeout(v, e), u ? f(C) : r;
+    function m(A) {
+      return c = A, a = setTimeout(y, e), u ? f(A) : r;
     }
-    function p(C) {
-      var I = C - l, P = C - c, Q = e - I;
-      return d ? s2(Q, o - P) : Q;
+    function p(A) {
+      var R = A - l, x = A - c, Q = e - R;
+      return d ? s2(Q, o - x) : Q;
     }
-    function _(C) {
-      var I = C - l, P = C - c;
-      return l === void 0 || I >= e || I < 0 || d && P >= o;
+    function _(A) {
+      var R = A - l, x = A - c;
+      return l === void 0 || R >= e || R < 0 || d && x >= o;
     }
-    function v() {
-      var C = To();
-      if (_(C))
-        return A(C);
-      a = setTimeout(v, p(C));
+    function y() {
+      var A = To();
+      if (_(A))
+        return v(A);
+      a = setTimeout(y, p(A));
     }
-    function A(C) {
-      return a = void 0, h && i ? f(C) : (i = s = void 0, r);
+    function v(A) {
+      return a = void 0, h && i ? f(A) : (i = s = void 0, r);
     }
-    function F() {
+    function P() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
-    function T() {
-      return a === void 0 ? r : A(To());
-    }
     function L() {
-      var C = To(), I = _(C);
-      if (i = arguments, s = this, l = C, I) {
+      return a === void 0 ? r : v(To());
+    }
+    function $() {
+      var A = To(), R = _(A);
+      if (i = arguments, s = this, l = A, R) {
         if (a === void 0)
           return m(l);
         if (d)
-          return clearTimeout(a), a = setTimeout(v, e), f(l);
+          return clearTimeout(a), a = setTimeout(y, e), f(l);
       }
-      return a === void 0 && (a = setTimeout(v, e)), r;
+      return a === void 0 && (a = setTimeout(y, e)), r;
     }
-    return L.cancel = F, L.flush = T, L;
+    return $.cancel = P, $.flush = L, $;
   }
   function vr(n, e, t) {
     (t !== void 0 && !Un(n[e], t) || t === void 0 && !(e in n)) && fa(n, e, t);
@@ -3039,7 +3039,7 @@ Read more: ${m1}#error-${n}`;
     /* istanbul ignore next -- @preserve */
     kr = { window: {}, document: {} };
   }
-  const x = kr;
+  const S = kr;
   /**
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -3090,7 +3090,7 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   function kf(n) {
-    return !n || !n.parentNode || n.offsetParent === x.document.body ? null : n.offsetParent;
+    return !n || !n.parentNode || n.offsetParent === S.document.body ? null : n.offsetParent;
   }
   /**
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
@@ -3283,7 +3283,7 @@ Read more: ${m1}#error-${n}`;
      * Recalculates screen coordinates to coordinates relative to the positioned ancestor offset.
      */
     toAbsoluteRect() {
-      const { scrollX: e, scrollY: t } = x.window, i = this.clone().moveBy(e, t);
+      const { scrollX: e, scrollY: t } = S.window, i = this.clone().moveBy(e, t);
       if (Ar(i._source)) {
         const s = kf(i._source);
         s && U2(i, s);
@@ -3425,7 +3425,7 @@ Read more: ${m1}#error-${n}`;
      * Creates the single native observer shared across all `ResizeObserver` instances.
      */
     static _createObserver() {
-      Y._observerInstance = new x.window.ResizeObserver((e) => {
+      Y._observerInstance = new S.window.ResizeObserver((e) => {
         for (const t of e) {
           const i = Y._getElementCallbacks(t.target);
           if (i)
@@ -3481,7 +3481,7 @@ Read more: ${m1}#error-${n}`;
    */
   function Ef(n) {
     try {
-      x.document.createAttribute(n);
+      S.document.createAttribute(n);
     } catch {
       return !1;
     }
@@ -3527,7 +3527,7 @@ Read more: ${m1}#error-${n}`;
   }
   function W2(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new B(x.window);
+    const e = new B(S.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e;
   }
   function q2(n, e) {
@@ -3710,14 +3710,14 @@ Read more: ${m1}#error-${n}`;
     ctrl: "Ctrl+",
     alt: "Alt+",
     shift: "Shift+"
-  }, D = iC(), Q2 = Object.fromEntries(Object.entries(D).map(([n, e]) => [e, n.charAt(0).toUpperCase() + n.slice(1)]));
+  }, F = iC(), Q2 = Object.fromEntries(Object.entries(F).map(([n, e]) => [e, n.charAt(0).toUpperCase() + n.slice(1)]));
   function Ni(n) {
     let e;
     if (typeof n == "string") {
-      if (e = D[n.toLowerCase()], !e)
+      if (e = F[n.toLowerCase()], !e)
         throw new g("keyboard-unknown-key", null, { key: n });
     } else
-      e = n.keyCode + (n.altKey ? D.alt : 0) + (n.ctrlKey ? D.ctrl : 0) + (n.shiftKey ? D.shift : 0) + (n.metaKey ? D.cmd : 0);
+      e = n.keyCode + (n.altKey ? F.alt : 0) + (n.ctrlKey ? F.ctrl : 0) + (n.shiftKey ? F.shift : 0) + (n.metaKey ? F.cmd : 0);
     return e;
   }
   function jn(n) {
@@ -3725,21 +3725,21 @@ Read more: ${m1}#error-${n}`;
   }
   function oc(n) {
     let e = jn(n);
-    return Object.entries(V.isMac || V.isiOS ? Z2 : Y2).reduce((s, [o, r]) => (e & D[o] && (e &= ~D[o], s += r), s), "") + (e ? Q2[e] : "");
+    return Object.entries(V.isMac || V.isiOS ? Z2 : Y2).reduce((s, [o, r]) => (e & F[o] && (e &= ~F[o], s += r), s), "") + (e ? Q2[e] : "");
   }
   function X2(n) {
-    return n == D.arrowright || n == D.arrowleft || n == D.arrowup || n == D.arrowdown;
+    return n == F.arrowright || n == F.arrowleft || n == F.arrowup || n == F.arrowdown;
   }
   function Ia(n, e) {
     const t = e === "ltr";
     switch (n) {
-      case D.arrowleft:
+      case F.arrowleft:
         return t ? "left" : "right";
-      case D.arrowright:
+      case F.arrowright:
         return t ? "right" : "left";
-      case D.arrowup:
+      case F.arrowup:
         return "up";
-      case D.arrowdown:
+      case F.arrowdown:
         return "down";
     }
   }
@@ -3747,7 +3747,7 @@ Read more: ${m1}#error-${n}`;
     if (n.endsWith("!"))
       return Ni(n.slice(0, -1));
     const e = Ni(n);
-    return (V.isMac || V.isiOS) && e == D.ctrl ? D.cmd : e;
+    return (V.isMac || V.isiOS) && e == F.ctrl ? F.cmd : e;
   }
   function tC(n, e) {
     const t = Ia(n, e);
@@ -3820,26 +3820,26 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   /* istanbul ignore else -- @preserve */
-  x.window.CKEDITOR_TRANSLATIONS || (x.window.CKEDITOR_TRANSLATIONS = {});
+  S.window.CKEDITOR_TRANSLATIONS || (S.window.CKEDITOR_TRANSLATIONS = {});
   function oC(n, e, t = 1) {
     if (typeof t != "number")
       throw new g("translation-service-quantity-not-a-number", null, { quantity: t });
     const i = aC();
-    i === 1 && (n = Object.keys(x.window.CKEDITOR_TRANSLATIONS)[0]);
+    i === 1 && (n = Object.keys(S.window.CKEDITOR_TRANSLATIONS)[0]);
     const s = e.id || e.string;
     if (i === 0 || !rC(n, s))
       return t !== 1 ? e.plural : e.string;
-    const o = x.window.CKEDITOR_TRANSLATIONS[n].dictionary, r = x.window.CKEDITOR_TRANSLATIONS[n].getPluralForm || ((c) => c === 1 ? 0 : 1), a = o[s];
+    const o = S.window.CKEDITOR_TRANSLATIONS[n].dictionary, r = S.window.CKEDITOR_TRANSLATIONS[n].getPluralForm || ((c) => c === 1 ? 0 : 1), a = o[s];
     if (typeof a == "string")
       return a;
     const l = Number(r(t));
     return a[l];
   }
   function rC(n, e) {
-    return !!x.window.CKEDITOR_TRANSLATIONS[n] && !!x.window.CKEDITOR_TRANSLATIONS[n].dictionary[e];
+    return !!S.window.CKEDITOR_TRANSLATIONS[n] && !!S.window.CKEDITOR_TRANSLATIONS[n].dictionary[e];
   }
   function aC() {
-    return Object.keys(x.window.CKEDITOR_TRANSLATIONS).length;
+    return Object.keys(S.window.CKEDITOR_TRANSLATIONS).length;
   }
   /**
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
@@ -4638,7 +4638,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  let E = class extends Ne(U()) {
+  let T = class extends Ne(U()) {
     /**
      * Creates an instance of the {@link module:ui/view~View} class.
      *
@@ -5538,7 +5538,7 @@ Read more: ${m1}#error-${n}`;
     return !n && n !== 0;
   }
   function Ns(n) {
-    return n instanceof E;
+    return n instanceof T;
   }
   function Oa(n) {
     return n instanceof Ee;
@@ -5614,7 +5614,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lt extends E {
+  class lt extends T {
     /**
      * @inheritDoc
      */
@@ -5738,7 +5738,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class RC extends E {
+  class RC extends T {
     /**
      * @inheritDoc
      */
@@ -5771,7 +5771,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class O extends E {
+  class O extends T {
     /**
      * Creates an instance of the button view class.
      *
@@ -5852,7 +5852,7 @@ Read more: ${m1}#error-${n}`;
      * and binds it with button attributes.
      */
     _createKeystrokeView() {
-      const e = new E();
+      const e = new T();
       return e.setTemplate({
         tag: "span",
         attributes: {
@@ -5907,7 +5907,7 @@ Read more: ${m1}#error-${n}`;
      * Creates a toggle child view.
      */
     _createToggleView() {
-      const e = new E();
+      const e = new T();
       return e.setTemplate({
         tag: "span",
         attributes: {
@@ -6016,7 +6016,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fc extends E {
+  class fc extends T {
     /**
      * Creates an instance of a color grid containing {@link module:ui/colorgrid/colortileview~ColorTileView tiles}.
      *
@@ -6321,7 +6321,7 @@ Read more: ${m1}#error-${n}`;
   const Pn = zf, $f = {};
   for (const n of Object.keys(Pn))
     $f[Pn[n]] = n;
-  const S = {
+  const E = {
     rgb: { channels: 3, labels: "rgb" },
     hsl: { channels: 3, labels: "hsl" },
     hsv: { channels: 3, labels: "hsv" },
@@ -6338,25 +6338,25 @@ Read more: ${m1}#error-${n}`;
     apple: { channels: 3, labels: ["r16", "g16", "b16"] },
     gray: { channels: 1, labels: ["gray"] }
   };
-  var Hf = S;
-  for (const n of Object.keys(S)) {
-    if (!("channels" in S[n]))
+  var Hf = E;
+  for (const n of Object.keys(E)) {
+    if (!("channels" in E[n]))
       throw new Error("missing channels property: " + n);
-    if (!("labels" in S[n]))
+    if (!("labels" in E[n]))
       throw new Error("missing channel labels property: " + n);
-    if (S[n].labels.length !== S[n].channels)
+    if (E[n].labels.length !== E[n].channels)
       throw new Error("channel and label counts mismatch: " + n);
-    const { channels: e, labels: t } = S[n];
-    delete S[n].channels, delete S[n].labels, Object.defineProperty(S[n], "channels", { value: e }), Object.defineProperty(S[n], "labels", { value: t });
+    const { channels: e, labels: t } = E[n];
+    delete E[n].channels, delete E[n].labels, Object.defineProperty(E[n], "channels", { value: e }), Object.defineProperty(E[n], "labels", { value: t });
   }
-  S.rgb.hsl = function(n) {
+  E.rgb.hsl = function(n) {
     const e = n[0] / 255, t = n[1] / 255, i = n[2] / 255, s = Math.min(e, t, i), o = Math.max(e, t, i), r = o - s;
     let a, l;
     o === s ? a = 0 : e === o ? a = (t - i) / r : t === o ? a = 2 + (i - e) / r : i === o && (a = 4 + (e - t) / r), a = Math.min(a * 60, 360), a < 0 && (a += 360);
     const c = (s + o) / 2;
     return o === s ? l = 0 : c <= 0.5 ? l = r / (o + s) : l = r / (2 - o - s), [a, l * 100, c * 100];
   };
-  S.rgb.hsv = function(n) {
+  E.rgb.hsv = function(n) {
     let e, t, i, s, o;
     const r = n[0] / 255, a = n[1] / 255, l = n[2] / 255, c = Math.max(r, a, l), u = c - Math.min(r, a, l), d = function(h) {
       return (c - h) / 6 / u + 1 / 2;
@@ -6367,20 +6367,20 @@ Read more: ${m1}#error-${n}`;
       c * 100
     ];
   };
-  S.rgb.hwb = function(n) {
+  E.rgb.hwb = function(n) {
     const e = n[0], t = n[1];
     let i = n[2];
-    const s = S.rgb.hsl(n)[0], o = 1 / 255 * Math.min(e, Math.min(t, i));
+    const s = E.rgb.hsl(n)[0], o = 1 / 255 * Math.min(e, Math.min(t, i));
     return i = 1 - 1 / 255 * Math.max(e, Math.max(t, i)), [s, o * 100, i * 100];
   };
-  S.rgb.cmyk = function(n) {
+  E.rgb.cmyk = function(n) {
     const e = n[0] / 255, t = n[1] / 255, i = n[2] / 255, s = Math.min(1 - e, 1 - t, 1 - i), o = (1 - e - s) / (1 - s) || 0, r = (1 - t - s) / (1 - s) || 0, a = (1 - i - s) / (1 - s) || 0;
     return [o * 100, r * 100, a * 100, s * 100];
   };
   function BC(n, e) {
     return (n[0] - e[0]) ** 2 + (n[1] - e[1]) ** 2 + (n[2] - e[2]) ** 2;
   }
-  S.rgb.keyword = function(n) {
+  E.rgb.keyword = function(n) {
     const e = $f[n];
     if (e)
       return e;
@@ -6391,23 +6391,23 @@ Read more: ${m1}#error-${n}`;
     }
     return i;
   };
-  S.keyword.rgb = function(n) {
+  E.keyword.rgb = function(n) {
     return Pn[n];
   };
-  S.rgb.xyz = function(n) {
+  E.rgb.xyz = function(n) {
     let e = n[0] / 255, t = n[1] / 255, i = n[2] / 255;
     e = e > 0.04045 ? ((e + 0.055) / 1.055) ** 2.4 : e / 12.92, t = t > 0.04045 ? ((t + 0.055) / 1.055) ** 2.4 : t / 12.92, i = i > 0.04045 ? ((i + 0.055) / 1.055) ** 2.4 : i / 12.92;
     const s = e * 0.4124 + t * 0.3576 + i * 0.1805, o = e * 0.2126 + t * 0.7152 + i * 0.0722, r = e * 0.0193 + t * 0.1192 + i * 0.9505;
     return [s * 100, o * 100, r * 100];
   };
-  S.rgb.lab = function(n) {
-    const e = S.rgb.xyz(n);
+  E.rgb.lab = function(n) {
+    const e = E.rgb.xyz(n);
     let t = e[0], i = e[1], s = e[2];
     t /= 95.047, i /= 100, s /= 108.883, t = t > 8856e-6 ? t ** (1 / 3) : 7.787 * t + 16 / 116, i = i > 8856e-6 ? i ** (1 / 3) : 7.787 * i + 16 / 116, s = s > 8856e-6 ? s ** (1 / 3) : 7.787 * s + 16 / 116;
     const o = 116 * i - 16, r = 500 * (t - i), a = 200 * (i - s);
     return [o, r, a];
   };
-  S.hsl.rgb = function(n) {
+  E.hsl.rgb = function(n) {
     const e = n[0] / 360, t = n[1] / 100, i = n[2] / 100;
     let s, o, r;
     if (t === 0)
@@ -6418,7 +6418,7 @@ Read more: ${m1}#error-${n}`;
       o = e + 1 / 3 * -(c - 1), o < 0 && o++, o > 1 && o--, 6 * o < 1 ? r = a + (s - a) * 6 * o : 2 * o < 1 ? r = s : 3 * o < 2 ? r = a + (s - a) * (2 / 3 - o) * 6 : r = a, l[c] = r * 255;
     return l;
   };
-  S.hsl.hsv = function(n) {
+  E.hsl.hsv = function(n) {
     const e = n[0];
     let t = n[1] / 100, i = n[2] / 100, s = t;
     const o = Math.max(i, 0.01);
@@ -6426,7 +6426,7 @@ Read more: ${m1}#error-${n}`;
     const r = (i + t) / 2, a = i === 0 ? 2 * s / (o + s) : 2 * t / (i + t);
     return [e, a * 100, r * 100];
   };
-  S.hsv.rgb = function(n) {
+  E.hsv.rgb = function(n) {
     const e = n[0] / 60, t = n[1] / 100;
     let i = n[2] / 100;
     const s = Math.floor(e) % 6, o = e - Math.floor(e), r = 255 * i * (1 - t), a = 255 * i * (1 - t * o), l = 255 * i * (1 - t * (1 - o));
@@ -6445,14 +6445,14 @@ Read more: ${m1}#error-${n}`;
         return [i, r, a];
     }
   };
-  S.hsv.hsl = function(n) {
+  E.hsv.hsl = function(n) {
     const e = n[0], t = n[1] / 100, i = n[2] / 100, s = Math.max(i, 0.01);
     let o, r;
     r = (2 - t) * i;
     const a = (2 - t) * s;
     return o = t * s, o /= a <= 1 ? a : 2 - a, o = o || 0, r /= 2, [e, o * 100, r * 100];
   };
-  S.hwb.rgb = function(n) {
+  E.hwb.rgb = function(n) {
     const e = n[0] / 360;
     let t = n[1] / 100, i = n[2] / 100;
     const s = t + i;
@@ -6486,62 +6486,62 @@ Read more: ${m1}#error-${n}`;
     }
     return [c * 255, u * 255, d * 255];
   };
-  S.cmyk.rgb = function(n) {
+  E.cmyk.rgb = function(n) {
     const e = n[0] / 100, t = n[1] / 100, i = n[2] / 100, s = n[3] / 100, o = 1 - Math.min(1, e * (1 - s) + s), r = 1 - Math.min(1, t * (1 - s) + s), a = 1 - Math.min(1, i * (1 - s) + s);
     return [o * 255, r * 255, a * 255];
   };
-  S.xyz.rgb = function(n) {
+  E.xyz.rgb = function(n) {
     const e = n[0] / 100, t = n[1] / 100, i = n[2] / 100;
     let s, o, r;
     return s = e * 3.2406 + t * -1.5372 + i * -0.4986, o = e * -0.9689 + t * 1.8758 + i * 0.0415, r = e * 0.0557 + t * -0.204 + i * 1.057, s = s > 31308e-7 ? 1.055 * s ** (1 / 2.4) - 0.055 : s * 12.92, o = o > 31308e-7 ? 1.055 * o ** (1 / 2.4) - 0.055 : o * 12.92, r = r > 31308e-7 ? 1.055 * r ** (1 / 2.4) - 0.055 : r * 12.92, s = Math.min(Math.max(0, s), 1), o = Math.min(Math.max(0, o), 1), r = Math.min(Math.max(0, r), 1), [s * 255, o * 255, r * 255];
   };
-  S.xyz.lab = function(n) {
+  E.xyz.lab = function(n) {
     let e = n[0], t = n[1], i = n[2];
     e /= 95.047, t /= 100, i /= 108.883, e = e > 8856e-6 ? e ** (1 / 3) : 7.787 * e + 16 / 116, t = t > 8856e-6 ? t ** (1 / 3) : 7.787 * t + 16 / 116, i = i > 8856e-6 ? i ** (1 / 3) : 7.787 * i + 16 / 116;
     const s = 116 * t - 16, o = 500 * (e - t), r = 200 * (t - i);
     return [s, o, r];
   };
-  S.lab.xyz = function(n) {
+  E.lab.xyz = function(n) {
     const e = n[0], t = n[1], i = n[2];
     let s, o, r;
     o = (e + 16) / 116, s = t / 500 + o, r = o - i / 200;
     const a = o ** 3, l = s ** 3, c = r ** 3;
     return o = a > 8856e-6 ? a : (o - 16 / 116) / 7.787, s = l > 8856e-6 ? l : (s - 16 / 116) / 7.787, r = c > 8856e-6 ? c : (r - 16 / 116) / 7.787, s *= 95.047, o *= 100, r *= 108.883, [s, o, r];
   };
-  S.lab.lch = function(n) {
+  E.lab.lch = function(n) {
     const e = n[0], t = n[1], i = n[2];
     let s;
     s = Math.atan2(i, t) * 360 / 2 / Math.PI, s < 0 && (s += 360);
     const r = Math.sqrt(t * t + i * i);
     return [e, r, s];
   };
-  S.lch.lab = function(n) {
+  E.lch.lab = function(n) {
     const e = n[0], t = n[1], s = n[2] / 360 * 2 * Math.PI, o = t * Math.cos(s), r = t * Math.sin(s);
     return [e, o, r];
   };
-  S.rgb.ansi16 = function(n, e = null) {
+  E.rgb.ansi16 = function(n, e = null) {
     const [t, i, s] = n;
-    let o = e === null ? S.rgb.hsv(n)[2] : e;
+    let o = e === null ? E.rgb.hsv(n)[2] : e;
     if (o = Math.round(o / 50), o === 0)
       return 30;
     let r = 30 + (Math.round(s / 255) << 2 | Math.round(i / 255) << 1 | Math.round(t / 255));
     return o === 2 && (r += 60), r;
   };
-  S.hsv.ansi16 = function(n) {
-    return S.rgb.ansi16(S.hsv.rgb(n), n[2]);
+  E.hsv.ansi16 = function(n) {
+    return E.rgb.ansi16(E.hsv.rgb(n), n[2]);
   };
-  S.rgb.ansi256 = function(n) {
+  E.rgb.ansi256 = function(n) {
     const e = n[0], t = n[1], i = n[2];
     return e === t && t === i ? e < 8 ? 16 : e > 248 ? 231 : Math.round((e - 8) / 247 * 24) + 232 : 16 + 36 * Math.round(e / 255 * 5) + 6 * Math.round(t / 255 * 5) + Math.round(i / 255 * 5);
   };
-  S.ansi16.rgb = function(n) {
+  E.ansi16.rgb = function(n) {
     let e = n % 10;
     if (e === 0 || e === 7)
       return n > 50 && (e += 3.5), e = e / 10.5 * 255, [e, e, e];
     const t = (~~(n > 50) + 1) * 0.5, i = (e & 1) * t * 255, s = (e >> 1 & 1) * t * 255, o = (e >> 2 & 1) * t * 255;
     return [i, s, o];
   };
-  S.ansi256.rgb = function(n) {
+  E.ansi256.rgb = function(n) {
     if (n >= 232) {
       const o = (n - 232) * 10 + 8;
       return [o, o, o];
@@ -6551,11 +6551,11 @@ Read more: ${m1}#error-${n}`;
     const t = Math.floor(n / 36) / 5 * 255, i = Math.floor((e = n % 36) / 6) / 5 * 255, s = e % 6 / 5 * 255;
     return [t, i, s];
   };
-  S.rgb.hex = function(n) {
+  E.rgb.hex = function(n) {
     const t = (((Math.round(n[0]) & 255) << 16) + ((Math.round(n[1]) & 255) << 8) + (Math.round(n[2]) & 255)).toString(16).toUpperCase();
     return "000000".substring(t.length) + t;
   };
-  S.hex.rgb = function(n) {
+  E.hex.rgb = function(n) {
     const e = n.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
     if (!e)
       return [0, 0, 0];
@@ -6564,22 +6564,22 @@ Read more: ${m1}#error-${n}`;
     const i = parseInt(t, 16), s = i >> 16 & 255, o = i >> 8 & 255, r = i & 255;
     return [s, o, r];
   };
-  S.rgb.hcg = function(n) {
+  E.rgb.hcg = function(n) {
     const e = n[0] / 255, t = n[1] / 255, i = n[2] / 255, s = Math.max(Math.max(e, t), i), o = Math.min(Math.min(e, t), i), r = s - o;
     let a, l;
     return r < 1 ? a = o / (1 - r) : a = 0, r <= 0 ? l = 0 : s === e ? l = (t - i) / r % 6 : s === t ? l = 2 + (i - e) / r : l = 4 + (e - t) / r, l /= 6, l %= 1, [l * 360, r * 100, a * 100];
   };
-  S.hsl.hcg = function(n) {
+  E.hsl.hcg = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = t < 0.5 ? 2 * e * t : 2 * e * (1 - t);
     let s = 0;
     return i < 1 && (s = (t - 0.5 * i) / (1 - i)), [n[0], i * 100, s * 100];
   };
-  S.hsv.hcg = function(n) {
+  E.hsv.hcg = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = e * t;
     let s = 0;
     return i < 1 && (s = (t - i) / (1 - i)), [n[0], i * 100, s * 100];
   };
-  S.hcg.rgb = function(n) {
+  E.hcg.rgb = function(n) {
     const e = n[0] / 360, t = n[1] / 100, i = n[2] / 100;
     if (t === 0)
       return [i * 255, i * 255, i * 255];
@@ -6610,52 +6610,52 @@ Read more: ${m1}#error-${n}`;
       (t * s[2] + l) * 255
     ];
   };
-  S.hcg.hsv = function(n) {
+  E.hcg.hsv = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = e + t * (1 - e);
     let s = 0;
     return i > 0 && (s = e / i), [n[0], s * 100, i * 100];
   };
-  S.hcg.hsl = function(n) {
+  E.hcg.hsl = function(n) {
     const e = n[1] / 100, i = n[2] / 100 * (1 - e) + 0.5 * e;
     let s = 0;
     return i > 0 && i < 0.5 ? s = e / (2 * i) : i >= 0.5 && i < 1 && (s = e / (2 * (1 - i))), [n[0], s * 100, i * 100];
   };
-  S.hcg.hwb = function(n) {
+  E.hcg.hwb = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = e + t * (1 - e);
     return [n[0], (i - e) * 100, (1 - i) * 100];
   };
-  S.hwb.hcg = function(n) {
+  E.hwb.hcg = function(n) {
     const e = n[1] / 100, i = 1 - n[2] / 100, s = i - e;
     let o = 0;
     return s < 1 && (o = (i - s) / (1 - s)), [n[0], s * 100, o * 100];
   };
-  S.apple.rgb = function(n) {
+  E.apple.rgb = function(n) {
     return [n[0] / 65535 * 255, n[1] / 65535 * 255, n[2] / 65535 * 255];
   };
-  S.rgb.apple = function(n) {
+  E.rgb.apple = function(n) {
     return [n[0] / 255 * 65535, n[1] / 255 * 65535, n[2] / 255 * 65535];
   };
-  S.gray.rgb = function(n) {
+  E.gray.rgb = function(n) {
     return [n[0] / 100 * 255, n[0] / 100 * 255, n[0] / 100 * 255];
   };
-  S.gray.hsl = function(n) {
+  E.gray.hsl = function(n) {
     return [0, 0, n[0]];
   };
-  S.gray.hsv = S.gray.hsl;
-  S.gray.hwb = function(n) {
+  E.gray.hsv = E.gray.hsl;
+  E.gray.hwb = function(n) {
     return [0, 100, n[0]];
   };
-  S.gray.cmyk = function(n) {
+  E.gray.cmyk = function(n) {
     return [0, 0, 0, n[0]];
   };
-  S.gray.lab = function(n) {
+  E.gray.lab = function(n) {
     return [n[0], 0, 0];
   };
-  S.gray.hex = function(n) {
+  E.gray.hex = function(n) {
     const e = Math.round(n[0] / 100 * 255) & 255, i = ((e << 16) + (e << 8) + e).toString(16).toUpperCase();
     return "000000".substring(i.length) + i;
   };
-  S.rgb.gray = function(n) {
+  E.rgb.gray = function(n) {
     return [(n[0] + n[1] + n[2]) / 3 / 255 * 100];
   };
   const zs = Hf;
@@ -6800,7 +6800,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Jn extends E {
+  class Jn extends T {
     /**
      * @inheritDoc
      */
@@ -6829,7 +6829,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Zi extends E {
+  class Zi extends T {
     /**
      * Creates an instance of the labeled field view class using a provided creator function
      * that provides the view to be labeled.
@@ -6893,7 +6893,7 @@ Read more: ${m1}#error-${n}`;
      * `aria-describedby` attribute.
      */
     _createStatusView(e) {
-      const t = new E(this.locale), i = this.bindTemplate;
+      const t = new T(this.locale), i = this.bindTemplate;
       return t.setTemplate({
         tag: "div",
         attributes: {
@@ -6924,7 +6924,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZC extends E {
+  class ZC extends T {
     /**
      * @inheritDoc
      */
@@ -7074,7 +7074,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ek extends E {
+  class ek extends T {
     /**
      * @inheritDoc
      */
@@ -7130,7 +7130,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $i extends E {
+  class $i extends T {
     /**
      * Creates an instance of the dropdown.
      *
@@ -7462,7 +7462,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Jf extends E {
+  class Jf extends T {
     /**
      * @inheritDoc
      */
@@ -7482,7 +7482,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tk extends E {
+  class tk extends T {
     /**
      * @inheritDoc
      */
@@ -7610,7 +7610,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class R extends U() {
+  class I extends U() {
     /**
      * Creates a new `Command` instance.
      *
@@ -7743,7 +7743,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _c extends R {
+  class _c extends I {
     constructor() {
       super(...arguments), this._childCommandsDefinitions = [];
     }
@@ -7882,69 +7882,69 @@ Read more: ${m1}#error-${n}`;
     init(e, t = [], i = []) {
       const s = this, o = this._context;
       f(e), p(e);
-      const r = e.filter((C) => !d(C, t)), a = [...m(r)];
-      L(a, i);
-      const l = F(a);
-      return T(l, "init").then(() => T(l, "afterInit")).then(() => l);
-      function c(C) {
-        return typeof C == "function";
+      const r = e.filter((A) => !d(A, t)), a = [...m(r)];
+      $(a, i);
+      const l = P(a);
+      return L(l, "init").then(() => L(l, "afterInit")).then(() => l);
+      function c(A) {
+        return typeof A == "function";
       }
-      function u(C) {
-        return c(C) && !!C.isContextPlugin;
+      function u(A) {
+        return c(A) && !!A.isContextPlugin;
       }
-      function d(C, I) {
-        return I.some((P) => P === C || h(C) === P || h(P) === C);
+      function d(A, R) {
+        return R.some((x) => x === A || h(A) === x || h(x) === A);
       }
-      function h(C) {
-        return c(C) ? C.pluginName || C.name : C;
+      function h(A) {
+        return c(A) ? A.pluginName || A.name : A;
       }
-      function f(C, I = /* @__PURE__ */ new Set()) {
-        C.forEach((P) => {
-          c(P) && (I.has(P) || (I.add(P), P.pluginName && !s._availablePlugins.has(P.pluginName) && s._availablePlugins.set(P.pluginName, P), P.requires && f(P.requires, I)));
+      function f(A, R = /* @__PURE__ */ new Set()) {
+        A.forEach((x) => {
+          c(x) && (R.has(x) || (R.add(x), x.pluginName && !s._availablePlugins.has(x.pluginName) && s._availablePlugins.set(x.pluginName, x), x.requires && f(x.requires, R)));
         });
       }
-      function m(C, I = /* @__PURE__ */ new Set()) {
-        return C.map((P) => c(P) ? P : s._availablePlugins.get(P)).reduce((P, Q) => I.has(Q) ? P : (I.add(Q), Q.requires && (p(Q.requires, Q), m(Q.requires, I).forEach((Bt) => P.add(Bt))), P.add(Q)), /* @__PURE__ */ new Set());
+      function m(A, R = /* @__PURE__ */ new Set()) {
+        return A.map((x) => c(x) ? x : s._availablePlugins.get(x)).reduce((x, Q) => R.has(Q) ? x : (R.add(Q), Q.requires && (p(Q.requires, Q), m(Q.requires, R).forEach((Bt) => x.add(Bt))), x.add(Q)), /* @__PURE__ */ new Set());
       }
-      function p(C, I = null) {
-        C.map((P) => c(P) ? P : s._availablePlugins.get(P) || P).forEach((P) => {
-          _(P, I), v(P, I), A(P, I);
+      function p(A, R = null) {
+        A.map((x) => c(x) ? x : s._availablePlugins.get(x) || x).forEach((x) => {
+          _(x, R), y(x, R), v(x, R);
         });
       }
-      function _(C, I) {
-        if (!c(C))
-          throw I ? new g("plugincollection-soft-required", o, { missingPlugin: C, requiredBy: h(I) }) : new g("plugincollection-plugin-not-found", o, { plugin: C });
+      function _(A, R) {
+        if (!c(A))
+          throw R ? new g("plugincollection-soft-required", o, { missingPlugin: A, requiredBy: h(R) }) : new g("plugincollection-plugin-not-found", o, { plugin: A });
       }
-      function v(C, I) {
-        if (u(I) && !u(C))
-          throw new g("plugincollection-context-required", o, { plugin: h(C), requiredBy: h(I) });
+      function y(A, R) {
+        if (u(R) && !u(A))
+          throw new g("plugincollection-context-required", o, { plugin: h(A), requiredBy: h(R) });
       }
-      function A(C, I) {
-        if (I && d(C, t))
-          throw new g("plugincollection-required", o, { plugin: h(C), requiredBy: h(I) });
+      function v(A, R) {
+        if (R && d(A, t))
+          throw new g("plugincollection-required", o, { plugin: h(A), requiredBy: h(R) });
       }
-      function F(C) {
-        return C.map((I) => {
-          let P = s._contextPlugins.get(I);
-          return P = P || new I(o), s._add(I, P), P;
+      function P(A) {
+        return A.map((R) => {
+          let x = s._contextPlugins.get(R);
+          return x = x || new R(o), s._add(R, x), x;
         });
       }
-      function T(C, I) {
-        return C.reduce((P, Q) => !Q[I] || s._contextPlugins.has(Q) ? P : P.then(Q[I].bind(Q)), Promise.resolve());
+      function L(A, R) {
+        return A.reduce((x, Q) => !Q[R] || s._contextPlugins.has(Q) ? x : x.then(Q[R].bind(Q)), Promise.resolve());
       }
-      function L(C, I) {
-        for (const P of I) {
-          if (typeof P != "function")
-            throw new g("plugincollection-replace-plugin-invalid-type", null, { pluginItem: P });
-          const Q = P.pluginName;
+      function $(A, R) {
+        for (const x of R) {
+          if (typeof x != "function")
+            throw new g("plugincollection-replace-plugin-invalid-type", null, { pluginItem: x });
+          const Q = x.pluginName;
           if (!Q)
-            throw new g("plugincollection-replace-plugin-missing-name", null, { pluginItem: P });
-          if (P.requires && P.requires.length)
+            throw new g("plugincollection-replace-plugin-missing-name", null, { pluginItem: x });
+          if (x.requires && x.requires.length)
             throw new g("plugincollection-plugin-for-replacing-cannot-have-dependencies", null, { pluginName: Q });
           const Bt = s._availablePlugins.get(Q);
           if (!Bt)
             throw new g("plugincollection-plugin-for-replacing-not-exist", null, { pluginName: Q });
-          const rl = C.indexOf(Bt);
+          const rl = A.indexOf(Bt);
           if (rl === -1) {
             if (s._contextPlugins.has(Bt))
               return;
@@ -7952,7 +7952,7 @@ Read more: ${m1}#error-${n}`;
           }
           if (Bt.requires && Bt.requires.length)
             throw new g("plugincollection-replaced-plugin-cannot-have-dependencies", null, { pluginName: Q });
-          C.splice(rl, 1, P), s._availablePlugins.set(Q, P);
+          A.splice(rl, 1, x), s._availablePlugins.set(Q, x);
         }
       }
     }
@@ -11764,7 +11764,7 @@ Read more: ${m1}#error-${n}`;
     return null;
   }
   function Tk(n, e, t) {
-    if (e.keyCode == D.arrowright) {
+    if (e.keyCode == F.arrowright) {
       const i = e.domTarget.ownerDocument.defaultView.getSelection(), s = i.rangeCount == 1 && i.getRangeAt(0).collapsed;
       if (s || e.shiftKey) {
         const o = i.focusNode, r = i.focusOffset, a = t.domPositionToView(o, r);
@@ -13089,7 +13089,7 @@ Read more: ${m1}#error-${n}`;
     n.document.on("arrowKey", Vk, { priority: "low" });
   }
   function Vk(n, e) {
-    if (e.keyCode == D.arrowleft) {
+    if (e.keyCode == F.arrowleft) {
       const t = e.domTarget.ownerDocument.defaultView.getSelection();
       if (t.rangeCount == 1 && t.getRangeAt(0).collapsed) {
         const i = t.getRangeAt(0).startContainer, s = t.getRangeAt(0).startOffset;
@@ -13519,7 +13519,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const $k = hm(x.document), Hk = um(x.document), Uk = dm(x.document), rs = "data-ck-unsafe-attribute-", Rc = "data-ck-unsafe-element";
+  const $k = hm(S.document), Hk = um(S.document), Uk = dm(S.document), rs = "data-ck-unsafe-attribute-", Rc = "data-ck-unsafe-element";
   class fm {
     /**
      * Creates a DOM converter.
@@ -13591,7 +13591,7 @@ Read more: ${m1}#error-${n}`;
         "audio",
         "img",
         "canvas"
-      ], this.unsafeElements = ["script", "style"], this._domDocument = this.renderingMode === "editing" ? x.document : x.document.implementation.createHTMLDocument("");
+      ], this.unsafeElements = ["script", "style"], this._domDocument = this.renderingMode === "editing" ? S.document : S.document.implementation.createHTMLDocument("");
     }
     /**
      * Binds a given DOM element that represents fake selection to a **position** of a
@@ -14019,14 +14019,14 @@ Read more: ${m1}#error-${n}`;
     focus(e) {
       const t = this.mapViewToDom(e);
       if (t && t.ownerDocument.activeElement !== t) {
-        const { scrollX: i, scrollY: s } = x.window, o = [];
+        const { scrollX: i, scrollY: s } = S.window, o = [];
         Vc(t, (r) => {
           const { scrollLeft: a, scrollTop: l } = r;
           o.push([a, l]);
         }), t.focus(), Vc(t, (r) => {
           const [a, l] = o.shift();
           r.scrollLeft = a, r.scrollTop = l;
-        }), x.window.scrollTo(i, s);
+        }), S.window.scrollTo(i, s);
       }
     }
     /**
@@ -14637,7 +14637,7 @@ Read more: ${m1}#error-${n}`;
      */
     _handleSelectionMove(e) {
       const t = this.document.selection, i = new wt(t.getRanges(), { backward: t.isBackward, fake: !1 });
-      (e == D.arrowleft || e == D.arrowup) && i.setTo(i.getFirstPosition()), (e == D.arrowright || e == D.arrowdown) && i.setTo(i.getLastPosition());
+      (e == F.arrowleft || e == F.arrowup) && i.setTo(i.getFirstPosition()), (e == F.arrowright || e == F.arrowdown) && i.setTo(i.getLastPosition());
       const s = {
         oldSelection: t,
         newSelection: i,
@@ -15081,7 +15081,7 @@ Read more: ${m1}#error-${n}`;
       super(e);
       const t = this.document;
       t.on("keydown", (i, s) => {
-        if (!this.isEnabled || s.keyCode != D.tab || s.ctrlKey)
+        if (!this.isEnabled || s.keyCode != F.tab || s.ctrlKey)
           return;
         const o = new Yi(t, "tab", t.selection.getFirstRange());
         t.fire(o, s), o.stop.called && i.stop();
@@ -16255,7 +16255,7 @@ Read more: ${m1}#error-${n}`;
       const t = e.direction || "forward";
       if (t != "forward" && t != "backward")
         throw new g("model-tree-walker-unknown-direction", e, { direction: t });
-      this.direction = t, this.boundaries = e.boundaries || null, e.startPosition ? this._position = e.startPosition.clone() : this._position = y._createAt(this.boundaries[this.direction == "backward" ? "end" : "start"]), this.position.stickiness = "toNone", this.singleCharacters = !!e.singleCharacters, this.shallow = !!e.shallow, this.ignoreElementEnd = !!e.ignoreElementEnd, this._boundaryStartParent = this.boundaries ? this.boundaries.start.parent : null, this._boundaryEndParent = this.boundaries ? this.boundaries.end.parent : null, this._visitedParent = this.position.parent;
+      this.direction = t, this.boundaries = e.boundaries || null, e.startPosition ? this._position = e.startPosition.clone() : this._position = C._createAt(this.boundaries[this.direction == "backward" ? "end" : "start"]), this.position.stickiness = "toNone", this.singleCharacters = !!e.singleCharacters, this.shallow = !!e.shallow, this.ignoreElementEnd = !!e.ignoreElementEnd, this._boundaryStartParent = this.boundaries ? this.boundaries.start.parent : null, this._boundaryEndParent = this.boundaries ? this.boundaries.end.parent : null, this._visitedParent = this.position.parent;
     }
     /**
      * Iterable interface.
@@ -16376,7 +16376,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class y extends Mt {
+  class C extends Mt {
     /**
      * Creates a position.
      *
@@ -16713,7 +16713,7 @@ Read more: ${m1}#error-${n}`;
           t = this._getTransformedByMergeOperation(e);
           break;
         default:
-          t = y._createAt(this);
+          t = C._createAt(this);
           break;
       }
       return t;
@@ -16751,7 +16751,7 @@ Read more: ${m1}#error-${n}`;
     _getTransformedByMergeOperation(e) {
       const t = e.movedRange, i = t.containsPosition(this) || t.start.isEqual(this);
       let s;
-      return i ? (s = this._getCombined(e.sourcePosition, e.targetPosition), e.sourcePosition.isBefore(e.targetPosition) && (s = s._getTransformedByDeletion(e.deletionPosition, 1))) : this.isEqual(e.deletionPosition) ? s = y._createAt(e.deletionPosition) : s = this._getTransformedByMove(e.deletionPosition, e.graveyardPosition, 1), s;
+      return i ? (s = this._getCombined(e.sourcePosition, e.targetPosition), e.sourcePosition.isBefore(e.targetPosition) && (s = s._getTransformedByDeletion(e.deletionPosition, 1))) : this.isEqual(e.deletionPosition) ? s = C._createAt(e.deletionPosition) : s = this._getTransformedByMove(e.deletionPosition, e.graveyardPosition, 1), s;
     }
     /**
      * Returns a copy of this position that is updated by removing `howMany` nodes starting from `deletePosition`.
@@ -16763,7 +16763,7 @@ Read more: ${m1}#error-${n}`;
      * @returns Transformed position or `null`.
      */
     _getTransformedByDeletion(e, t) {
-      const i = y._createAt(this);
+      const i = C._createAt(this);
       if (this.root != e.root)
         return i;
       if (ye(e.getParentPath(), this.getParentPath()) == "same") {
@@ -16791,7 +16791,7 @@ Read more: ${m1}#error-${n}`;
      * @returns Transformed position.
      */
     _getTransformedByInsertion(e, t) {
-      const i = y._createAt(this);
+      const i = C._createAt(this);
       if (this.root != e.root)
         return i;
       if (ye(e.getParentPath(), this.getParentPath()) == "same")
@@ -16813,7 +16813,7 @@ Read more: ${m1}#error-${n}`;
      */
     _getTransformedByMove(e, t, i) {
       if (t = t._getTransformedByDeletion(e, i), e.isEqual(t))
-        return y._createAt(this);
+        return C._createAt(this);
       const s = this._getTransformedByDeletion(e, i);
       return s === null || e.isEqual(this) && this.stickiness == "toNext" || e.getShiftedBy(i).isEqual(this) && this.stickiness == "toPrevious" ? this._getCombined(e, t) : s._getTransformedByInsertion(t, i);
     }
@@ -16847,7 +16847,7 @@ Read more: ${m1}#error-${n}`;
      * @returns Combined position.
      */
     _getCombined(e, t) {
-      const i = e.path.length - 1, s = y._createAt(t);
+      const i = e.path.length - 1, s = C._createAt(t);
       return s.stickiness = this.stickiness, s.offset = s.offset + this.path[i] - e.offset, s.path = [...s.path, ...this.path.slice(i + 1)], s;
     }
     /**
@@ -16884,8 +16884,8 @@ Read more: ${m1}#error-${n}`;
      * @param stickiness Position stickiness. Used only when the first parameter is a {@link module:engine/model/item~Item model item}.
      */
     static _createAt(e, t, i = "toNone") {
-      if (e instanceof y)
-        return new y(e.root, e.path, e.stickiness);
+      if (e instanceof C)
+        return new C(e.root, e.path, e.stickiness);
       {
         const s = e;
         if (t == "end")
@@ -16937,15 +16937,15 @@ Read more: ${m1}#error-${n}`;
      */
     static fromJSON(e, t) {
       if (e.root === "$graveyard") {
-        const i = new y(t.graveyard, e.path);
+        const i = new C(t.graveyard, e.path);
         return i.stickiness = e.stickiness, i;
       }
       if (!t.getRoot(e.root))
         throw new g("model-position-fromjson-no-root", t, { rootName: e.root });
-      return new y(t.getRoot(e.root), e.path, e.stickiness);
+      return new C(t.getRoot(e.root), e.path, e.stickiness);
     }
   }
-  y.prototype.is = function(n) {
+  C.prototype.is = function(n) {
     return n === "position" || n === "model:position";
   };
   function bn(n, e) {
@@ -16990,7 +16990,7 @@ Read more: ${m1}#error-${n}`;
      * @param end The end position. If not set, the range will be collapsed at the `start` position.
      */
     constructor(e, t) {
-      super(), this.start = y._createAt(e), this.end = t ? y._createAt(t) : y._createAt(e), this.start.stickiness = this.isCollapsed ? "toNone" : "toNext", this.end.stickiness = this.isCollapsed ? "toNone" : "toPrevious";
+      super(), this.start = C._createAt(e), this.end = t ? C._createAt(t) : C._createAt(e), this.start.stickiness = this.isCollapsed ? "toNone" : "toNext", this.end.stickiness = this.isCollapsed ? "toNone" : "toPrevious";
     }
     /**
      * Iterable interface.
@@ -17056,7 +17056,7 @@ Read more: ${m1}#error-${n}`;
      * Checks whether given {@link module:engine/model/item~Item} is inside this range.
      */
     containsItem(e) {
-      const t = y._createBefore(e);
+      const t = C._createBefore(e);
       return this.containsPosition(t) || this.start.isEqual(t);
     }
     /**
@@ -17217,7 +17217,7 @@ Read more: ${m1}#error-${n}`;
      * @returns Array of flat ranges covering this range.
      */
     getMinimalFlatRanges() {
-      const e = [], t = this.start.getCommonPath(this.end).length, i = y._createAt(this.start);
+      const e = [], t = this.start.getCommonPath(this.end).length, i = C._createAt(this.start);
       let s = i.parent;
       for (; i.path.length > t + 1; ) {
         const o = s.maxOffset - i.offset;
@@ -17414,7 +17414,7 @@ Read more: ${m1}#error-${n}`;
       if (this.start.isEqual(e.targetPosition) && this.end.isEqual(e.deletionPosition))
         return new b(this.start);
       let t = this.start._getTransformedByMergeOperation(e), i = this.end._getTransformedByMergeOperation(e);
-      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = y._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new b(t, i)) : new b(t, i);
+      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = C._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new b(t, i)) : new b(t, i);
     }
     /**
      * Returns an array containing one or two {@link ~Range ranges} that are a result of transforming this
@@ -17526,7 +17526,7 @@ Read more: ${m1}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     static _createIn(e) {
-      return new this(y._createAt(e, 0), y._createAt(e, e.maxOffset));
+      return new this(C._createAt(e, 0), C._createAt(e, e.maxOffset));
     }
     /**
      * Creates a range that starts before given {@link module:engine/model/item~Item model item} and ends after it.
@@ -17534,7 +17534,7 @@ Read more: ${m1}#error-${n}`;
      * @internal
      */
     static _createOn(e) {
-      return this._createFromPositionAndShift(y._createBefore(e), e.offsetSize);
+      return this._createFromPositionAndShift(C._createBefore(e), e.offsetSize);
     }
     /**
      * Combines all ranges from the passed array into a one range. At least one range has to be passed.
@@ -17564,9 +17564,9 @@ Read more: ${m1}#error-${n}`;
       const i = e.indexOf(t), s = new this(t.start, t.end);
       if (i > 0)
         for (let o = i - 1; e[o].end.isEqual(s.start); o++)
-          s.start = y._createAt(e[o].start);
+          s.start = C._createAt(e[o].start);
       for (let o = i + 1; o < e.length && e[o].start.isEqual(s.end); o++)
-        s.end = y._createAt(e[o].end);
+        s.end = C._createAt(e[o].end);
       return s;
     }
     /**
@@ -17577,7 +17577,7 @@ Read more: ${m1}#error-${n}`;
      * @returns `Range` instance created using given plain object.
      */
     static fromJSON(e, t) {
-      return new this(y.fromJSON(e.start, t), y.fromJSON(e.end, t));
+      return new this(C.fromJSON(e.start, t), C.fromJSON(e.end, t));
     }
   }
   b.prototype.is = function(n) {
@@ -17603,7 +17603,7 @@ Read more: ${m1}#error-${n}`;
         if (t.modelPosition)
           return;
         const i = this.findMappedViewAncestor(t.viewPosition), s = this._viewToModelMapping.get(i), o = this._toModelOffset(t.viewPosition.parent, t.viewPosition.offset, i);
-        t.modelPosition = y._createAt(s, o);
+        t.modelPosition = C._createAt(s, o);
       }, { priority: "low" });
     }
     /**
@@ -18710,7 +18710,7 @@ Read more: ${m1}#error-${n}`;
         this._setRanges(t.getRanges(), t.isBackward);
       else if (t instanceof b)
         this._setRanges([t], !!s && !!s.backward);
-      else if (t instanceof y)
+      else if (t instanceof C)
         this._setRanges([new b(t)]);
       else if (t instanceof di) {
         const o = !!s && !!s.backward;
@@ -18720,7 +18720,7 @@ Read more: ${m1}#error-${n}`;
         else if (i == "on")
           r = b._createOn(t);
         else if (i !== void 0)
-          r = new b(y._createAt(t, i));
+          r = new b(C._createAt(t, i));
         else
           throw new g("model-selection-setto-required-second-parameter", [this, t]);
         this._setRanges([r], o);
@@ -18759,7 +18759,7 @@ Read more: ${m1}#error-${n}`;
     setFocus(e, t) {
       if (this.anchor === null)
         throw new g("model-selection-setfocus-no-ranges", [this, e]);
-      const i = y._createAt(e, t);
+      const i = C._createAt(e, t);
       if (i.compareWith(this.focus) == "same")
         return;
       const s = this.anchor;
@@ -18916,7 +18916,7 @@ Read more: ${m1}#error-${n}`;
      * Useful to check if e.g. the user has just pressed <kbd>Ctrl</kbd> + <kbd>A</kbd>.
      */
     containsEntireContent(e = this.anchor.root) {
-      const t = y._createAt(e, 0), i = y._createAt(e, "end");
+      const t = C._createAt(e, 0), i = C._createAt(e, "end");
       return t.isTouching(this.getFirstPosition()) && i.isTouching(this.getLastPosition());
     }
     /**
@@ -18978,10 +18978,10 @@ Read more: ${m1}#error-${n}`;
     return t ? !e.containsRange(b._createOn(t), !0) : !0;
   }
   function l5(n, e) {
-    return n ? e.isCollapsed || n.isEmpty ? !0 : e.start.isTouching(y._createAt(n, n.maxOffset)) ? !1 : $a(n, e) : !1;
+    return n ? e.isCollapsed || n.isEmpty ? !0 : e.start.isTouching(C._createAt(n, n.maxOffset)) ? !1 : $a(n, e) : !1;
   }
   function c5(n, e) {
-    return n ? e.isCollapsed || n.isEmpty ? !0 : e.end.isTouching(y._createAt(n, 0)) ? !1 : $a(n, e) : !1;
+    return n ? e.isCollapsed || n.isEmpty ? !0 : e.end.isTouching(C._createAt(n, 0)) ? !1 : $a(n, e) : !1;
   }
   function u5(n) {
     const e = n.root.document.model.schema;
@@ -20896,7 +20896,7 @@ Read more: ${m1}#error-${n}`;
         }
         if (!i.reconvertedElements.has(r)) {
           i.reconvertedElements.add(r);
-          const a = y._createBefore(r);
+          const a = C._createBefore(r);
           let l = s.length;
           for (let c = s.length - 1; c >= 0; c--) {
             const u = s[c], h = (u.type == "attribute" ? u.range.start : u.position).compareWith(a);
@@ -20968,7 +20968,7 @@ Read more: ${m1}#error-${n}`;
     if (!i.reconversion)
       return !1;
     const r = o.toViewElement(e);
-    return !r || r.root == n || !t.canReuseView(r) ? !1 : (s.move(s.createRangeOn(r), o.toViewPosition(y._createBefore(e))), !0);
+    return !r || r.root == n || !t.canReuseView(r) ? !1 : (s.move(s.createRangeOn(r), o.toViewPosition(C._createBefore(e))), !0);
   }
   function G5(n, e, { preflight: t } = {}) {
     return t ? e.test(n, "insert") : e.consume(n, "insert");
@@ -21611,7 +21611,7 @@ Read more: ${m1}#error-${n}`;
     if (l || c) {
       const u = t.nodeAfter && i.nodeBefore && t.nodeAfter.parent === i.nodeBefore.parent, d = l && (!u || !Uc(t.nodeAfter, e)), h = c && (!u || !Uc(i.nodeBefore, e));
       let f = t, m = i;
-      return d && (f = y._createBefore(Hc(r, e))), h && (m = y._createAfter(Hc(a, e))), new b(f, m);
+      return d && (f = C._createBefore(Hc(r, e))), h && (m = C._createAfter(Hc(a, e))), new b(f, m);
     }
     return null;
   }
@@ -22405,7 +22405,7 @@ Read more: ${m1}#error-${n}`;
      * @param elementToMerge The element to merge. Required if `positionOrBaseElement` is an element.
      */
     checkMerge(e, t) {
-      if (e instanceof y) {
+      if (e instanceof C) {
         const i = e.nodeBefore, s = e.nodeAfter;
         if (!(i instanceof W))
           throw new g("schema-check-merge-no-element-before", this);
@@ -22582,7 +22582,7 @@ Read more: ${m1}#error-${n}`;
      */
     getLimitElement(e) {
       let t;
-      for (e instanceof y ? t = e.parent : t = (e instanceof b ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
+      for (e instanceof C ? t = e.parent : t = (e instanceof b ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
         const r = o.getCommonAncestor();
         return s ? s.getCommonAncestor(r, { includeSelf: !0 }) : r;
       }, null); !this.isLimit(t) && t.parent; )
@@ -22789,7 +22789,7 @@ Read more: ${m1}#error-${n}`;
     *_getValidRangesForRange(e, t) {
       let i = e.start, s = e.start;
       for (const o of e.getItems({ shallow: !0 }))
-        o.is("element") && (yield* this._getValidRangesForRange(b._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new b(i, s)), i = y._createAfter(o)), s = y._createAfter(o);
+        o.is("element") && (yield* this._getValidRangesForRange(b._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new b(i, s)), i = C._createAfter(o)), s = C._createAfter(o);
       i.isEqual(s) || (yield new b(i, s));
     }
   }
@@ -23105,7 +23105,7 @@ Read more: ${m1}#error-${n}`;
      * @see module:engine/conversion/upcastdispatcher~UpcastConversionApi#convertChildren
      */
     _convertChildren(e, t) {
-      let i = t.is("position") ? t : y._createAt(t, 0);
+      let i = t.is("position") ? t : C._createAt(t, 0);
       const s = new b(i);
       for (const o of Array.from(e.getChildren())) {
         const r = this._convertItem(o, i);
@@ -23211,7 +23211,7 @@ Read more: ${m1}#error-${n}`;
       for (const r of i.getAttributeKeys())
         s[r] = i.getAttribute(r);
       const o = e.createElement(i.name, s);
-      t && e.insert(o, t), t = y._createAt(o, 0);
+      t && e.insert(o, t), t = C._createAt(o, 0);
     }
     return t;
   }
@@ -23224,7 +23224,7 @@ Read more: ${m1}#error-${n}`;
      * Returns an HTML string created from the document fragment.
      */
     getHtml(e) {
-      const i = x.document.implementation.createHTMLDocument("").createElement("div");
+      const i = S.document.implementation.createHTMLDocument("").createElement("div");
       return i.appendChild(e), i.innerHTML;
     }
   }
@@ -24201,7 +24201,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $ extends De {
+  class z extends De {
     /**
      * Creates a move operation.
      *
@@ -24234,7 +24234,7 @@ Read more: ${m1}#error-${n}`;
      * Creates and returns an operation that has the same parameters as this operation.
      */
     clone() {
-      return new $(this.sourcePosition, this.howMany, this.targetPosition, this.baseVersion);
+      return new z(this.sourcePosition, this.howMany, this.targetPosition, this.baseVersion);
     }
     /**
      * Returns the start position of the moved range after it got moved. This may be different than
@@ -24258,7 +24258,7 @@ Read more: ${m1}#error-${n}`;
      */
     getReversed() {
       const e = this.sourcePosition._getTransformedByInsertion(this.targetPosition, this.howMany);
-      return new $(this.getMovedRangeStart(), this.howMany, e, this.baseVersion + 1);
+      return new z(this.getMovedRangeStart(), this.howMany, e, this.baseVersion + 1);
     }
     /**
      * @inheritDoc
@@ -24303,7 +24303,7 @@ Read more: ${m1}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      const i = y.fromJSON(e.sourcePosition, t), s = y.fromJSON(e.targetPosition, t);
+      const i = C.fromJSON(e.sourcePosition, t), s = C.fromJSON(e.targetPosition, t);
       return new this(i, e.howMany, s, e.baseVersion);
     }
   }
@@ -24352,8 +24352,8 @@ Read more: ${m1}#error-${n}`;
      * See {@link module:engine/model/operation/operation~Operation#getReversed `Operation#getReversed()`}.
      */
     getReversed() {
-      const e = this.position.root.document.graveyard, t = new y(e, [0]);
-      return new $(this.position, this.nodes.maxOffset, t, this.baseVersion + 1);
+      const e = this.position.root.document.graveyard, t = new C(e, [0]);
+      return new z(this.position, this.nodes.maxOffset, t, this.baseVersion + 1);
     }
     /**
      * @inheritDoc
@@ -24395,7 +24395,7 @@ Read more: ${m1}#error-${n}`;
       const i = [];
       for (const o of e.nodes)
         o.name ? i.push(W.fromJSON(o)) : i.push(j.fromJSON(o));
-      const s = new me(y.fromJSON(e.position, t), i, e.baseVersion);
+      const s = new me(C.fromJSON(e.position, t), i, e.baseVersion);
       return s.shouldReceiveAttributes = e.shouldReceiveAttributes, s;
     }
   }
@@ -24431,7 +24431,7 @@ Read more: ${m1}#error-${n}`;
      */
     get moveTargetPosition() {
       const e = this.insertionPosition.path.slice();
-      return e.push(0), new y(this.insertionPosition.root, e);
+      return e.push(0), new C(this.insertionPosition.root, e);
     }
     /**
      * Artificial range that contains all the nodes from the split element that will be moved to the new element.
@@ -24463,7 +24463,7 @@ Read more: ${m1}#error-${n}`;
      * See {@link module:engine/model/operation/operation~Operation#getReversed `Operation#getReversed()`}.
      */
     getReversed() {
-      const e = this.splitPosition.root.document.graveyard, t = new y(e, [0]);
+      const e = this.splitPosition.root.document.graveyard, t = new C(e, [0]);
       return new oe(this.moveTargetPosition, this.howMany, this.splitPosition, t, this.baseVersion + 1);
     }
     /**
@@ -24494,7 +24494,7 @@ Read more: ${m1}#error-${n}`;
         const i = e._clone();
         Wa(this.insertionPosition, i);
       }
-      const t = new b(y._createAt(e, this.splitPosition.offset), y._createAt(e, e.maxOffset));
+      const t = new b(C._createAt(e, this.splitPosition.offset), C._createAt(e, e.maxOffset));
       On(t, this.moveTargetPosition);
     }
     /**
@@ -24516,7 +24516,7 @@ Read more: ${m1}#error-${n}`;
      */
     static getInsertionPosition(e) {
       const t = e.path.slice(0, -1);
-      return t[t.length - 1]++, new y(e.root, t, "toPrevious");
+      return t[t.length - 1]++, new C(e.root, t, "toPrevious");
     }
     /**
      * Creates `SplitOperation` object from deserialized object, i.e. from parsed JSON string.
@@ -24525,7 +24525,7 @@ Read more: ${m1}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      const i = y.fromJSON(e.splitPosition, t), s = y.fromJSON(e.insertionPosition, t), o = e.graveyardPosition ? y.fromJSON(e.graveyardPosition, t) : null;
+      const i = C.fromJSON(e.splitPosition, t), s = C.fromJSON(e.insertionPosition, t), o = e.graveyardPosition ? C.fromJSON(e.graveyardPosition, t) : null;
       return new this(i, e.howMany, s, o, e.baseVersion);
     }
   }
@@ -24558,7 +24558,7 @@ Read more: ${m1}#error-${n}`;
      * Position before the merged element (which will be deleted).
      */
     get deletionPosition() {
-      return new y(this.sourcePosition.root, this.sourcePosition.path.slice(0, -1));
+      return new C(this.sourcePosition.root, this.sourcePosition.path.slice(0, -1));
     }
     /**
      * Artificial range that contains all the nodes from the merged element that will be moved to {@link ~MergeOperation#sourcePosition}.
@@ -24590,7 +24590,7 @@ Read more: ${m1}#error-${n}`;
      * See {@link module:engine/model/operation/operation~Operation#getReversed `Operation#getReversed()`}.
      */
     getReversed() {
-      const e = this.targetPosition._getTransformedByMergeOperation(this), t = this.sourcePosition.path.slice(0, -1), i = new y(this.sourcePosition.root, t)._getTransformedByMergeOperation(this);
+      const e = this.targetPosition._getTransformedByMergeOperation(this), t = this.sourcePosition.path.slice(0, -1), i = new C(this.sourcePosition.root, t)._getTransformedByMergeOperation(this);
       return new G(e, this.howMany, i, this.graveyardPosition, this.baseVersion + 1);
     }
     /**
@@ -24636,7 +24636,7 @@ Read more: ${m1}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      const i = y.fromJSON(e.sourcePosition, t), s = y.fromJSON(e.targetPosition, t), o = y.fromJSON(e.graveyardPosition, t);
+      const i = C.fromJSON(e.sourcePosition, t), s = C.fromJSON(e.targetPosition, t), o = C.fromJSON(e.graveyardPosition, t);
       return new this(i, e.howMany, s, o, e.baseVersion);
     }
   }
@@ -24928,7 +24928,7 @@ Read more: ${m1}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new xe(y.fromJSON(e.position, t), e.oldName, e.newName, e.baseVersion);
+      return new xe(C.fromJSON(e.position, t), e.oldName, e.newName, e.baseVersion);
     }
   }
   /**
@@ -25101,7 +25101,7 @@ Read more: ${m1}#error-${n}`;
   je[re.className] = re;
   je[me.className] = me;
   je[Se.className] = Se;
-  je[$.className] = $;
+  je[z.className] = z;
   je[ce.className] = ce;
   je[De.className] = De;
   je[xe.className] = xe;
@@ -25125,7 +25125,7 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Lr = /* @__PURE__ */ new Map();
-  function N(n, e, t) {
+  function D(n, e, t) {
     let i = Lr.get(n);
     i || (i = /* @__PURE__ */ new Map(), Lr.set(n, i)), i.set(e, t);
   }
@@ -25220,12 +25220,12 @@ Read more: ${m1}#error-${n}`;
      * Relations are then later used to help solve conflicts when operations are transformed.
      */
     updateRelation(e, t) {
-      if (e instanceof $)
-        t instanceof oe ? e.targetPosition.isEqual(t.sourcePosition) || t.movedRange.containsPosition(e.targetPosition) ? this._setRelation(e, t, "insertAtSource") : e.targetPosition.isEqual(t.deletionPosition) ? this._setRelation(e, t, "insertBetween") : e.targetPosition.isAfter(t.sourcePosition) && this._setRelation(e, t, "moveTargetAfter") : t instanceof $ && (e.targetPosition.isEqual(t.sourcePosition) || e.targetPosition.isBefore(t.sourcePosition) ? this._setRelation(e, t, "insertBefore") : this._setRelation(e, t, "insertAfter"));
+      if (e instanceof z)
+        t instanceof oe ? e.targetPosition.isEqual(t.sourcePosition) || t.movedRange.containsPosition(e.targetPosition) ? this._setRelation(e, t, "insertAtSource") : e.targetPosition.isEqual(t.deletionPosition) ? this._setRelation(e, t, "insertBetween") : e.targetPosition.isAfter(t.sourcePosition) && this._setRelation(e, t, "moveTargetAfter") : t instanceof z && (e.targetPosition.isEqual(t.sourcePosition) || e.targetPosition.isBefore(t.sourcePosition) ? this._setRelation(e, t, "insertBefore") : this._setRelation(e, t, "insertAfter"));
       else if (e instanceof G) {
         if (t instanceof oe)
           e.splitPosition.isBefore(t.sourcePosition) && this._setRelation(e, t, "splitBefore");
-        else if (t instanceof $)
+        else if (t instanceof z)
           if (e.splitPosition.isEqual(t.sourcePosition) || e.splitPosition.isBefore(t.sourcePosition))
             this._setRelation(e, t, "splitBefore");
           else {
@@ -25241,7 +25241,7 @@ Read more: ${m1}#error-${n}`;
         const i = e.newRange;
         if (!i)
           return;
-        if (t instanceof $) {
+        if (t instanceof z) {
           const s = b._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
           (o || r) && !s.containsRange(i) && this._setRelation(e, t, {
             side: o ? "left" : "right",
@@ -25326,14 +25326,14 @@ Read more: ${m1}#error-${n}`;
     for (let t = 0; t < e; t++)
       n.push(new ce(0));
   }
-  N(re, re, (n, e, t) => {
+  D(re, re, (n, e, t) => {
     if (n.key === e.key && n.range.start.hasSameParentAs(e.range.start)) {
       const i = n.range.getDifference(e.range).map((o) => new re(o, n.key, n.oldValue, n.newValue, 0)), s = n.range.getIntersection(e.range);
       return s && t.aIsStrong && i.push(new re(s, e.key, e.newValue, n.newValue, 0)), i.length == 0 ? [new ce(0)] : i;
     } else
       return [n];
   });
-  N(re, me, (n, e) => {
+  D(re, me, (n, e) => {
     if (n.range.start.hasSameParentAs(e.position) && n.range.containsPosition(e.position)) {
       const i = n.range._getTransformedByInsertion(e.position, e.howMany, !e.shouldReceiveAttributes).map((s) => new re(s, n.key, n.oldValue, n.newValue, n.baseVersion));
       if (e.shouldReceiveAttributes) {
@@ -25351,13 +25351,13 @@ Read more: ${m1}#error-${n}`;
     const o = new b(n.position, n.position.getShiftedBy(n.howMany));
     return new re(o, e, s, t, 0);
   }
-  N(re, oe, (n, e) => {
+  D(re, oe, (n, e) => {
     const t = [];
     n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(b._createFromPositionAndShift(e.graveyardPosition, 1));
     const i = n.range._getTransformedByMergeOperation(e);
     return i.isCollapsed || t.push(i), t.map((s) => new re(s, n.key, n.oldValue, n.newValue, n.baseVersion));
   });
-  N(re, $, (n, e) => GA(n.range, e).map((i) => new re(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
+  D(re, z, (n, e) => GA(n.range, e).map((i) => new re(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
   function GA(n, e) {
     const t = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let i = null, s = [];
@@ -25370,7 +25370,7 @@ Read more: ${m1}#error-${n}`;
     }
     return i && o.push(i._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany, !1)[0]), o;
   }
-  N(re, G, (n, e) => {
+  D(re, G, (n, e) => {
     if (n.range.end.isEqual(e.insertionPosition))
       return e.graveyardPosition || n.range.end.offset++, [n];
     if (n.range.start.hasSameParentAs(e.splitPosition) && n.range.containsPosition(e.splitPosition)) {
@@ -25379,7 +25379,7 @@ Read more: ${m1}#error-${n}`;
     }
     return n.range = n.range._getTransformedBySplitOperation(e), [n];
   });
-  N(me, re, (n, e) => {
+  D(me, re, (n, e) => {
     const t = [n];
     if (n.shouldReceiveAttributes && n.position.hasSameParentAs(e.range.start) && e.range.containsPosition(n.position)) {
       const i = $m(n, e.key, e.newValue);
@@ -25387,12 +25387,12 @@ Read more: ${m1}#error-${n}`;
     }
     return t;
   });
-  N(me, me, (n, e, t) => n.position.isEqual(e.position) && t.aIsStrong ? [n] : (n.position = n.position._getTransformedByInsertOperation(e), [n]));
-  N(me, $, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
-  N(me, G, (n, e) => (n.position = n.position._getTransformedBySplitOperation(e), [n]));
-  N(me, oe, (n, e) => (n.position = n.position._getTransformedByMergeOperation(e), [n]));
-  N(Se, me, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByInsertOperation(e)[0]), n.newRange && (n.newRange = n.newRange._getTransformedByInsertOperation(e)[0]), [n]));
-  N(Se, Se, (n, e, t) => {
+  D(me, me, (n, e, t) => n.position.isEqual(e.position) && t.aIsStrong ? [n] : (n.position = n.position._getTransformedByInsertOperation(e), [n]));
+  D(me, z, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
+  D(me, G, (n, e) => (n.position = n.position._getTransformedBySplitOperation(e), [n]));
+  D(me, oe, (n, e) => (n.position = n.position._getTransformedByMergeOperation(e), [n]));
+  D(Se, me, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByInsertOperation(e)[0]), n.newRange && (n.newRange = n.newRange._getTransformedByInsertOperation(e)[0]), [n]));
+  D(Se, Se, (n, e, t) => {
     if (n.name == e.name)
       if (t.aIsStrong)
         n.oldRange = e.newRange ? e.newRange.clone() : null;
@@ -25400,8 +25400,8 @@ Read more: ${m1}#error-${n}`;
         return [new ce(0)];
     return [n];
   });
-  N(Se, oe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
-  N(Se, $, (n, e, t) => {
+  D(Se, oe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
+  D(Se, z, (n, e, t) => {
     if (n.oldRange && (n.oldRange = b._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
       if (t.abRelation) {
         const i = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
@@ -25414,39 +25414,39 @@ Read more: ${m1}#error-${n}`;
     }
     return [n];
   });
-  N(Se, G, (n, e, t) => {
+  D(Se, G, (n, e, t) => {
     if (n.oldRange && (n.oldRange = n.oldRange._getTransformedBySplitOperation(e)), n.newRange) {
       if (t.abRelation) {
         const i = n.newRange._getTransformedBySplitOperation(e);
-        return n.newRange.start.isEqual(e.splitPosition) && t.abRelation.wasStartBeforeMergedElement ? n.newRange.start = y._createAt(e.insertionPosition) : n.newRange.start.isEqual(e.splitPosition) && !t.abRelation.wasInLeftElement && (n.newRange.start = y._createAt(e.moveTargetPosition)), n.newRange.end.isEqual(e.splitPosition) && t.abRelation.wasInRightElement ? n.newRange.end = y._createAt(e.moveTargetPosition) : n.newRange.end.isEqual(e.splitPosition) && t.abRelation.wasEndBeforeMergedElement ? n.newRange.end = y._createAt(e.insertionPosition) : n.newRange.end = i.end, [n];
+        return n.newRange.start.isEqual(e.splitPosition) && t.abRelation.wasStartBeforeMergedElement ? n.newRange.start = C._createAt(e.insertionPosition) : n.newRange.start.isEqual(e.splitPosition) && !t.abRelation.wasInLeftElement && (n.newRange.start = C._createAt(e.moveTargetPosition)), n.newRange.end.isEqual(e.splitPosition) && t.abRelation.wasInRightElement ? n.newRange.end = C._createAt(e.moveTargetPosition) : n.newRange.end.isEqual(e.splitPosition) && t.abRelation.wasEndBeforeMergedElement ? n.newRange.end = C._createAt(e.insertionPosition) : n.newRange.end = i.end, [n];
       }
       n.newRange = n.newRange._getTransformedBySplitOperation(e);
     }
     return [n];
   });
-  N(oe, me, (n, e) => (n.sourcePosition.hasSameParentAs(e.position) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByInsertOperation(e), n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e), [n]));
-  N(oe, oe, (n, e, t) => {
+  D(oe, me, (n, e) => (n.sourcePosition.hasSameParentAs(e.position) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByInsertOperation(e), n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e), [n]));
+  D(oe, oe, (n, e, t) => {
     if (n.sourcePosition.isEqual(e.sourcePosition) && n.targetPosition.isEqual(e.targetPosition))
       if (t.bWasUndone) {
         const i = e.graveyardPosition.path.slice();
-        return i.push(0), n.sourcePosition = new y(e.graveyardPosition.root, i), n.howMany = 0, [n];
+        return i.push(0), n.sourcePosition = new C(e.graveyardPosition.root, i), n.howMany = 0, [n];
       } else
         return [new ce(0)];
     if (n.sourcePosition.isEqual(e.sourcePosition) && !n.targetPosition.isEqual(e.targetPosition) && !t.bWasUndone && t.abRelation != "splitAtSource") {
       const i = n.targetPosition.root.rootName == "$graveyard", s = e.targetPosition.root.rootName == "$graveyard";
       if (s && !i || !(i && !s) && t.aIsStrong) {
         const l = e.targetPosition._getTransformedByMergeOperation(e), c = n.targetPosition._getTransformedByMergeOperation(e);
-        return [new $(l, n.howMany, c, 0)];
+        return [new z(l, n.howMany, c, 0)];
       } else
         return [new ce(0)];
     }
     return n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMergeOperation(e), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), (!n.graveyardPosition.isEqual(e.graveyardPosition) || !t.aIsStrong) && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
-  N(oe, $, (n, e, t) => {
+  D(oe, z, (n, e, t) => {
     const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     return e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && n.deletionPosition.hasSameParentAs(e.sourcePosition) && i.containsPosition(n.sourcePosition) ? [new ce(0)] : (n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition.hasSameParentAs(e.sourcePosition) && (n.howMany -= e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMoveOperation(e), n.targetPosition = n.targetPosition._getTransformedByMoveOperation(e), n.graveyardPosition.isEqual(e.targetPosition) || (n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e)), [n]);
   });
-  N(oe, G, (n, e, t) => {
+  D(oe, G, (n, e, t) => {
     if (e.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByDeletion(e.graveyardPosition, 1), n.deletionPosition.isEqual(e.graveyardPosition) && (n.howMany = e.howMany)), n.targetPosition.isEqual(e.splitPosition)) {
       const i = e.howMany != 0, s = e.graveyardPosition && n.deletionPosition.isEqual(e.graveyardPosition);
       if (i || s || t.abRelation == "mergeTargetNotMoved")
@@ -25460,11 +25460,11 @@ Read more: ${m1}#error-${n}`;
     }
     return n.sourcePosition.hasSameParentAs(e.splitPosition) && (n.howMany = e.splitPosition.offset), n.sourcePosition = n.sourcePosition._getTransformedBySplitOperation(e), n.targetPosition = n.targetPosition._getTransformedBySplitOperation(e), [n];
   });
-  N($, me, (n, e) => {
+  D(z, me, (n, e) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
     return n.sourcePosition = i.start, n.howMany = i.end.offset - i.start.offset, n.targetPosition.isEqual(e.position) || (n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e)), [n];
   });
-  N($, $, (n, e, t) => {
+  D(z, z, (n, e, t) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany), s = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let o = t.aIsStrong, r = !t.aIsStrong;
     t.abRelation == "insertBefore" || t.baRelation == "insertAfter" ? r = !0 : (t.abRelation == "insertAfter" || t.baRelation == "insertBefore") && (r = !1);
@@ -25488,7 +25488,7 @@ Read more: ${m1}#error-${n}`;
     const f = i.getIntersection(s);
     return f !== null && o && (f.start = f.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), f.end = f.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), d.length === 0 ? d.push(f) : d.length == 1 ? s.start.isBefore(i.start) || s.start.isEqual(i.start) ? d.unshift(f) : d.push(f) : d.splice(1, 0, f)), d.length === 0 ? [new ce(n.baseVersion)] : Li(d, a);
   });
-  N($, G, (n, e, t) => {
+  D(z, G, (n, e, t) => {
     let i = n.targetPosition.clone();
     (!n.targetPosition.isEqual(e.insertionPosition) || !e.graveyardPosition || t.abRelation == "moveTargetAfter") && (i = n.targetPosition._getTransformedBySplitOperation(e));
     const s = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
@@ -25511,19 +25511,19 @@ Read more: ${m1}#error-${n}`;
     }
     return Li(r, i);
   });
-  N($, oe, (n, e, t) => {
+  D(z, oe, (n, e, t) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (e.deletionPosition.hasSameParentAs(n.sourcePosition) && i.containsPosition(e.sourcePosition)) {
       if (n.type == "remove" && !t.forceWeakRemove) {
         if (!t.aWasUndone) {
           const r = [];
           let a = e.graveyardPosition.clone(), l = e.targetPosition._getTransformedByMergeOperation(e);
-          n.howMany > 1 && (r.push(new $(n.sourcePosition, n.howMany - 1, n.targetPosition, 0)), a = a._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1), l = l._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1));
-          const c = e.deletionPosition._getCombined(n.sourcePosition, n.targetPosition), u = new $(a, 1, c, 0), d = u.getMovedRangeStart().path.slice();
+          n.howMany > 1 && (r.push(new z(n.sourcePosition, n.howMany - 1, n.targetPosition, 0)), a = a._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1), l = l._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1));
+          const c = e.deletionPosition._getCombined(n.sourcePosition, n.targetPosition), u = new z(a, 1, c, 0), d = u.getMovedRangeStart().path.slice();
           d.push(0);
-          const h = new y(u.targetPosition.root, d);
+          const h = new C(u.targetPosition.root, d);
           l = l._getTransformedByMove(a, c, 1);
-          const f = new $(l, e.howMany, h, 0);
+          const f = new z(l, e.howMany, h, 0);
           return r.push(u), r.push(f), r;
         }
       } else if (n.howMany == 1)
@@ -25532,10 +25532,10 @@ Read more: ${m1}#error-${n}`;
     const o = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
     return n.sourcePosition = o.start, n.howMany = o.end.offset - o.start.offset, n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n];
   });
-  N(xe, me, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
-  N(xe, oe, (n, e) => n.position.isEqual(e.deletionPosition) ? (n.position = e.graveyardPosition.clone(), n.position.stickiness = "toNext", [n]) : (n.position = n.position._getTransformedByMergeOperation(e), [n]));
-  N(xe, $, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
-  N(xe, xe, (n, e, t) => {
+  D(xe, me, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
+  D(xe, oe, (n, e) => n.position.isEqual(e.deletionPosition) ? (n.position = e.graveyardPosition.clone(), n.position.stickiness = "toNext", [n]) : (n.position = n.position._getTransformedByMergeOperation(e), [n]));
+  D(xe, z, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
+  D(xe, xe, (n, e, t) => {
     if (n.position.isEqual(e.position))
       if (t.aIsStrong)
         n.oldName = e.newName;
@@ -25543,7 +25543,7 @@ Read more: ${m1}#error-${n}`;
         return [new ce(0)];
     return [n];
   });
-  N(xe, G, (n, e) => {
+  D(xe, G, (n, e) => {
     const t = n.position.path, i = e.splitPosition.getParentPath();
     if (ye(t, i) == "same" && !e.graveyardPosition) {
       const s = new xe(n.position.getShiftedBy(1), n.oldName, n.newName, 0);
@@ -25551,7 +25551,7 @@ Read more: ${m1}#error-${n}`;
     }
     return n.position = n.position._getTransformedBySplitOperation(e), [n];
   });
-  N(bt, bt, (n, e, t) => {
+  D(bt, bt, (n, e, t) => {
     if (n.root === e.root && n.key === e.key) {
       if (!t.aIsStrong || n.newValue === e.newValue)
         return [new ce(0)];
@@ -25559,26 +25559,26 @@ Read more: ${m1}#error-${n}`;
     }
     return [n];
   });
-  N(st, st, (n, e) => n.rootName === e.rootName && n.isAdd === e.isAdd ? [new ce(0)] : [n]);
-  N(G, me, (n, e) => (n.splitPosition.hasSameParentAs(e.position) && n.splitPosition.offset < e.position.offset && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByInsertOperation(e), n.insertionPosition = n.insertionPosition._getTransformedByInsertOperation(e), [n]));
-  N(G, oe, (n, e, t) => {
+  D(st, st, (n, e) => n.rootName === e.rootName && n.isAdd === e.isAdd ? [new ce(0)] : [n]);
+  D(G, me, (n, e) => (n.splitPosition.hasSameParentAs(e.position) && n.splitPosition.offset < e.position.offset && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByInsertOperation(e), n.insertionPosition = n.insertionPosition._getTransformedByInsertOperation(e), [n]));
+  D(G, oe, (n, e, t) => {
     if (!n.graveyardPosition && !t.bWasUndone && n.splitPosition.hasSameParentAs(e.sourcePosition)) {
       const i = e.graveyardPosition.path.slice();
       i.push(0);
-      const s = new y(e.graveyardPosition.root, i), o = G.getInsertionPosition(new y(e.graveyardPosition.root, i)), r = new G(s, 0, o, null, 0);
+      const s = new C(e.graveyardPosition.root, i), o = G.getInsertionPosition(new C(e.graveyardPosition.root, i)), r = new G(s, 0, o, null, 0);
       return n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = G.getInsertionPosition(n.splitPosition), n.graveyardPosition = r.insertionPosition.clone(), n.graveyardPosition.stickiness = "toNext", [r, n];
     }
     return n.splitPosition.hasSameParentAs(e.deletionPosition) && !n.splitPosition.isAfter(e.deletionPosition) && n.howMany--, n.splitPosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = G.getInsertionPosition(n.splitPosition), n.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
-  N(G, $, (n, e, t) => {
+  D(G, z, (n, e, t) => {
     const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     if (n.graveyardPosition) {
       const o = i.start.isEqual(n.graveyardPosition) || i.containsPosition(n.graveyardPosition);
       if (!t.bWasUndone && o) {
         const r = n.splitPosition._getTransformedByMoveOperation(e), a = n.graveyardPosition._getTransformedByMoveOperation(e), l = a.path.slice();
         l.push(0);
-        const c = new y(a.root, l);
-        return [new $(r, n.howMany, c, 0)];
+        const c = new C(a.root, l);
+        return [new z(r, n.howMany, c, 0)];
       }
       n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e);
     }
@@ -25595,7 +25595,7 @@ Read more: ${m1}#error-${n}`;
     }
     return e.sourcePosition.isEqual(e.targetPosition) || (n.splitPosition.hasSameParentAs(e.sourcePosition) && n.splitPosition.offset <= e.sourcePosition.offset && (n.howMany -= e.howMany), n.splitPosition.hasSameParentAs(e.targetPosition) && n.splitPosition.offset < e.targetPosition.offset && (n.howMany += e.howMany)), n.splitPosition.stickiness = "toNone", n.splitPosition = n.splitPosition._getTransformedByMoveOperation(e), n.splitPosition.stickiness = "toNext", n.graveyardPosition ? n.insertionPosition = n.insertionPosition._getTransformedByMoveOperation(e) : n.insertionPosition = G.getInsertionPosition(n.splitPosition), [n];
   });
-  N(G, G, (n, e, t) => {
+  D(G, G, (n, e, t) => {
     if (n.splitPosition.isEqual(e.splitPosition)) {
       if (!n.graveyardPosition && !e.graveyardPosition)
         return [new ce(0)];
@@ -25608,7 +25608,7 @@ Read more: ${m1}#error-${n}`;
       const i = n.splitPosition.root.rootName == "$graveyard", s = e.splitPosition.root.rootName == "$graveyard";
       if (s && !i || !(i && !s) && t.aIsStrong) {
         const l = [];
-        return e.howMany && l.push(new $(e.moveTargetPosition, e.howMany, e.splitPosition, 0)), n.howMany && l.push(new $(n.splitPosition, n.howMany, n.moveTargetPosition, 0)), l;
+        return e.howMany && l.push(new z(e.moveTargetPosition, e.howMany, e.splitPosition, 0)), n.howMany && l.push(new z(n.splitPosition, n.howMany, n.moveTargetPosition, 0)), l;
       } else
         return [new ce(0)];
     }
@@ -25617,7 +25617,7 @@ Read more: ${m1}#error-${n}`;
     if (e.splitPosition.isEqual(n.insertionPosition) && t.baRelation == "splitBefore") {
       const i = e.insertionPosition.path.slice();
       i.push(0);
-      const s = new y(e.insertionPosition.root, i), o = new $(n.insertionPosition, 1, s, 0);
+      const s = new C(e.insertionPosition.root, i), o = new z(n.insertionPosition, 1, s, 0);
       return [n, o];
     }
     return n.splitPosition.hasSameParentAs(e.splitPosition) && n.splitPosition.offset < e.splitPosition.offset && (n.howMany -= e.howMany), n.splitPosition = n.splitPosition._getTransformedBySplitOperation(e), n.insertionPosition = G.getInsertionPosition(n.splitPosition), [n];
@@ -25628,7 +25628,7 @@ Read more: ${m1}#error-${n}`;
   function Li(n, e) {
     const t = [];
     for (let i = 0; i < n.length; i++) {
-      const s = n[i], o = new $(s.start, s.end.offset - s.start.offset, e, 0);
+      const s = n[i], o = new z(s.start, s.end.offset - s.start.offset, e, 0);
       t.push(o);
       for (let r = i + 1; r < n.length; r++)
         n[r] = n[r]._getTransformedByMove(o.sourcePosition, o.targetPosition, o.howMany)[0];
@@ -25640,7 +25640,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ge extends K(y) {
+  class ge extends K(C) {
     /**
      * Creates a live position.
      *
@@ -25663,7 +25663,7 @@ Read more: ${m1}#error-${n}`;
      * Creates a {@link module:engine/model/position~Position position instance}, which is equal to this live position.
      */
     toPosition() {
-      return new y(this.root, this.path.slice(), this.stickiness);
+      return new C(this.root, this.path.slice(), this.stickiness);
     }
     /**
      * Creates a `LivePosition` instance that is equal to position.
@@ -25941,10 +25941,10 @@ Read more: ${m1}#error-${n}`;
             const d = r[l].attributes, h = o[c].attributes;
             let f;
             if (r[l].name == "$text")
-              f = new b(y._createAt(i, l), y._createAt(i, l + 1));
+              f = new b(C._createAt(i, l), C._createAt(i, l + 1));
             else {
               const m = i.offsetToIndex(l);
-              f = new b(y._createAt(i, l), y._createAt(i.getChild(m), 0));
+              f = new b(C._createAt(i, l), C._createAt(i.getChild(m), 0));
             }
             t.push(...this._getAttributesDiff(f, h, d)), l++, c++;
           } else
@@ -26200,7 +26200,7 @@ Read more: ${m1}#error-${n}`;
     _getInsertDiff(e, t, i) {
       return {
         type: "insert",
-        position: y._createAt(e, t),
+        position: C._createAt(e, t),
         name: i.name,
         attributes: new Map(i.attributes),
         length: 1,
@@ -26218,7 +26218,7 @@ Read more: ${m1}#error-${n}`;
     _getRemoveDiff(e, t, i) {
       return {
         type: "remove",
-        position: y._createAt(e, t),
+        position: C._createAt(e, t),
         name: i.name,
         attributes: new Map(i.attributes),
         length: 1,
@@ -26282,7 +26282,7 @@ Read more: ${m1}#error-${n}`;
      * and `howMany`.
      */
     _removeAllNestedChanges(e, t, i) {
-      const s = new b(y._createAt(e, t), y._createAt(e, t + i));
+      const s = new b(C._createAt(e, t), C._createAt(e, t + i));
       for (const o of s.getItems({ shallow: !0 }))
         o.is("element") && (this._elementSnapshots.delete(o), this._changesInElement.delete(o), this._removeAllNestedChanges(o, 0, o.maxOffset));
     }
@@ -27378,7 +27378,7 @@ Read more: ${m1}#error-${n}`;
     insert(e, t, i = 0) {
       if (this._assertWriterUsedCorrectly(), e instanceof j && e.data == "")
         return;
-      const s = y._createAt(t, i);
+      const s = C._createAt(t, i);
       if (e.parent)
         if (tu(e.root, s.root)) {
           this.move(b._createOn(e), s);
@@ -27391,15 +27391,15 @@ Read more: ${m1}#error-${n}`;
       const o = s.root.document ? s.root.document.version : null, r = new me(s, e, o);
       if (e instanceof j && (r.shouldReceiveAttributes = !0), this.batch.addOperation(r), this.model.applyOperation(r), e instanceof mt)
         for (const [a, l] of e.markers) {
-          const c = y._createAt(l.root, 0), d = { range: new b(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
+          const c = C._createAt(l.root, 0), d = { range: new b(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
           this.model.markers.has(a) ? this.updateMarker(a, d) : this.addMarker(a, d);
         }
     }
     insertText(e, t, i, s) {
-      t instanceof mt || t instanceof W || t instanceof y ? this.insert(this.createText(e), t, i) : this.insert(this.createText(e, t), i, s);
+      t instanceof mt || t instanceof W || t instanceof C ? this.insert(this.createText(e), t, i) : this.insert(this.createText(e, t), i, s);
     }
     insertElement(e, t, i, s) {
-      t instanceof mt || t instanceof W || t instanceof y ? this.insert(this.createElement(e), t, i) : this.insert(this.createElement(e, t), i, s);
+      t instanceof mt || t instanceof W || t instanceof C ? this.insert(this.createElement(e), t, i) : this.insert(this.createElement(e, t), i, s);
     }
     /**
      * Inserts item at the end of the given parent.
@@ -27525,12 +27525,12 @@ Read more: ${m1}#error-${n}`;
         throw new g("writer-move-invalid-range", this);
       if (!e.isFlat)
         throw new g("writer-move-range-not-flat", this);
-      const s = y._createAt(t, i);
+      const s = C._createAt(t, i);
       if (s.isEqual(e.start))
         return;
       if (this._addOperationForAffectedMarkers("move", e), !tu(e.root, s.root))
         throw new g("writer-move-different-document", this);
-      const o = e.root.document ? e.root.document.version : null, r = new $(e.start, e.end.offset - e.start.offset, s, o);
+      const o = e.root.document ? e.root.document.version : null, r = new z(e.start, e.end.offset - e.start.offset, s, o);
       this.batch.addOperation(r), this.model.applyOperation(r);
     }
     /**
@@ -27630,7 +27630,7 @@ Read more: ${m1}#error-${n}`;
      */
     _mergeDetached(e) {
       const t = e.nodeBefore, i = e.nodeAfter;
-      this.move(b._createIn(i), y._createAt(t, "end")), this.remove(i);
+      this.move(b._createIn(i), C._createAt(t, "end")), this.remove(i);
     }
     /**
      * Performs merge action in a non-detached tree.
@@ -27638,7 +27638,7 @@ Read more: ${m1}#error-${n}`;
      * @param position Position between merged elements.
      */
     _merge(e) {
-      const t = y._createAt(e.nodeBefore, "end"), i = y._createAt(e.nodeAfter, 0), s = e.root.document.graveyard, o = new y(s, [0]), r = e.root.document.version, a = new oe(i, e.nodeAfter.maxOffset, t, o, r);
+      const t = C._createAt(e.nodeBefore, "end"), i = C._createAt(e.nodeAfter, 0), s = e.root.document.graveyard, o = new C(s, [0]), r = e.root.document.version, a = new oe(i, e.nodeAfter.maxOffset, t, o, r);
       this.batch.addOperation(a), this.model.applyOperation(a);
     }
     /**
@@ -27650,7 +27650,7 @@ Read more: ${m1}#error-${n}`;
     rename(e, t) {
       if (this._assertWriterUsedCorrectly(), !(e instanceof W))
         throw new g("writer-rename-not-element-instance", this);
-      const i = e.root.document ? e.root.document.version : null, s = new xe(y._createBefore(e), e.name, t, i);
+      const i = e.root.document ? e.root.document.version : null, s = new xe(C._createBefore(e), e.name, t, i);
       this.batch.addOperation(s), this.model.applyOperation(s);
     }
     /**
@@ -27680,7 +27680,7 @@ Read more: ${m1}#error-${n}`;
       } while (i !== t);
       return {
         position: e,
-        range: new b(y._createAt(s, "end"), y._createAt(o, 0))
+        range: new b(C._createAt(s, "end"), C._createAt(o, 0))
       };
     }
     /**
@@ -27702,7 +27702,7 @@ Read more: ${m1}#error-${n}`;
         throw new g("writer-wrap-element-attached", this);
       this.insert(i, e.start);
       const s = new b(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
-      this.move(s, y._createAt(i, 0));
+      this.move(s, C._createAt(i, 0));
     }
     /**
      * Unwraps children of the given element – all its children are moved before it and then the element is removed.
@@ -28052,7 +28052,7 @@ Read more: ${m1}#error-${n}`;
     let r = i.start, a, l, c;
     for (const d of i.getWalker({ shallow: !0 }))
       c = d.item.getAttribute(e), a && l != c && (l != t && u(), r = a), a = d.nextPosition, l = c;
-    a instanceof y && a != r && l != t && u();
+    a instanceof C && a != r && l != t && u();
     function u() {
       const d = new b(r, a), h = d.root.document ? o.version : null, f = new re(d, e, l, t, h);
       n.batch.addOperation(f), s.applyOperation(f);
@@ -28066,7 +28066,7 @@ Read more: ${m1}#error-${n}`;
         const u = i.document ? o.version : null;
         l = new bt(i, e, r, t, u);
       } else {
-        a = new b(y._createBefore(i), n.createPositionAfter(i));
+        a = new b(C._createBefore(i), n.createPositionAfter(i));
         const u = a.root.document ? o.version : null;
         l = new re(a, e, r, t, u);
       }
@@ -28080,8 +28080,8 @@ Read more: ${m1}#error-${n}`;
   function oT(n, e, t, i) {
     let s;
     if (n.root.document) {
-      const o = i.document, r = new y(o.graveyard, [0]);
-      s = new $(n, e, r, o.version);
+      const o = i.document, r = new C(o.graveyard, [0]);
+      s = new z(n, e, r, o.version);
     } else
       s = new iT(n, e);
     t.addOperation(s), i.applyOperation(s);
@@ -28265,8 +28265,8 @@ Read more: ${m1}#error-${n}`;
           u.sort(({ position: d }, { position: h }) => d.isBefore(h) ? 1 : -1);
           for (const { position: d, name: h, isCollapsed: f } of u) {
             let m = null, p = null;
-            const _ = d.parent === e && d.isAtStart, v = d.parent === e && d.isAtEnd;
-            !_ && !v ? (m = i.createElement("$marker"), i.insert(m, d)) : f && (p = _ ? "start" : "end"), r.push({
+            const _ = d.parent === e && d.isAtStart, y = d.parent === e && d.isAtEnd;
+            !_ && !y ? (m = i.createElement("$marker"), i.insert(m, d)) : f && (p = _ ? "start" : "end"), r.push({
               name: h,
               element: m,
               collapsed: p
@@ -28283,15 +28283,15 @@ Read more: ${m1}#error-${n}`;
         for (let h = r.length - 1; h >= 0; h--) {
           const { name: f, element: m, collapsed: p } = r[h], _ = !d[f];
           if (_ && (d[f] = []), m) {
-            const v = i.createPositionAt(m, "before");
-            d[f].push(v), i.remove(m);
+            const y = i.createPositionAt(m, "before");
+            d[f].push(y), i.remove(m);
           } else {
-            const v = o.getAffectedRange();
-            if (!v) {
+            const y = o.getAffectedRange();
+            if (!y) {
               p && d[f].push(o.position);
               continue;
             }
-            p ? d[f].push(v[p]) : d[f].push(_ ? v.start : v.end);
+            p ? d[f].push(y[p]) : d[f].push(_ ? y.start : y.end);
           }
         }
         for (const [h, [f, m]] of Object.entries(d))
@@ -28444,7 +28444,7 @@ Read more: ${m1}#error-${n}`;
       /* istanbul ignore if -- @preserve */
       if (!this.position.isEqual(t))
         throw new g("insertcontent-invalid-insertion-position", this);
-      this.position = y._createAt(t.nodeBefore, "end");
+      this.position = C._createAt(t.nodeBefore, "end");
       const i = ge.fromPosition(this.position, "toPrevious");
       this._affectedEnd.isEqual(t) && (this._affectedEnd.detach(), this._affectedEnd = ge._createAt(t.nodeBefore, "end", "toNext")), this._firstNode === this._lastNode && (this._firstNode = t.nodeBefore, this._lastNode = t.nodeBefore), this.writer.merge(t), t.getShiftedBy(-1).isEqual(this._affectedStart) && this._firstNode === this._lastNode && (this._affectedStart.detach(), this._affectedStart = ge._createAt(t.nodeBefore, 0, "toPrevious")), this.position = i.toPosition(), i.detach(), this._filterAttributesOf.push(this.position.parent), t.detach();
     }
@@ -28602,7 +28602,7 @@ Read more: ${m1}#error-${n}`;
       return n.unit === "word" ? TT(i, t) : AT(i, s, r);
     if (a == (t ? "elementStart" : "elementEnd")) {
       if (o.isSelectable(l))
-        return y._createAt(l, t ? "after" : "before");
+        return C._createAt(l, t ? "after" : "before");
       if (o.checkChild(c, "$text"))
         return c;
     } else {
@@ -28639,7 +28639,7 @@ Read more: ${m1}#error-${n}`;
     return n.position;
   }
   function ET(n, e) {
-    const t = n.root, i = y._createAt(t, e ? "end" : 0);
+    const t = n.root, i = C._createAt(t, e ? "end" : 0);
     return e ? new b(n, i) : new b(i, n);
   }
   function ST(n, e, t) {
@@ -29193,7 +29193,7 @@ Read more: ${m1}#error-${n}`;
      * @param stickiness Position stickiness. See {@link module:engine/model/position~PositionStickiness}.
      */
     createPositionFromPath(e, t, i) {
-      return new y(e, t, i);
+      return new C(e, t, i);
     }
     /**
      * Creates position at the given location. The location can be specified as:
@@ -29216,7 +29216,7 @@ Read more: ${m1}#error-${n}`;
      * @param offset Offset or one of the flags. Used only when first parameter is a {@link module:engine/model/item~Item model item}.
      */
     createPositionAt(e, t) {
-      return y._createAt(e, t);
+      return C._createAt(e, t);
     }
     /**
      * Creates a new position after the given {@link module:engine/model/item~Item model item}.
@@ -29227,7 +29227,7 @@ Read more: ${m1}#error-${n}`;
      * @param item Item after which the position should be placed.
      */
     createPositionAfter(e) {
-      return y._createAfter(e);
+      return C._createAfter(e);
     }
     /**
      * Creates a new position before the given {@link module:engine/model/item~Item model item}.
@@ -29238,7 +29238,7 @@ Read more: ${m1}#error-${n}`;
      * @param item Item before which the position should be placed.
      */
     createPositionBefore(e) {
-      return y._createBefore(e);
+      return C._createBefore(e);
     }
     /**
      * Creates a range spanning from the `start` position to the `end` position.
@@ -30388,7 +30388,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const z = {
+  const N = {
     bold: WE,
     cancel: Km,
     caption: dE,
@@ -30435,18 +30435,18 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const { threeVerticalDots: Ym } = z, JE = {
-    alignLeft: z.alignLeft,
-    bold: z.bold,
-    importExport: z.importExport,
-    paragraph: z.paragraph,
-    plus: z.plus,
-    text: z.text,
-    threeVerticalDots: z.threeVerticalDots,
-    pilcrow: z.pilcrow,
-    dragIndicator: z.dragIndicator
+  const { threeVerticalDots: Ym } = N, JE = {
+    alignLeft: N.alignLeft,
+    bold: N.bold,
+    importExport: N.importExport,
+    paragraph: N.paragraph,
+    plus: N.plus,
+    text: N.text,
+    threeVerticalDots: N.threeVerticalDots,
+    pilcrow: N.pilcrow,
+    dragIndicator: N.dragIndicator
   };
-  class ja extends E {
+  class ja extends T {
     /**
      * Creates an instance of the {@link module:ui/toolbar/toolbarview~ToolbarView} class.
      *
@@ -30601,7 +30601,7 @@ Read more: ${m1}#error-${n}`;
       }), o !== !1 ? u.buttonView.icon = JE[o] || o || Ym : u.buttonView.withText = !0, fo(u, () => u.toolbarView._buildItemsFromConfig(r, t, i)), u;
     }
   }
-  class ZE extends E {
+  class ZE extends T {
     /**
      * @inheritDoc
      */
@@ -30722,7 +30722,7 @@ Read more: ${m1}#error-${n}`;
         return !1;
       const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new B(e.lastChild), s = new B(e);
       if (!this.cachedPadding) {
-        const o = x.window.getComputedStyle(e), r = t === "ltr" ? "paddingRight" : "paddingLeft";
+        const o = S.window.getComputedStyle(e), r = t === "ltr" ? "paddingRight" : "paddingLeft";
         this.cachedPadding = Number.parseInt(o[r]);
       }
       return t === "ltr" ? i.right > s.right - this.cachedPadding : i.left < s.left + this.cachedPadding;
@@ -30803,7 +30803,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ga extends E {
+  class Ga extends T {
     /**
      * @inheritDoc
      */
@@ -30834,7 +30834,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Qm extends E {
+  class Qm extends T {
     /**
      * @inheritDoc
      */
@@ -30854,7 +30854,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ss extends E {
+  class Ss extends T {
     /**
      * Creates an instance of the list item group view class.
      *
@@ -30898,7 +30898,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Xm extends E {
+  class Xm extends T {
     /**
      * @inheritDoc
      */
@@ -31029,7 +31029,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Qi extends E {
+  class Qi extends T {
     /**
      * @inheritDoc
      */
@@ -31176,7 +31176,7 @@ Read more: ${m1}#error-${n}`;
       if (i)
         return;
       const s = n.panelView.element;
-      s && s.contains(x.document.activeElement) && n.buttonView.focus();
+      s && s.contains(S.document.activeElement) && n.buttonView.focus();
     });
   }
   function oS(n) {
@@ -31445,7 +31445,7 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const TS = 150;
-  class ES extends E {
+  class ES extends T {
     /**
      * Creates a view of color picker.
      *
@@ -31481,7 +31481,7 @@ Read more: ${m1}#error-${n}`;
      * Renders color picker in the view.
      */
     render() {
-      if (super.render(), this.picker = x.document.createElement("hex-color-picker"), this.picker.setAttribute("class", "hex-color-picker"), this.picker.setAttribute("tabindex", "-1"), this._createSlidersView(), this.element) {
+      if (super.render(), this.picker = S.document.createElement("hex-color-picker"), this.picker.setAttribute("class", "hex-color-picker"), this.picker.setAttribute("tabindex", "-1"), this._createSlidersView(), this.element) {
         this.hexInputRow.element ? this.element.insertBefore(this.picker, this.hexInputRow.element) : this.element.appendChild(this.picker);
         const e = document.createElement("style");
         e.textContent = '[role="slider"]:focus [part$="pointer"] {border: 1px solid #fff;outline: 1px solid var(--ck-color-focus-border);box-shadow: 0 0 0 2px #fff;}', this.picker.shadowRoot.appendChild(e);
@@ -31542,7 +31542,7 @@ Read more: ${m1}#error-${n}`;
     let e = GC(n);
     return e || (e = "#000"), e.length === 4 && (e = "#" + [e[1], e[1], e[2], e[2], e[3], e[3]].join("")), e.toLowerCase();
   }
-  class SS extends E {
+  class SS extends T {
     /**
      * @param element HTML elemnt of slider in color picker.
      */
@@ -31556,7 +31556,7 @@ Read more: ${m1}#error-${n}`;
       this.element.focus();
     }
   }
-  class xS extends E {
+  class xS extends T {
     constructor(e) {
       super(e), this.setTemplate({
         tag: "div",
@@ -31570,7 +31570,7 @@ Read more: ${m1}#error-${n}`;
       });
     }
   }
-  class PS extends E {
+  class PS extends T {
     /**
      * Creates an instance of the form row class.
      *
@@ -31626,7 +31626,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class VS extends E {
+  class VS extends T {
     /**
      * Creates an instance of the view.
      *
@@ -31818,7 +31818,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LS extends E {
+  class LS extends T {
     /**
      * Creates an instance of the view.
      *
@@ -31897,7 +31897,7 @@ Read more: ${m1}#error-${n}`;
      * Creates bar containing "Save" and "Cancel" buttons.
      */
     _createActionBarView({ saveButtonView: e, cancelButtonView: t }) {
-      const i = new E(), s = this.createCollection();
+      const i = new T(), s = this.createCollection();
       return s.add(e), s.add(t), i.setTemplate({
         tag: "div",
         attributes: {
@@ -31955,7 +31955,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class OS extends E {
+  class OS extends T {
     /**
      * Creates a view to be inserted as a child of {@link module:ui/dropdown/dropdownview~DropdownView}.
      *
@@ -32164,7 +32164,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const du = qn("px"), hu = x.document.body, BS = {
+  const du = qn("px"), hu = S.document.body, BS = {
     top: -99999,
     left: -99999,
     name: "arrowless",
@@ -32172,7 +32172,7 @@ Read more: ${m1}#error-${n}`;
       withArrow: !1
     }
   };
-  class we extends E {
+  class we extends T {
     /**
      * @inheritDoc
      */
@@ -32321,10 +32321,10 @@ Read more: ${m1}#error-${n}`;
     _startPinning(e) {
       this.attachTo(e);
       const t = Dr(e.target), i = e.limiter ? Dr(e.limiter) : hu;
-      this.listenTo(x.document, "scroll", (s, o) => {
+      this.listenTo(S.document, "scroll", (s, o) => {
         const r = o.target, a = t && r.contains(t), l = i && r.contains(i);
         (a || l || !t || !i) && this.attachTo(e);
-      }, { useCapture: !0 }), this.listenTo(x.window, "resize", () => {
+      }, { useCapture: !0 }), this.listenTo(S.window, "resize", () => {
         this.attachTo(e);
       });
     }
@@ -32332,7 +32332,7 @@ Read more: ${m1}#error-${n}`;
      * Stops managing the pinned state of the panel. See {@link #pin}.
      */
     _stopPinning() {
-      this.stopListening(x.document, "scroll"), this.stopListening(x.window, "resize");
+      this.stopListening(S.document, "scroll"), this.stopListening(S.window, "resize");
     }
   }
   we.arrowSideOffset = 25;
@@ -32579,7 +32579,7 @@ Read more: ${m1}#error-${n}`;
     constructor(e) {
       if (super(), this._currentElementWithTooltip = null, this._currentTooltipPosition = null, this._resizeObserver = null, fe._editors.add(e), fe._instance)
         return fe._instance;
-      fe._instance = this, this.tooltipTextView = new E(e.locale), this.tooltipTextView.set("text", ""), this.tooltipTextView.setTemplate({
+      fe._instance = this, this.tooltipTextView = new T(e.locale), this.tooltipTextView.set("text", ""), this.tooltipTextView.setTemplate({
         tag: "span",
         attributes: {
           class: [
@@ -32592,7 +32592,7 @@ Read more: ${m1}#error-${n}`;
             text: this.tooltipTextView.bindTemplate.to("text")
           }
         ]
-      }), this.balloonPanelView = new we(e.locale), this.balloonPanelView.class = fu, this.balloonPanelView.content.add(this.tooltipTextView), this._pinTooltipDebounced = Di(this._pinTooltip, 600), this.listenTo(x.document, "mouseenter", this._onEnterOrFocus.bind(this), { useCapture: !0 }), this.listenTo(x.document, "mouseleave", this._onLeaveOrBlur.bind(this), { useCapture: !0 }), this.listenTo(x.document, "focus", this._onEnterOrFocus.bind(this), { useCapture: !0 }), this.listenTo(x.document, "blur", this._onLeaveOrBlur.bind(this), { useCapture: !0 }), this.listenTo(x.document, "scroll", this._onScroll.bind(this), { useCapture: !0 }), this._watchdogExcluded = !0;
+      }), this.balloonPanelView = new we(e.locale), this.balloonPanelView.class = fu, this.balloonPanelView.content.add(this.tooltipTextView), this._pinTooltipDebounced = Di(this._pinTooltip, 600), this.listenTo(S.document, "mouseenter", this._onEnterOrFocus.bind(this), { useCapture: !0 }), this.listenTo(S.document, "mouseleave", this._onLeaveOrBlur.bind(this), { useCapture: !0 }), this.listenTo(S.document, "focus", this._onEnterOrFocus.bind(this), { useCapture: !0 }), this.listenTo(S.document, "blur", this._onLeaveOrBlur.bind(this), { useCapture: !0 }), this.listenTo(S.document, "scroll", this._onScroll.bind(this), { useCapture: !0 }), this._watchdogExcluded = !0;
     }
     /**
      * Destroys the tooltip manager.
@@ -32801,7 +32801,7 @@ Read more: ${m1}#error-${n}`;
       s.includes(i) ? this._lastFocusedEditableElement = i : this._lastFocusedEditableElement = s[0];
     }
   }
-  class qS extends E {
+  class qS extends T {
     /**
      * Created an instance of the "powered by" view.
      *
@@ -32941,7 +32941,7 @@ Read more: ${m1}#error-${n}`;
       });
     }
   }
-  class ZS extends E {
+  class ZS extends T {
     constructor(e) {
       super(e), this.regionViews = this.createCollection(), this.setTemplate({
         tag: "div",
@@ -32955,7 +32955,7 @@ Read more: ${m1}#error-${n}`;
       });
     }
   }
-  class YS extends E {
+  class YS extends T {
     constructor(e) {
       super(e);
       const t = this.bindTemplate;
@@ -33196,7 +33196,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XS extends E {
+  class XS extends T {
     /**
      * Creates an instance of the editor UI view class.
      *
@@ -33287,7 +33287,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tx extends E {
+  class tx extends T {
     /**
      * Creates an instance of EditableUIView class.
      *
@@ -33396,7 +33396,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nx extends E {
+  class nx extends T {
     /**
      * Creates an instance of the form header class.
      *
@@ -33418,7 +33418,7 @@ Read more: ${m1}#error-${n}`;
         },
         children: this.children
       }), t.icon && (this.iconView = new lt(), this.iconView.content = t.icon, this.children.add(this.iconView));
-      const s = new E(e);
+      const s = new T(e);
       s.setTemplate({
         tag: "h2",
         attributes: {
@@ -33795,7 +33795,7 @@ Read more: ${m1}#error-${n}`;
       })), e;
     }
   }
-  class rx extends E {
+  class rx extends T {
     /**
      * @inheritDoc
      */
@@ -33889,7 +33889,7 @@ Read more: ${m1}#error-${n}`;
       }), i;
     }
   }
-  class ax extends E {
+  class ax extends T {
     /**
      * @inheritDoc
      */
@@ -33917,7 +33917,7 @@ Read more: ${m1}#error-${n}`;
     }
     _addPanels(e) {
       for (; e--; ) {
-        const t = new E();
+        const t = new T();
         t.setTemplate({ tag: "div" }), this.content.add(t), this.registerChild(t);
       }
     }
@@ -33942,7 +33942,7 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const vi = qn("px");
-  class lx extends E {
+  class lx extends T {
     /**
      * @inheritDoc
      */
@@ -33997,7 +33997,7 @@ Read more: ${m1}#error-${n}`;
      * @inheritDoc
      */
     render() {
-      super.render(), this.checkIfShouldBeSticky(), this.listenTo(x.document, "scroll", () => {
+      super.render(), this.checkIfShouldBeSticky(), this.listenTo(S.document, "scroll", () => {
         this.checkIfShouldBeSticky();
       }, { useCapture: !0 }), this.listenTo(this, "change:isActive", () => {
         this.checkIfShouldBeSticky();
@@ -34015,7 +34015,7 @@ Read more: ${m1}#error-${n}`;
       const e = new B(this.limiterElement);
       let t = e.getVisible();
       if (t) {
-        const i = new B(x.window);
+        const i = new B(S.window);
         i.top += this.viewportTopOffset, i.height -= this.viewportTopOffset, t = t.getIntersection(i);
       }
       if (t && e.top < t.top) {
@@ -34035,7 +34035,7 @@ Read more: ${m1}#error-${n}`;
      * @param topOffset
      */
     _stickToTopOfAncestors(e) {
-      this.isSticky = !0, this._isStickyToTheBottomOfLimiter = !1, this._stickyTopOffset = e, this._stickyBottomOffset = null, this._marginLeft = vi(-x.window.scrollX);
+      this.isSticky = !0, this._isStickyToTheBottomOfLimiter = !1, this._stickyTopOffset = e, this._stickyBottomOffset = null, this._marginLeft = vi(-S.window.scrollX);
     }
     /**
      * Sticks the panel at the bottom of the limiter with a given CSS `bottom` offset.
@@ -34044,7 +34044,7 @@ Read more: ${m1}#error-${n}`;
      * @param stickyBottomOffset
      */
     _stickToBottomOfLimiter(e) {
-      this.isSticky = !0, this._isStickyToTheBottomOfLimiter = !0, this._stickyTopOffset = null, this._stickyBottomOffset = e, this._marginLeft = vi(-x.window.scrollX);
+      this.isSticky = !0, this._isStickyToTheBottomOfLimiter = !0, this._stickyTopOffset = null, this._stickyBottomOffset = e, this._marginLeft = vi(-S.window.scrollX);
     }
     /**
      * Unsticks the panel putting it back to its original position.
@@ -34077,13 +34077,13 @@ Read more: ${m1}#error-${n}`;
         showIcon: !0,
         creator: Yn
       }, t);
-      super(e, s.creator), this.label = t.label, this._viewConfig = s, this._viewConfig.showIcon && (this.iconView = new lt(), this.iconView.content = z.loupe, this.fieldWrapperChildren.add(this.iconView, 0), this.extendTemplate({
+      super(e, s.creator), this.label = t.label, this._viewConfig = s, this._viewConfig.showIcon && (this.iconView = new lt(), this.iconView.content = N.loupe, this.fieldWrapperChildren.add(this.iconView, 0), this.extendTemplate({
         attributes: {
           class: "ck-search__query_with-icon"
         }
       })), this._viewConfig.showResetButton && (this.resetButtonView = new O(e), this.resetButtonView.set({
         label: i("Clear"),
-        icon: z.cancel,
+        icon: N.cancel,
         class: "ck-search__reset",
         isVisible: !1,
         tooltip: !0
@@ -34106,7 +34106,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ux extends E {
+  class ux extends T {
     /**
      * @inheritDoc
      */
@@ -34158,7 +34158,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dx extends E {
+  class dx extends T {
     /**
      * @inheritDoc
      */
@@ -34209,7 +34209,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hx extends E {
+  class hx extends T {
     /**
      * Creates an instance of the {@link module:ui/search/text/searchtextview~SearchTextView} class.
      *
@@ -34347,7 +34347,7 @@ Read more: ${m1}#error-${n}`;
         this._updateResultsVisibility(), this._updateResultsViewWidthAndPosition();
       }), this.keystrokes.set("esc", (o, r) => {
         this.resultsView.isVisible && (this.queryView.focus(), this.resultsView.isVisible = !1, r());
-      }), this.listenTo(x.document, "scroll", () => {
+      }), this.listenTo(S.document, "scroll", () => {
         this._updateResultsViewWidthAndPosition();
       }), this.on("change:isEnabled", () => {
         this._updateResultsVisibility();
@@ -34397,7 +34397,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ag extends E {
+  class ag extends T {
     /**
      * Creates an instance of the collapsible view.
      *
@@ -35446,7 +35446,7 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Za = "alignment";
-  class yx extends R {
+  class yx extends I {
     /**
      * @inheritDoc
      */
@@ -35590,10 +35590,10 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const hs = /* @__PURE__ */ new Map([
-    ["left", z.alignLeft],
-    ["right", z.alignRight],
-    ["center", z.alignCenter],
-    ["justify", z.alignJustify]
+    ["left", N.alignLeft],
+    ["right", N.alignRight],
+    ["center", N.alignCenter],
+    ["justify", N.alignJustify]
   ]);
   class Px extends w {
     /**
@@ -35764,7 +35764,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rx extends R {
+  class Rx extends I {
     /**
      * Creates an instance of the command.
      *
@@ -35910,7 +35910,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _u extends R {
+  class _u extends I {
     /**
      * Creates an instance of the command.
      *
@@ -36158,13 +36158,13 @@ Read more: ${m1}#error-${n}`;
       const c = pg[l];
       o(i) && c && c.direction == r(i) && (s = !0);
     }, { priority: "high" }), t.on("beforeinput", (a, { inputType: l, data: c }) => {
-      i == D.delete && l == "insertText" && c == "" && a.stop();
+      i == F.delete && l == "insertText" && c == "" && a.stop();
     }, { priority: "high" });
     function o(a) {
-      return a == D.backspace || a == D.delete;
+      return a == F.backspace || a == F.delete;
     }
     function r(a) {
-      return a == D.backspace ? Ri : dn;
+      return a == F.backspace ? Ri : dn;
     }
   }
   function Fx(n) {
@@ -36336,7 +36336,7 @@ Read more: ${m1}#error-${n}`;
       this.listenTo(i.document, "arrowKey", (r, a) => {
         if (!o.isCollapsed || a.shiftKey || a.altKey || a.ctrlKey)
           return;
-        const l = a.keyCode == D.arrowright, c = a.keyCode == D.arrowleft;
+        const l = a.keyCode == F.arrowright, c = a.keyCode == F.arrowleft;
         if (!l && !c)
           return;
         const u = s.contentLanguageDirection;
@@ -36576,13 +36576,13 @@ Read more: ${m1}#error-${n}`;
         return;
       const m = t.exec(h.data.substr(0, l.end.offset));
       m && n.model.enqueueChange((p) => {
-        const _ = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), A = new Oe(_, v);
+        const _ = p.createPositionAt(d, 0), y = p.createPositionAt(d, m[0].length), v = new Oe(_, y);
         if (s({ match: m }) !== !1) {
-          p.remove(A);
-          const T = n.model.document.selection.getFirstRange(), L = p.createRangeIn(d);
-          d.isEmpty && !L.isEqual(T) && !L.containsRange(T, !0) && p.remove(d);
+          p.remove(v);
+          const L = n.model.document.selection.getFirstRange(), $ = p.createRangeIn(d);
+          d.isEmpty && !$.isEqual(L) && !$.containsRange(L, !0) && p.remove(d);
         }
-        A.detach(), n.model.enqueueChange(() => {
+        v.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
         });
       });
@@ -36623,11 +36623,11 @@ Read more: ${m1}#error-${n}`;
       const u = Array.from(l.document.differ.getChanges()), d = u[0];
       if (u.length != 1 || d.type !== "insert" || d.name != "$text" || d.length != 1)
         return;
-      const h = c.focus, f = h.parent, { text: m, range: p } = Nx(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), v = Cu(p.start, _.format, l), A = Cu(p.start, _.remove, l);
-      v.length && A.length && l.enqueueChange((F) => {
-        if (i(F, v) !== !1) {
-          for (const L of A.reverse())
-            F.remove(L);
+      const h = c.focus, f = h.parent, { text: m, range: p } = Nx(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), y = Cu(p.start, _.format, l), v = Cu(p.start, _.remove, l);
+      y.length && v.length && l.enqueueChange((P) => {
+        if (i(P, y) !== !1) {
+          for (const $ of v.reverse())
+            P.remove($);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -36781,7 +36781,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Xn extends R {
+  class Xn extends I {
     /**
      * @param attributeKey Attribute that will be set by the command.
      */
@@ -36901,7 +36901,7 @@ Read more: ${m1}#error-${n}`;
         const s = e.commands.get($o), o = new O(i);
         return o.set({
           label: t("Bold"),
-          icon: z.bold,
+          icon: N.bold,
           keystroke: "CTRL+B",
           tooltip: !0,
           isToggleable: !0
@@ -37277,7 +37277,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class aP extends R {
+  class aP extends I {
     /**
      * @inheritDoc
      */
@@ -37394,7 +37394,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cP extends R {
+  class cP extends I {
     /**
      * @inheritDoc
      */
@@ -37469,7 +37469,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hP extends R {
+  class hP extends I {
     /**
      * @inheritDoc
      */
@@ -37646,7 +37646,7 @@ Read more: ${m1}#error-${n}`;
         const s = e.commands.get("blockQuote"), o = new O(i);
         return o.set({
           label: t("Block quote"),
-          icon: z.quote,
+          icon: N.quote,
           tooltip: !0,
           isToggleable: !0
         }), o.bind("isOn", "isEnabled").to(s, "value", "isEnabled"), this.listenTo(o, "execute", () => {
@@ -38470,7 +38470,7 @@ Read more: ${m1}#error-${n}`;
   function zP(n) {
     const e = n.model;
     return (t, i) => {
-      const s = i.keyCode == D.arrowup, o = i.keyCode == D.arrowdown, r = i.shiftKey, a = e.document.selection;
+      const s = i.keyCode == F.arrowup, o = i.keyCode == F.arrowdown, r = i.shiftKey, a = e.document.selection;
       if (!s && !o)
         return;
       const l = o;
@@ -39013,7 +39013,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tI extends E {
+  class tI extends T {
     constructor() {
       super();
       const e = this.bindTemplate;
@@ -39324,11 +39324,11 @@ Read more: ${m1}#error-${n}`;
      * @inheritDoc
      */
     init() {
-      const e = this.editor.editing, t = x.window.document;
+      const e = this.editor.editing, t = S.window.document;
       this.set("selectedResizer", null), this.set("_activeResizer", null), e.view.addObserver(ho), this._observer = new (Ne())(), this.listenTo(e.view.document, "mousedown", this._mouseDownListener.bind(this), { priority: "high" }), this._observer.listenTo(t, "mousemove", this._mouseMoveListener.bind(this)), this._observer.listenTo(t, "mouseup", this._mouseUpListener.bind(this)), this._redrawSelectedResizerThrottled = Sn(() => this.redrawSelectedResizer(), 200), this.editor.ui.on("update", this._redrawSelectedResizerThrottled), this.editor.model.document.on("change", () => {
         for (const [s, o] of this._resizers)
           s.isAttached() || (this._resizers.delete(s), o.destroy());
-      }, { priority: "lowest" }), this._observer.listenTo(x.window, "resize", this._redrawSelectedResizerThrottled);
+      }, { priority: "lowest" }), this._observer.listenTo(S.window, "resize", this._redrawSelectedResizerThrottled);
       const i = this.editor.editing.view.document.selection;
       i.on("change", () => {
         const s = i.getSelectedElement(), o = this.getResizerByViewElement(s) || null;
@@ -39420,7 +39420,7 @@ Read more: ${m1}#error-${n}`;
    */
   /* istanbul ignore file -- @preserve */
   const Ko = qn("px");
-  class oI extends E {
+  class oI extends T {
     /**
      * @inheritDoc
      */
@@ -39562,14 +39562,14 @@ Read more: ${m1}#error-${n}`;
      * Updates the horizontal drop target line.
      */
     _updateDropTargetLine(e) {
-      const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o), d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = x.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, v = new B(d).excludeScrollbarsAndBorders(), A = p ? p.bottom : v.top, F = _ ? _.top : v.bottom, T = x.window.getComputedStyle(d), L = A <= F ? (A + F) / 2 : F;
-      if (h.top < L && L < h.bottom) {
-        const C = v.left + parseFloat(T.paddingLeft), I = v.right - parseFloat(T.paddingRight), P = Math.max(C + f, h.left), Q = Math.min(I + f, h.right);
+      const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o), d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = S.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, y = new B(d).excludeScrollbarsAndBorders(), v = p ? p.bottom : y.top, P = _ ? _.top : y.bottom, L = S.window.getComputedStyle(d), $ = v <= P ? (v + P) / 2 : P;
+      if (h.top < $ && $ < h.bottom) {
+        const A = y.left + parseFloat(L.paddingLeft), R = y.right - parseFloat(L.paddingRight), x = Math.max(A + f, h.left), Q = Math.min(R + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
-          left: P,
-          top: L + m,
-          width: Q - P
+          left: x,
+          top: $ + m,
+          width: Q - x
         });
       } else
         this._dropTargetLineView.isVisible = !1;
@@ -39631,7 +39631,7 @@ Read more: ${m1}#error-${n}`;
   }
   function rI(n, e) {
     const t = n.editing.mapper, i = n.editing.view.domConverter, s = t.toViewElement(e), o = i.mapViewToDom(s);
-    return x.window.getComputedStyle(o).float != "none";
+    return S.window.getComputedStyle(o).float != "none";
   }
   function ws(n, e, t, i) {
     const s = n.model;
@@ -39652,7 +39652,7 @@ Read more: ${m1}#error-${n}`;
     let e = n;
     do {
       e = e.parentElement;
-      const t = x.window.getComputedStyle(e).overflowY;
+      const t = S.window.getComputedStyle(e).overflowY;
       if (t == "auto" || t == "scroll")
         break;
     } while (e.tagName != "BODY");
@@ -39681,7 +39681,7 @@ Read more: ${m1}#error-${n}`;
         s ? (this.forceDisabled("readOnlyMode"), this._isBlockDragging = !1) : this.clearForceDisabled("readOnlyMode");
       }), V.isAndroid && this.forceDisabled("noAndroidSupport"), e.plugins.has("BlockToolbar")) {
         const i = e.plugins.get("BlockToolbar").buttonView.element;
-        this._domEmitter.listenTo(i, "dragstart", (s, o) => this._handleBlockDragStart(o)), this._domEmitter.listenTo(x.document, "dragover", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(x.document, "drop", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(x.document, "dragend", () => this._handleBlockDragEnd(), { useCapture: !0 }), this.isEnabled && i.setAttribute("draggable", "true"), this.on("change:isEnabled", (s, o, r) => {
+        this._domEmitter.listenTo(i, "dragstart", (s, o) => this._handleBlockDragStart(o)), this._domEmitter.listenTo(S.document, "dragover", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(S.document, "drop", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(S.document, "dragend", () => this._handleBlockDragEnd(), { useCapture: !0 }), this.isEnabled && i.setAttribute("draggable", "true"), this.on("change:isEnabled", (s, o, r) => {
           i.setAttribute("draggable", r ? "true" : "false");
         });
       }
@@ -39784,7 +39784,7 @@ Read more: ${m1}#error-${n}`;
         this._updatePreview({ dataTransfer: u, domTarget: d, clientX: f }), a.stopPropagation(), this.isEnabled || (this._draggedRange.detach(), this._draggedRange = null, this._draggingUid = "");
       }, { priority: "low" }), this.listenTo(s, "dragend", (r, a) => {
         this._finalizeDragging(!a.dataTransfer.isCanceled && a.dataTransfer.dropEffect == "move");
-      }, { priority: "low" }), this._domEmitter.listenTo(x.document, "dragend", () => {
+      }, { priority: "low" }), this._domEmitter.listenTo(S.document, "dragend", () => {
         this._blockMode = !1;
       }, { useCapture: !0 }), this.listenTo(s, "dragenter", () => {
         this.isEnabled && i.focus();
@@ -39910,14 +39910,14 @@ Read more: ${m1}#error-${n}`;
      * Updates the dragged preview image.
      */
     _updatePreview({ dataTransfer: e, domTarget: t, clientX: i }) {
-      const s = this.editor.editing.view, o = s.document.selection.editableElement, r = s.domConverter.mapViewToDom(o), a = x.window.getComputedStyle(r);
-      this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = xn(x.document, "div", {
+      const s = this.editor.editing.view, o = s.document.selection.editableElement, r = s.domConverter.mapViewToDom(o), a = S.window.getComputedStyle(r);
+      this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = xn(S.document, "div", {
         style: "position: fixed; left: -999999px;"
-      }), x.document.body.appendChild(this._previewContainer));
+      }), S.document.body.appendChild(this._previewContainer));
       const l = new B(r);
       if (r.contains(t))
         return;
-      const c = parseFloat(a.paddingLeft), u = xn(x.document, "div");
+      const c = parseFloat(a.paddingLeft), u = xn(S.document, "div");
       u.className = "ck ck-content", u.style.width = a.width, u.style.paddingLeft = `${l.left - i + c}px`, V.isiOS && (u.style.backgroundColor = "white"), u.innerHTML = e.getData("text/html"), e.setDragImage(u, 0, 0), this._previewContainer.appendChild(u);
     }
   }
@@ -40007,7 +40007,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hI extends R {
+  class hI extends I {
     /**
      * @inheritDoc
      */
@@ -40107,7 +40107,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rg extends R {
+  class Rg extends I {
     /**
      * @inheritDoc
      */
@@ -40360,7 +40360,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TI extends R {
+  class TI extends I {
     constructor(e) {
       super(e), this._isEnabledBasedOnSelection = !1;
     }
@@ -40396,7 +40396,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class EI extends R {
+  class EI extends I {
     constructor(e) {
       super(e), this._isEnabledBasedOnSelection = !1;
     }
@@ -40475,7 +40475,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class SI extends R {
+  class SI extends I {
     /**
      * Creates an instance of the command.
      *
@@ -40797,7 +40797,7 @@ Read more: ${m1}#error-${n}`;
     setImageNaturalSizeAttributes(e) {
       const t = e.getAttribute("src");
       t && (e.getAttribute("width") || e.getAttribute("height") || this.editor.model.change((i) => {
-        const s = new x.window.Image();
+        const s = new S.window.Image();
         this._domEmitter.listenTo(s, "load", () => {
           !e.getAttribute("width") && !e.getAttribute("height") && this.editor.model.enqueueChange(i.batch, (o) => {
             o.setAttribute("width", s.naturalWidth, e), o.setAttribute("height", s.naturalHeight, e);
@@ -40922,7 +40922,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class FI extends R {
+  class FI extends I {
     /**
      * @inheritDoc
      */
@@ -40972,14 +40972,14 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class NI extends E {
+  class NI extends T {
     /**
      * @inheritDoc
      */
     constructor(e) {
       super(e);
       const t = this.locale.t;
-      this.focusTracker = new ne(), this.keystrokes = new ue(), this.labeledInput = this._createLabeledInputView(), this.saveButtonView = this._createButton(t("Save"), z.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(t("Cancel"), z.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
+      this.focusTracker = new ne(), this.keystrokes = new ue(), this.labeledInput = this._createLabeledInputView(), this.saveButtonView = this._createButton(t("Save"), N.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(t("Cancel"), N.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -41117,7 +41117,7 @@ Read more: ${m1}#error-${n}`;
         const s = e.commands.get("imageTextAlternative"), o = new O(i);
         return o.set({
           label: t("Change image text alternative"),
-          icon: z.textAlternative,
+          icon: N.textAlternative,
           tooltip: !0
         }), o.bind("isEnabled").to(s, "isEnabled"), o.bind("isOn").to(s, "value", (r) => !!r), this.listenTo(o, "execute", () => {
           this._showForm();
@@ -41279,7 +41279,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class UI extends R {
+  class UI extends I {
     /**
      * @inheritDoc
      */
@@ -41319,7 +41319,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class WI extends R {
+  class WI extends I {
     constructor(e) {
       super(e), this.decorate("cleanupImage");
     }
@@ -41483,8 +41483,8 @@ Read more: ${m1}#error-${n}`;
           const _ = d.item.hasAttribute("resizedWidth");
           if (e === "imageInline" && !_ && !c)
             return;
-          const v = d.item.getAttribute("width"), A = d.item.getAttribute("height");
-          v && A && f.setStyle("aspect-ratio", `${v}/${A}`, p);
+          const y = d.item.getAttribute("width"), v = d.item.getAttribute("height");
+          y && v && f.setStyle("aspect-ratio", `${y}/${v}`, p);
         });
       }
     }
@@ -41493,7 +41493,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zg extends R {
+  class zg extends I {
     /**
      * @inheritDoc
      *
@@ -41691,7 +41691,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class qI extends E {
+  class qI extends T {
     /**
      * Creates a view for the dropdown panel of {@link module:image/imageinsert/imageinsertui~ImageInsertUI}.
      *
@@ -42037,7 +42037,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YI extends R {
+  class YI extends I {
     /**
      * @inheritDoc
      */
@@ -42270,7 +42270,7 @@ Read more: ${m1}#error-${n}`;
       e.ui.componentFactory.add("toggleImageCaption", (o) => {
         const r = e.commands.get("toggleImageCaption"), a = new O(o);
         return a.set({
-          icon: z.caption,
+          icon: N.caption,
           tooltip: !0,
           isToggleable: !0
         }), a.bind("isOn", "isEnabled").to(r, "value", "isEnabled"), a.bind("label").to(r, "value", (l) => s(l ? "Toggle caption off" : "Toggle caption on")), this.listenTo(a, "execute", () => {
@@ -42590,7 +42590,7 @@ Read more: ${m1}#error-${n}`;
       super.render(), this.children.add(this._fileInputView);
     }
   }
-  class n3 extends E {
+  class n3 extends T {
     /**
      * @inheritDoc
      */
@@ -42657,9 +42657,9 @@ Read more: ${m1}#error-${n}`;
   }
   function a3(n) {
     return new Promise((e, t) => {
-      const i = x.document.createElement("img");
+      const i = S.document.createElement("img");
       i.addEventListener("load", () => {
-        const s = x.document.createElement("canvas");
+        const s = S.document.createElement("canvas");
         s.width = i.width, s.height = i.height, s.getContext("2d").drawImage(i, 0, 0), s.toBlob((r) => r ? e(r) : t());
       }), i.addEventListener("error", () => t()), i.src = n;
     });
@@ -42685,7 +42685,7 @@ Read more: ${m1}#error-${n}`;
           acceptedType: a.map((c) => `image/${c}`).join(","),
           allowMultipleFiles: !0,
           label: t("Upload image from computer"),
-          icon: z.imageUpload,
+          icon: N.imageUpload,
           tooltip: !0
         }), o.bind("isEnabled").to(r), o.on("done", (c, u) => {
           const d = Array.from(u).filter((h) => l.test(h.type));
@@ -42809,7 +42809,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class w3 extends R {
+  class w3 extends I {
     /**
      * @inheritDoc
      */
@@ -43029,7 +43029,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class C3 extends R {
+  class C3 extends I {
     /**
      * @inheritDoc
      */
@@ -43180,10 +43180,10 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Jo = {
-    small: z.objectSizeSmall,
-    medium: z.objectSizeMedium,
-    large: z.objectSizeLarge,
-    original: z.objectSizeFull
+    small: N.objectSizeSmall,
+    medium: N.objectSizeMedium,
+    large: N.objectSizeLarge,
+    original: N.objectSizeFull
   };
   class k3 extends w {
     /**
@@ -43402,7 +43402,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class S3 extends R {
+  class S3 extends I {
     /**
      * Creates an instance of the image style command. When executed, the command applies one of
      * {@link module:image/imageconfig~ImageStyleConfig#options style options} to the currently selected image.
@@ -43466,7 +43466,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const { objectFullWidth: x3, objectInline: Zg, objectLeft: Yg, objectRight: Hr, objectCenter: Ur, objectBlockLeft: Qg, objectBlockRight: Xg } = z, Ps = {
+  const { objectFullWidth: x3, objectInline: Zg, objectLeft: Yg, objectRight: Hr, objectCenter: Ur, objectBlockLeft: Qg, objectBlockRight: Xg } = N, Ps = {
     // This style represents an image placed in the line of text.
     get inline() {
       return {
@@ -43963,7 +43963,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class bs extends R {
+  class bs extends I {
     /**
      * Creates an instance of the command.
      */
@@ -44302,7 +44302,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class i4 extends R {
+  class i4 extends I {
     constructor() {
       super(...arguments), this.manualDecorators = new be(), this.automaticDecorators = new j3();
     }
@@ -44486,7 +44486,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n4 extends R {
+  class n4 extends I {
     /**
      * @inheritDoc
      */
@@ -44670,7 +44670,7 @@ Read more: ${m1}#error-${n}`;
         l && (s.stop(), o.preventDefault(), rd(l));
       }, { context: "$capture" }), this.listenTo(i, "keydown", (s, o) => {
         const a = e.commands.get("link").value;
-        a && o.keyCode === D.enter && o.altKey && (s.stop(), rd(a));
+        a && o.keyCode === F.enter && o.altKey && (s.stop(), rd(a));
       });
     }
     /**
@@ -44715,7 +44715,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class u4 extends E {
+  class u4 extends T {
     /**
      * Creates an instance of the {@link module:link/ui/linkformview~LinkFormView} class.
      *
@@ -44727,7 +44727,7 @@ Read more: ${m1}#error-${n}`;
     constructor(e, t) {
       super(e), this.focusTracker = new ne(), this.keystrokes = new ue(), this._focusables = new ze();
       const i = e.t;
-      this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), z.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(i("Cancel"), z.cancel, "ck-button-cancel", "cancel"), this._manualDecoratorSwitches = this._createManualDecoratorSwitches(t), this.children = this._createFormChildren(t.manualDecorators), this._focusCycler = new $e({
+      this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), N.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(i("Cancel"), N.cancel, "ck-button-cancel", "cancel"), this._manualDecoratorSwitches = this._createManualDecoratorSwitches(t), this.children = this._createFormChildren(t.manualDecorators), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -44851,7 +44851,7 @@ Read more: ${m1}#error-${n}`;
     _createFormChildren(e) {
       const t = this.createCollection();
       if (t.add(this.urlInputView), e.length) {
-        const i = new E();
+        const i = new T();
         i.setTemplate({
           tag: "ul",
           children: this._manualDecoratorSwitches.map((s) => ({
@@ -44881,14 +44881,14 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class h4 extends E {
+  class h4 extends T {
     /**
      * @inheritDoc
      */
     constructor(e) {
       super(e), this.focusTracker = new ne(), this.keystrokes = new ue(), this._focusables = new ze();
       const t = e.t;
-      this.previewButtonView = this._createPreviewButton(), this.unlinkButtonView = this._createButton(t("Unlink"), d4, "unlink"), this.editButtonView = this._createButton(t("Edit link"), z.pencil, "edit"), this.set("href", void 0), this._focusCycler = new $e({
+      this.previewButtonView = this._createPreviewButton(), this.unlinkButtonView = this._createButton(t("Unlink"), d4, "unlink"), this.editButtonView = this._createButton(t("Edit link"), N.pencil, "edit"), this.set("href", void 0), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -45650,7 +45650,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class P4 extends E {
+  class P4 extends T {
     /**
      * Creates an instance of the list properties view.
      *
@@ -45700,7 +45700,7 @@ Read more: ${m1}#error-${n}`;
           gridItems: this.stylesView.children,
           // Note: The styles view has a different number of columns depending on whether the other properties
           // are enabled in the dropdown or not (https://github.com/ckeditor/ckeditor5/issues/12340)
-          numberOfColumns: () => x.window.getComputedStyle(this.stylesView.element).getPropertyValue("grid-template-columns").split(" ").length,
+          numberOfColumns: () => S.window.getComputedStyle(this.stylesView.element).getPropertyValue("grid-template-columns").split(" ").length,
           uiLanguageDirection: this.locale && this.locale.uiLanguageDirection
         });
       }
@@ -45736,7 +45736,7 @@ Read more: ${m1}#error-${n}`;
      * @param styleGridAriaLabel The assistive technology label of the grid.
      */
     _createStylesView(e, t) {
-      const i = new E(this.locale);
+      const i = new T(this.locale);
       return i.children = i.createCollection(), i.children.addMany(e), i.setTemplate({
         tag: "div",
         attributes: {
@@ -45954,7 +45954,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hd extends R {
+  class hd extends I {
     /**
      * Creates an instance of the command.
      *
@@ -46017,7 +46017,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fd extends R {
+  class fd extends I {
     /**
      * Creates an instance of the command.
      *
@@ -46506,7 +46506,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n7 extends R {
+  class n7 extends I {
     /**
      * Creates an instance of the command.
      *
@@ -46575,7 +46575,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class s7 extends R {
+  class s7 extends I {
     /**
      * @inheritDoc
      */
@@ -46610,7 +46610,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class o7 extends R {
+  class o7 extends I {
     /**
      * @inheritDoc
      */
@@ -47447,7 +47447,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class x7 extends R {
+  class x7 extends I {
     /**
      * @inheritDoc
      */
@@ -47484,7 +47484,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Td extends R {
+  class Td extends I {
     /**
      * Creates a new `InsertRowCommand` instance.
      *
@@ -47518,7 +47518,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ed extends R {
+  class Ed extends I {
     /**
      * Creates a new `InsertColumnCommand` instance.
      *
@@ -47553,7 +47553,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Sd extends R {
+  class Sd extends I {
     /**
      * Creates a new `SplitCellCommand` instance.
      *
@@ -47588,12 +47588,12 @@ Read more: ${m1}#error-${n}`;
       t.insertElement("tableRow", a, "end");
     const c = [...new q(n, { startRow: i, endRow: o, startColumn: s, endColumn: r, includeAllSlots: !0 })];
     for (const { row: u, column: d, cell: h, isAnchor: f, cellAnchorRow: m, cellAnchorColumn: p } of c) {
-      const _ = u - i, v = a.getChild(_);
+      const _ = u - i, y = a.getChild(_);
       if (!f)
-        (m < i || p < s) && gi(t, t.createPositionAt(v, "end"));
+        (m < i || p < s) && gi(t, t.createPositionAt(y, "end"));
       else {
-        const A = t.cloneElement(h);
-        t.append(A, v), kp(A, u, d, o, r, t);
+        const v = t.cloneElement(h);
+        t.append(v, y), kp(v, u, d, o, r, t);
       }
     }
     return I7(a, n, i, s, t), a;
@@ -47614,8 +47614,8 @@ Read more: ${m1}#error-${n}`;
     const d = o, h = d + a, f = [...new q(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
     let m = null, p;
     for (const _ of f) {
-      const { row: v, column: A, cell: F } = _;
-      F === n && p === void 0 && (p = A), p !== void 0 && p === A && v === h && (m = gi(t, _.getPositionBefore(), l));
+      const { row: y, column: v, cell: P } = _;
+      P === n && p === void 0 && (p = v), p !== void 0 && p === v && y === h && (m = gi(t, _.getPositionBefore(), l));
     }
     return se("rowspan", a, n, t), m;
   }
@@ -47708,7 +47708,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vs extends R {
+  class vs extends I {
     /**
      * Creates a new `MergeCellCommand` instance.
      *
@@ -47773,7 +47773,7 @@ Read more: ${m1}#error-${n}`;
     const r = parseInt(n.getAttribute("rowspan") || "1"), a = s.getAttribute("headingRows") || 0, l = e == "down" && o + r === a, c = e == "up" && o === a;
     if (a && (l || c))
       return null;
-    const u = parseInt(n.getAttribute("rowspan") || "1"), d = e == "down" ? o + u : o, h = [...new q(s, { endRow: d })], m = h.find((_) => _.cell === n).column, p = h.find(({ row: _, cellHeight: v, column: A }) => A !== m ? !1 : e == "down" ? _ === d : d === _ + v);
+    const u = parseInt(n.getAttribute("rowspan") || "1"), d = e == "down" ? o + u : o, h = [...new q(s, { endRow: d })], m = h.find((_) => _.cell === n).column, p = h.find(({ row: _, cellHeight: y, column: v }) => v !== m ? !1 : e == "down" ? _ === d : d === _ + y);
     return p && p.cell ? p.cell : null;
   }
   function L7(n, e, t) {
@@ -47787,7 +47787,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class O7 extends R {
+  class O7 extends I {
     /**
      * @inheritDoc
      */
@@ -47829,7 +47829,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class B7 extends R {
+  class B7 extends I {
     /**
      * @inheritDoc
      */
@@ -47869,7 +47869,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class N7 extends R {
+  class N7 extends I {
     /**
      * @inheritDoc
      */
@@ -47913,7 +47913,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class z7 extends R {
+  class z7 extends I {
     /**
      * @inheritDoc
      */
@@ -48076,16 +48076,16 @@ Read more: ${m1}#error-${n}`;
           return;
         }
         const h = r ? Math.max(s, a) : s, f = new q(e, { endRow: h }), m = new Array(c).fill(1);
-        for (const { row: p, column: _, cellHeight: v, cellWidth: A, cell: F } of f) {
-          const T = p + v - 1, L = p < s && s <= T, C = p <= a && a <= T;
-          L ? (u.setAttribute("rowspan", v + o, F), m[_] = -A) : r && C && (m[_] = A);
+        for (const { row: p, column: _, cellHeight: y, cellWidth: v, cell: P } of f) {
+          const L = p + y - 1, $ = p < s && s <= L, A = p <= a && a <= L;
+          $ ? (u.setAttribute("rowspan", y + o, P), m[_] = -v) : r && A && (m[_] = v);
         }
         for (let p = 0; p < o; p++) {
           const _ = u.createElement("tableRow");
           u.insert(_, e, s);
-          for (let v = 0; v < m.length; v++) {
-            const A = m[v], F = u.createPositionAt(_, "end");
-            A > 0 && gi(u, F, A > 1 ? { colspan: A } : void 0), v += Math.abs(A) - 1;
+          for (let y = 0; y < m.length; y++) {
+            const v = m[y], P = u.createPositionAt(_, "end");
+            v > 0 && gi(u, P, v > 1 ? { colspan: v } : void 0), y += Math.abs(v) - 1;
           }
         }
       });
@@ -48133,9 +48133,9 @@ Read more: ${m1}#error-${n}`;
           const { row: d, cell: h, cellAnchorColumn: f, cellAnchorRow: m, cellWidth: p, cellHeight: _ } = u;
           if (f < s) {
             r.setAttribute("colspan", p + o, h);
-            const v = m + _ - 1;
-            for (let A = d; A <= v; A++)
-              c.skipRow(A);
+            const y = m + _ - 1;
+            for (let v = d; v <= y; v++)
+              c.skipRow(v);
           } else
             Vi(o, r, u.getPositionBefore());
         }
@@ -48284,9 +48284,9 @@ Read more: ${m1}#error-${n}`;
           Vi(h, l, l.createPositionAfter(e), d);
         }
         if (a < t) {
-          const c = t - a, u = [...new q(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: _, column: v }) => {
-            const A = p !== e && v === d, F = v < d && v + _ > d;
-            return A || F;
+          const c = t - a, u = [...new q(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: _, column: y }) => {
+            const v = p !== e && y === d, P = y < d && y + _ > d;
+            return v || P;
           });
           for (const { cell: p, cellWidth: _ } of h)
             l.setAttribute("colspan", _ + c, p);
@@ -48363,16 +48363,16 @@ Read more: ${m1}#error-${n}`;
           const { column: f } = u.find(({ cell: p }) => p === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const p of u) {
-            const { column: _, row: v } = p, A = v >= r + h, F = _ === f, T = (v + r + h) % d === 0;
-            A && F && T && Vi(1, c, p.getPositionBefore(), m);
+            const { column: _, row: y } = p, v = y >= r + h, P = _ === f, L = (y + r + h) % d === 0;
+            v && P && L && Vi(1, c, p.getPositionBefore(), m);
           }
         }
         if (a < t) {
           const u = t - a, d = [...new q(o, { startRow: 0, endRow: r })];
           for (const { cell: m, cellHeight: p, row: _ } of d)
             if (m !== e && _ + p > r) {
-              const v = p + u;
-              c.setAttribute("rowspan", v, m);
+              const y = p + u;
+              c.setAttribute("rowspan", y, m);
             }
           const h = {};
           l > 1 && (h.colspan = l), Xo(c, o, r + 1, u, 1, h);
@@ -48653,7 +48653,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class J7 extends R {
+  class J7 extends I {
     /**
      * @inheritDoc
      */
@@ -48702,7 +48702,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Q7 extends R {
+  class Q7 extends I {
     /**
      * @inheritDoc
      */
@@ -48733,7 +48733,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class X7 extends R {
+  class X7 extends I {
     /**
      * @inheritDoc
      */
@@ -49019,7 +49019,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class g6 extends E {
+  class g6 extends T {
     /**
      * @inheritDoc
      */
@@ -49649,7 +49649,7 @@ Read more: ${m1}#error-${n}`;
         r = bp(r, f, l);
         const m = a[0].findAncestor("table"), p = this._replaceSelectedCellsWithPasted(r, c, m, u, l);
         if (this.editor.plugins.get("TableSelection").isEnabled) {
-          const _ = o.sortRanges(p.map((v) => l.createRangeOn(v)));
+          const _ = o.sortRanges(p.map((y) => l.createRangeOn(y)));
           l.setSelection(_);
         } else
           l.setSelection(p[0], 0);
@@ -49668,19 +49668,19 @@ Read more: ${m1}#error-${n}`;
       })], u = [];
       let d;
       for (const _ of c) {
-        const { row: v, column: A } = _;
-        A === s.firstColumn && (d = _.getPositionBefore());
-        const F = v - s.firstRow, T = A - s.firstColumn, L = l[F % a][T % r], C = L ? o.cloneElement(L) : null, I = this._replaceTableSlotCell(_, C, d, o);
-        I && (kp(I, v, A, s.lastRow, s.lastColumn, o), u.push(I), d = o.createPositionAfter(I));
+        const { row: y, column: v } = _;
+        v === s.firstColumn && (d = _.getPositionBefore());
+        const P = y - s.firstRow, L = v - s.firstColumn, $ = l[P % a][L % r], A = $ ? o.cloneElement($) : null, R = this._replaceTableSlotCell(_, A, d, o);
+        R && (kp(R, y, v, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, p = s.firstColumn < f && f <= s.lastColumn;
       if (m) {
-        const _ = { first: s.firstColumn, last: s.lastColumn }, v = Yr(i, h, _, o, s.firstRow);
-        u.push(...v);
+        const _ = { first: s.firstColumn, last: s.lastColumn }, y = Yr(i, h, _, o, s.firstRow);
+        u.push(...y);
       }
       if (p) {
-        const _ = { first: s.firstRow, last: s.lastRow }, v = Qr(i, f, _, o);
-        u.push(...v);
+        const _ = { first: s.firstRow, last: s.lastRow }, y = Qr(i, f, _, o);
+        u.push(...y);
       }
       return u;
     }
@@ -49804,15 +49804,15 @@ Read more: ${m1}#error-${n}`;
       t.preventDefault(), t.stopPropagation(), e.stop();
       const c = l.parent, u = c.parent, d = u.getChildIndex(c), h = c.getChildIndex(l), f = h === 0;
       if (!a && f && d === 0) {
-        i.model.change((v) => {
-          v.setSelection(v.createRangeOn(u));
+        i.model.change((y) => {
+          y.setSelection(y.createRangeOn(u));
         });
         return;
       }
       const m = h === c.childCount - 1, p = d === s.getRows(u) - 1;
       if (a && p && m && (i.execute("insertTableRowBelow"), d === s.getRows(u) - 1)) {
-        i.model.change((v) => {
-          v.setSelection(v.createRangeOn(u));
+        i.model.change((y) => {
+          y.setSelection(y.createRangeOn(u));
         });
         return;
       }
@@ -49820,12 +49820,12 @@ Read more: ${m1}#error-${n}`;
       if (a && m)
         _ = u.getChild(d + 1).getChild(0);
       else if (!a && f) {
-        const v = u.getChild(d - 1);
-        _ = v.getChild(v.childCount - 1);
+        const y = u.getChild(d - 1);
+        _ = y.getChild(y.childCount - 1);
       } else
         _ = c.getChild(h + (a ? 1 : -1));
-      i.model.change((v) => {
-        v.setSelection(v.createRangeIn(_));
+      i.model.change((y) => {
+        y.setSelection(y.createRangeIn(_));
       });
     }
     /**
@@ -49885,7 +49885,7 @@ Read more: ${m1}#error-${n}`;
      * @param expandSelection If the current selection should be expanded. Default value is false.
      */
     _navigateFromCellInDirection(e, t, i = !1) {
-      const s = this.editor.model, o = e.findAncestor("table"), r = [...new q(o, { includeAllSlots: !0 })], { row: a, column: l } = r[r.length - 1], c = r.find(({ cell: A }) => A == e);
+      const s = this.editor.model, o = e.findAncestor("table"), r = [...new q(o, { includeAllSlots: !0 })], { row: a, column: l } = r[r.length - 1], c = r.find(({ cell: v }) => v == e);
       let { row: u, column: d } = c;
       switch (t) {
         case "left":
@@ -49903,20 +49903,20 @@ Read more: ${m1}#error-${n}`;
       }
       const h = u < 0 || u > a, f = d < 0 && u <= 0, m = d > l && u >= a;
       if (h || f || m) {
-        s.change((A) => {
-          A.setSelection(A.createRangeOn(o));
+        s.change((v) => {
+          v.setSelection(v.createRangeOn(o));
         });
         return;
       }
       d < 0 ? (d = i ? 0 : l, u--) : d > l && (d = i ? l : 0, u++);
-      const p = r.find((A) => A.row == u && A.column == d).cell, _ = ["right", "down"].includes(t), v = this.editor.plugins.get("TableSelection");
-      if (i && v.isEnabled) {
-        const A = v.getAnchorCell() || e;
-        v.setCellSelection(A, p);
+      const p = r.find((v) => v.row == u && v.column == d).cell, _ = ["right", "down"].includes(t), y = this.editor.plugins.get("TableSelection");
+      if (i && y.isEnabled) {
+        const v = y.getAnchorCell() || e;
+        y.setCellSelection(v, p);
       } else {
-        const A = s.createPositionAt(p, _ ? 0 : "end");
-        s.change((F) => {
-          F.setSelection(A);
+        const v = s.createPositionAt(p, _ ? 0 : "end");
+        s.change((P) => {
+          P.setSelection(v);
         });
       }
     }
@@ -52626,10 +52626,10 @@ $&
             if (u.is("element", "template") && u.getCustomProperty("$rawContent"))
               m = u.getCustomProperty("$rawContent");
             else {
-              const _ = new Zn(u.document).createDocumentFragment(u), v = o.data.htmlProcessor.domConverter.viewToDom(_), A = v.firstChild;
-              for (; A.firstChild; )
-                v.appendChild(A.firstChild);
-              A.remove(), m = o.data.htmlProcessor.htmlWriter.getHtml(v);
+              const _ = new Zn(u.document).createDocumentFragment(u), y = o.data.htmlProcessor.domConverter.viewToDom(_), v = y.firstChild;
+              for (; v.firstChild; )
+                y.appendChild(v.firstChild);
+              v.remove(), m = o.data.htmlProcessor.htmlWriter.getHtml(y);
             }
             d.writer.setAttribute("htmlContent", m, h);
             for (const { item: p } of o.editing.view.createRangeIn(u))
@@ -52835,7 +52835,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class bo extends R {
+  class bo extends I {
     /**
      * Creates an instance of the command.
      *
@@ -53878,7 +53878,7 @@ $&
      * Creates the view representing the preview of the style.
      */
     _createPreview() {
-      const e = new E(this.locale);
+      const e = new T(this.locale);
       return e.setTemplate({
         tag: "div",
         attributes: {
@@ -53901,7 +53901,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nV extends E {
+  class nV extends T {
     /**
      * Creates an instance of the {@link module:style/ui/stylegridview~StyleGridView} class.
      *
@@ -53964,7 +53964,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ud extends E {
+  class Ud extends T {
     /**
      * Creates an instance of the {@link module:style/ui/stylegroupview~StyleGroupView} class.
      *
@@ -53994,7 +53994,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class sV extends E {
+  class sV extends T {
     /**
      * Creates an instance of the {@link module:style/ui/stylegroupview~StyleGroupView} class.
      *
@@ -54310,7 +54310,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cV extends R {
+  class cV extends I {
     /**
      * Creates an instance of the command.
      *
@@ -54775,7 +54775,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vV extends R {
+  class vV extends I {
     /**
      * @inheritDoc
      */
@@ -54857,7 +54857,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class CV extends R {
+  class CV extends I {
     constructor(e) {
       super(e), this._indentSequence = e.config.get("codeBlock.indentSequence");
     }
@@ -54894,7 +54894,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kV extends R {
+  class kV extends I {
     constructor(e) {
       super(e), this._indentSequence = e.config.get("codeBlock.indentSequence");
     }
@@ -55243,7 +55243,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class BV extends R {
+  class BV extends I {
     /**
      * @inheritDoc
      */
@@ -55386,7 +55386,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class jV extends R {
+  class jV extends I {
     /**
      * @inheritDoc
      */
@@ -55553,7 +55553,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZV extends E {
+  class ZV extends T {
     /**
      * Creates an instance of a character grid containing tiles representing special characters.
      *
@@ -55584,7 +55584,7 @@ $&
         keystrokeHandler: this.keystrokes,
         focusTracker: this.focusTracker,
         gridItems: this.tiles,
-        numberOfColumns: () => x.window.getComputedStyle(this.element.firstChild).getPropertyValue("grid-template-columns").split(" ").length,
+        numberOfColumns: () => S.window.getComputedStyle(this.element.firstChild).getPropertyValue("grid-template-columns").split(" ").length,
         uiLanguageDirection: this.locale && this.locale.uiLanguageDirection
       });
     }
@@ -55649,7 +55649,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YV extends E {
+  class YV extends T {
     constructor(e) {
       super(e);
       const t = this.bindTemplate;
@@ -55700,7 +55700,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XV extends E {
+  class XV extends T {
     /**
      * Creates an instance of the `SpecialCharactersView`.
      */
@@ -56315,7 +56315,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class c8 extends R {
+  class c8 extends I {
     /**
      * @inheritDoc
      */
@@ -56684,7 +56684,7 @@ $&
           this._embedMediaBetweenPositions(r, a), r.detach(), a.detach();
         }, { priority: "high" });
       }), e.commands.get("undo").on("execute", () => {
-        this._timeoutId && (x.window.clearTimeout(this._timeoutId), this._positionToInsert.detach(), this._timeoutId = null, this._positionToInsert = null);
+        this._timeoutId && (S.window.clearTimeout(this._timeoutId), this._positionToInsert.detach(), this._timeoutId = null, this._positionToInsert = null);
       }, { priority: "high" });
     }
     /**
@@ -56711,7 +56711,7 @@ $&
         o.detach();
         return;
       }
-      this._positionToInsert = ge.fromPosition(e), this._timeoutId = x.window.setTimeout(() => {
+      this._positionToInsert = ge.fromPosition(e), this._timeoutId = S.window.setTimeout(() => {
         i.model.change((c) => {
           this._timeoutId = null, c.remove(o), o.detach();
           let u = null;
@@ -56724,7 +56724,7 @@ $&
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class w8 extends E {
+  class w8 extends T {
     /**
      * @param validators Form validators used by {@link #isValid}.
      * @param locale The localization services instance.
@@ -56732,7 +56732,7 @@ $&
     constructor(e, t) {
       super(t);
       const i = t.t;
-      this.focusTracker = new ne(), this.keystrokes = new ue(), this.set("mediaURLInputValue", ""), this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), z.check, "ck-button-save"), this.saveButtonView.type = "submit", this.saveButtonView.bind("isEnabled").to(this, "mediaURLInputValue", (s) => !!s), this.cancelButtonView = this._createButton(i("Cancel"), z.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
+      this.focusTracker = new ne(), this.keystrokes = new ue(), this.set("mediaURLInputValue", ""), this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), N.check, "ck-button-save"), this.saveButtonView.type = "submit", this.saveButtonView.bind("isEnabled").to(this, "mediaURLInputValue", (s) => !!s), this.cancelButtonView = this._createButton(i("Cancel"), N.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -57316,77 +57316,67 @@ $&
       "selectAll",
       "|",
       "sourceEditing"
-    ] } = e, { allowHtmlSupport: r = !1 } = e, { value: a = "" } = e, { placeHolder: l = "" } = e, { lang: c = "en" } = e, { change: u = (T, L) => {
-    } } = e, { ready: d = (T, L) => {
-    } } = e, { editor: h = null } = e, f = "https://cdn.ckeditor.com/ckeditor5/" + CKEDITOR_VERSION + "/super-build/translations/" + c + ".js", m;
-    function p(T) {
-      T.plugins.get("FileRepository").createUploadAdapter = (L) => new P8(L, i, s);
+    ] } = e, { allowHtmlSupport: r = !1 } = e, { value: a = "" } = e, { placeHolder: l = "" } = e, { lang: c = "en" } = e, { change: u = (v, P) => {
+    } } = e, { ready: d = (v, P) => {
+    } } = e, { editor: h = null } = e, f;
+    function m(v) {
+      v.plugins.get("FileRepository").createUploadAdapter = (P) => new P8(P, i, s);
     }
-    function _(T) {
-      h != null && (h.focus(), h.model.change((L) => {
-        const C = R8(T, L, h.model.document.getRoot());
-        if (C != null) {
-          L.setSelection(L.createPositionBefore(C)), L.remove(C);
-          const I = C.data.split(T);
-          L.insertText(I[0], h.model.document.selection.getFirstPosition());
-          const P = h.model.document.selection.getFirstPosition();
-          L.insertText(I[1], h.model.document.selection.getFirstPosition()), L.setSelection(P);
+    function p(v) {
+      h != null && (h.focus(), h.model.change((P) => {
+        const L = R8(v, P, h.model.document.getRoot());
+        if (L != null) {
+          P.setSelection(P.createPositionBefore(L)), P.remove(L);
+          const $ = L.data.split(v);
+          P.insertText($[0], h.model.document.selection.getFirstPosition());
+          const A = h.model.document.selection.getFirstPosition();
+          P.insertText($[1], h.model.document.selection.getFirstPosition()), P.setSelection(A);
         }
       }));
     }
-    function v(T) {
-      h != null && (h.focus(), h.model.change((L) => {
-        let C = JSON.parse(T);
-        if (C.root == null || C.path == null || C.stickiness == null)
+    function _(v) {
+      h != null && (h.focus(), h.model.change((P) => {
+        let L = JSON.parse(v);
+        if (L.root == null || L.path == null || L.stickiness == null)
           return;
-        let I = h.model.document.getRoot(C.root);
-        I != null && L.setSelection(L.createPositionFromPath(I, C.path, C.stickiness));
+        let $ = h.model.document.getRoot(L.root);
+        $ != null && P.setSelection(P.createPositionFromPath($, L.path, L.stickiness));
       }));
     }
-    function A() {
-      x8.create(a, {
-        placeholder: l,
-        toolbar: o,
-        extraPlugins: [p],
-        htmlSupport: {
-          allow: r ? [
-            {
-              name: /.*/,
-              attributes: !0,
-              classes: !0,
-              styles: !0
-            }
-          ] : []
-        },
-        language: { ui: c }
-      }).then((T) => {
-        t(1, h = T), m.appendChild(T.ui.view.element), T.model.document.on("change:data", (L, C) => {
-          t(2, a = T.getData()), u(L, C);
-        }), d(null, null);
-      }).catch((T) => {
-        console.error(T.stack);
+    x8.create(a, {
+      placeholder: l,
+      toolbar: o,
+      extraPlugins: [m],
+      htmlSupport: {
+        allow: r ? [
+          {
+            name: /.*/,
+            attributes: !0,
+            classes: !0,
+            styles: !0
+          }
+        ] : []
+      },
+      language: { ui: c }
+    }).then((v) => {
+      t(1, h = v), f.appendChild(v.ui.view.element), v.model.document.on("change:data", (P, L) => {
+        t(2, a = v.getData()), u(P, L);
+      }), d(null, null);
+    }).catch((v) => {
+      console.error(v.stack);
+    });
+    function y(v) {
+      Cn[v ? "unshift" : "push"](() => {
+        f = v, t(0, f);
       });
     }
-    c != null && c != "en" ? import(
-      /* @vite-ignore */
-      f
-    ).then(() => {
-      A();
-    }).catch((T) => {
-      console.log(T.message), A();
-    }) : A();
-    function F(T) {
-      Cn[T ? "unshift" : "push"](() => {
-        m = T, t(0, m);
-      });
-    }
-    return n.$$set = (T) => {
-      "insertImageServiceUrl" in T && t(3, i = T.insertImageServiceUrl), "getImageServiceUrl" in T && t(4, s = T.getImageServiceUrl), "items" in T && t(5, o = T.items), "allowHtmlSupport" in T && t(6, r = T.allowHtmlSupport), "value" in T && t(2, a = T.value), "placeHolder" in T && t(7, l = T.placeHolder), "lang" in T && t(8, c = T.lang), "change" in T && t(9, u = T.change), "ready" in T && t(10, d = T.ready), "editor" in T && t(1, h = T.editor);
+    return n.$$set = (v) => {
+      "insertImageServiceUrl" in v && t(3, i = v.insertImageServiceUrl), "getImageServiceUrl" in v && t(4, s = v.getImageServiceUrl), "items" in v && t(5, o = v.items), "allowHtmlSupport" in v && t(6, r = v.allowHtmlSupport), "value" in v && t(2, a = v.value), "placeHolder" in v && t(7, l = v.placeHolder), "lang" in v && t(8, c = v.lang), "change" in v && t(9, u = v.change), "ready" in v && t(10, d = v.ready), "editor" in v && t(1, h = v.editor);
     }, n.$$.update = () => {
       n.$$.dirty & /*editor, placeHolder*/
       130 && h != null && h.editing.view.document.getRoot("main").placeholder != l && (h.editing.view.document.getRoot("main").placeholder = l);
     }, [
-      m,
+      f,
       h,
       a,
       i,
@@ -57397,9 +57387,9 @@ $&
       c,
       u,
       d,
+      p,
       _,
-      v,
-      F
+      y
     ];
   }
   class Fp extends la {
@@ -57710,10 +57700,10 @@ $&
           i = d(m), i === _ ? u[i].p(m, p) : (Xp(), Cs(u[_], 1, 1, () => {
             u[_] = null;
           }), e1(), s = u[i], s ? s.p(m, p) : (s = u[i] = c[i](m), s.c()), fn(s, 1), s.m(t, null));
-          const v = {};
+          const y = {};
           !a && p & /*buttons*/
-          2 && (a = !0, v.buttons = /*buttons*/
-          m[1], rh(() => a = !1)), r.$set(v);
+          2 && (a = !0, y.buttons = /*buttons*/
+          m[1], rh(() => a = !1)), r.$set(y);
         },
         i(m) {
           l || (fn(s), fn(r.$$.fragment, m), l = !0);
