@@ -13,7 +13,14 @@ export default defineConfig({
             entry: resolve(__dirname, 'src/main.ts'),
             name: 'Editor',
             fileName: 'editor'
-        }
+        },
+        minify: 'esbuild',
+        target: 'esnext'
+    },
+    esbuild: {
+        minifyWhitespace: true,
+        minifyIdentifiers: true,
+        minifySyntax: true
     },
     plugins: [
         svelte({
