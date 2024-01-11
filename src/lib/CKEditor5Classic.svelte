@@ -11,9 +11,9 @@
     export let value = '';
     export let placeHolder = '';
     export let lang = 'en';
-    export let change = (evt, data) => {
+    export let valueChange = (evt, data) => {
     };
-    export let ready = (evt, data) => {
+    export let stateChange = (evt, data) => {
     };
     export let editor = null;
     let editorElement;
@@ -100,9 +100,12 @@
             editorElement.appendChild(newEditor.ui.view.element);
             newEditor.model.document.on('change:data', (evt, batch) => {
                 value = newEditor.getData();
-                change(evt, batch);
+                valueChange(evt, batch);
             });
-            ready(null, null);
+            newEditor.on('change:state', (evt, name, value, oldValue) => {
+                stateChange(evt, value);
+            });
+            stateChange(null, 'ready');
         })
         .catch(err => {
             console.error(err.stack);
