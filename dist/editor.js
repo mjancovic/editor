@@ -2245,8 +2245,8 @@ Read more: ${m1}#error-${n}`;
       _ || (_ = h == "constructor");
     }
     if (p && !_) {
-      var L = n.constructor, $ = e.constructor;
-      L != $ && "constructor" in n && "constructor" in e && !(typeof L == "function" && L instanceof L && typeof $ == "function" && $ instanceof $) && (p = !1);
+      var L = n.constructor, N = e.constructor;
+      L != N && "constructor" in n && "constructor" in e && !(typeof L == "function" && L instanceof L && typeof N == "function" && N instanceof N) && (p = !1);
     }
     return o.delete(n), o.delete(e), p;
   }
@@ -2326,7 +2326,7 @@ Read more: ${m1}#error-${n}`;
     function L() {
       return a === void 0 ? r : v(To());
     }
-    function $() {
+    function N() {
       var A = To(), R = _(A);
       if (i = arguments, s = this, l = A, R) {
         if (a === void 0)
@@ -2336,7 +2336,7 @@ Read more: ${m1}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(y, e)), r;
     }
-    return $.cancel = P, $.flush = L, $;
+    return N.cancel = P, N.flush = L, N;
   }
   function vr(n, e, t) {
     (t !== void 0 && !Un(n[e], t) || t === void 0 && !(e in n)) && fa(n, e, t);
@@ -7883,7 +7883,7 @@ Read more: ${m1}#error-${n}`;
       const s = this, o = this._context;
       f(e), p(e);
       const r = e.filter((A) => !d(A, t)), a = [...m(r)];
-      $(a, i);
+      N(a, i);
       const l = P(a);
       return L(l, "init").then(() => L(l, "afterInit")).then(() => l);
       function c(A) {
@@ -7932,7 +7932,7 @@ Read more: ${m1}#error-${n}`;
       function L(A, R) {
         return A.reduce((x, Q) => !Q[R] || s._contextPlugins.has(Q) ? x : x.then(Q[R].bind(Q)), Promise.resolve());
       }
-      function $(A, R) {
+      function N(A, R) {
         for (const x of R) {
           if (typeof x != "function")
             throw new g("plugincollection-replace-plugin-invalid-type", null, { pluginItem: x });
@@ -24201,7 +24201,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class z extends De {
+  class $ extends De {
     /**
      * Creates a move operation.
      *
@@ -24234,7 +24234,7 @@ Read more: ${m1}#error-${n}`;
      * Creates and returns an operation that has the same parameters as this operation.
      */
     clone() {
-      return new z(this.sourcePosition, this.howMany, this.targetPosition, this.baseVersion);
+      return new $(this.sourcePosition, this.howMany, this.targetPosition, this.baseVersion);
     }
     /**
      * Returns the start position of the moved range after it got moved. This may be different than
@@ -24258,7 +24258,7 @@ Read more: ${m1}#error-${n}`;
      */
     getReversed() {
       const e = this.sourcePosition._getTransformedByInsertion(this.targetPosition, this.howMany);
-      return new z(this.getMovedRangeStart(), this.howMany, e, this.baseVersion + 1);
+      return new $(this.getMovedRangeStart(), this.howMany, e, this.baseVersion + 1);
     }
     /**
      * @inheritDoc
@@ -24353,7 +24353,7 @@ Read more: ${m1}#error-${n}`;
      */
     getReversed() {
       const e = this.position.root.document.graveyard, t = new C(e, [0]);
-      return new z(this.position, this.nodes.maxOffset, t, this.baseVersion + 1);
+      return new $(this.position, this.nodes.maxOffset, t, this.baseVersion + 1);
     }
     /**
      * @inheritDoc
@@ -25101,7 +25101,7 @@ Read more: ${m1}#error-${n}`;
   je[re.className] = re;
   je[me.className] = me;
   je[Se.className] = Se;
-  je[z.className] = z;
+  je[$.className] = $;
   je[ce.className] = ce;
   je[De.className] = De;
   je[xe.className] = xe;
@@ -25220,12 +25220,12 @@ Read more: ${m1}#error-${n}`;
      * Relations are then later used to help solve conflicts when operations are transformed.
      */
     updateRelation(e, t) {
-      if (e instanceof z)
-        t instanceof oe ? e.targetPosition.isEqual(t.sourcePosition) || t.movedRange.containsPosition(e.targetPosition) ? this._setRelation(e, t, "insertAtSource") : e.targetPosition.isEqual(t.deletionPosition) ? this._setRelation(e, t, "insertBetween") : e.targetPosition.isAfter(t.sourcePosition) && this._setRelation(e, t, "moveTargetAfter") : t instanceof z && (e.targetPosition.isEqual(t.sourcePosition) || e.targetPosition.isBefore(t.sourcePosition) ? this._setRelation(e, t, "insertBefore") : this._setRelation(e, t, "insertAfter"));
+      if (e instanceof $)
+        t instanceof oe ? e.targetPosition.isEqual(t.sourcePosition) || t.movedRange.containsPosition(e.targetPosition) ? this._setRelation(e, t, "insertAtSource") : e.targetPosition.isEqual(t.deletionPosition) ? this._setRelation(e, t, "insertBetween") : e.targetPosition.isAfter(t.sourcePosition) && this._setRelation(e, t, "moveTargetAfter") : t instanceof $ && (e.targetPosition.isEqual(t.sourcePosition) || e.targetPosition.isBefore(t.sourcePosition) ? this._setRelation(e, t, "insertBefore") : this._setRelation(e, t, "insertAfter"));
       else if (e instanceof G) {
         if (t instanceof oe)
           e.splitPosition.isBefore(t.sourcePosition) && this._setRelation(e, t, "splitBefore");
-        else if (t instanceof z)
+        else if (t instanceof $)
           if (e.splitPosition.isEqual(t.sourcePosition) || e.splitPosition.isBefore(t.sourcePosition))
             this._setRelation(e, t, "splitBefore");
           else {
@@ -25241,7 +25241,7 @@ Read more: ${m1}#error-${n}`;
         const i = e.newRange;
         if (!i)
           return;
-        if (t instanceof z) {
+        if (t instanceof $) {
           const s = b._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
           (o || r) && !s.containsRange(i) && this._setRelation(e, t, {
             side: o ? "left" : "right",
@@ -25357,7 +25357,7 @@ Read more: ${m1}#error-${n}`;
     const i = n.range._getTransformedByMergeOperation(e);
     return i.isCollapsed || t.push(i), t.map((s) => new re(s, n.key, n.oldValue, n.newValue, n.baseVersion));
   });
-  D(re, z, (n, e) => GA(n.range, e).map((i) => new re(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
+  D(re, $, (n, e) => GA(n.range, e).map((i) => new re(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
   function GA(n, e) {
     const t = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let i = null, s = [];
@@ -25388,7 +25388,7 @@ Read more: ${m1}#error-${n}`;
     return t;
   });
   D(me, me, (n, e, t) => n.position.isEqual(e.position) && t.aIsStrong ? [n] : (n.position = n.position._getTransformedByInsertOperation(e), [n]));
-  D(me, z, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
+  D(me, $, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
   D(me, G, (n, e) => (n.position = n.position._getTransformedBySplitOperation(e), [n]));
   D(me, oe, (n, e) => (n.position = n.position._getTransformedByMergeOperation(e), [n]));
   D(Se, me, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByInsertOperation(e)[0]), n.newRange && (n.newRange = n.newRange._getTransformedByInsertOperation(e)[0]), [n]));
@@ -25401,7 +25401,7 @@ Read more: ${m1}#error-${n}`;
     return [n];
   });
   D(Se, oe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
-  D(Se, z, (n, e, t) => {
+  D(Se, $, (n, e, t) => {
     if (n.oldRange && (n.oldRange = b._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
       if (t.abRelation) {
         const i = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
@@ -25436,13 +25436,13 @@ Read more: ${m1}#error-${n}`;
       const i = n.targetPosition.root.rootName == "$graveyard", s = e.targetPosition.root.rootName == "$graveyard";
       if (s && !i || !(i && !s) && t.aIsStrong) {
         const l = e.targetPosition._getTransformedByMergeOperation(e), c = n.targetPosition._getTransformedByMergeOperation(e);
-        return [new z(l, n.howMany, c, 0)];
+        return [new $(l, n.howMany, c, 0)];
       } else
         return [new ce(0)];
     }
     return n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMergeOperation(e), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), (!n.graveyardPosition.isEqual(e.graveyardPosition) || !t.aIsStrong) && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
-  D(oe, z, (n, e, t) => {
+  D(oe, $, (n, e, t) => {
     const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     return e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && n.deletionPosition.hasSameParentAs(e.sourcePosition) && i.containsPosition(n.sourcePosition) ? [new ce(0)] : (n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition.hasSameParentAs(e.sourcePosition) && (n.howMany -= e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMoveOperation(e), n.targetPosition = n.targetPosition._getTransformedByMoveOperation(e), n.graveyardPosition.isEqual(e.targetPosition) || (n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e)), [n]);
   });
@@ -25460,11 +25460,11 @@ Read more: ${m1}#error-${n}`;
     }
     return n.sourcePosition.hasSameParentAs(e.splitPosition) && (n.howMany = e.splitPosition.offset), n.sourcePosition = n.sourcePosition._getTransformedBySplitOperation(e), n.targetPosition = n.targetPosition._getTransformedBySplitOperation(e), [n];
   });
-  D(z, me, (n, e) => {
+  D($, me, (n, e) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
     return n.sourcePosition = i.start, n.howMany = i.end.offset - i.start.offset, n.targetPosition.isEqual(e.position) || (n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e)), [n];
   });
-  D(z, z, (n, e, t) => {
+  D($, $, (n, e, t) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany), s = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let o = t.aIsStrong, r = !t.aIsStrong;
     t.abRelation == "insertBefore" || t.baRelation == "insertAfter" ? r = !0 : (t.abRelation == "insertAfter" || t.baRelation == "insertBefore") && (r = !1);
@@ -25488,7 +25488,7 @@ Read more: ${m1}#error-${n}`;
     const f = i.getIntersection(s);
     return f !== null && o && (f.start = f.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), f.end = f.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), d.length === 0 ? d.push(f) : d.length == 1 ? s.start.isBefore(i.start) || s.start.isEqual(i.start) ? d.unshift(f) : d.push(f) : d.splice(1, 0, f)), d.length === 0 ? [new ce(n.baseVersion)] : Li(d, a);
   });
-  D(z, G, (n, e, t) => {
+  D($, G, (n, e, t) => {
     let i = n.targetPosition.clone();
     (!n.targetPosition.isEqual(e.insertionPosition) || !e.graveyardPosition || t.abRelation == "moveTargetAfter") && (i = n.targetPosition._getTransformedBySplitOperation(e));
     const s = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
@@ -25511,19 +25511,19 @@ Read more: ${m1}#error-${n}`;
     }
     return Li(r, i);
   });
-  D(z, oe, (n, e, t) => {
+  D($, oe, (n, e, t) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (e.deletionPosition.hasSameParentAs(n.sourcePosition) && i.containsPosition(e.sourcePosition)) {
       if (n.type == "remove" && !t.forceWeakRemove) {
         if (!t.aWasUndone) {
           const r = [];
           let a = e.graveyardPosition.clone(), l = e.targetPosition._getTransformedByMergeOperation(e);
-          n.howMany > 1 && (r.push(new z(n.sourcePosition, n.howMany - 1, n.targetPosition, 0)), a = a._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1), l = l._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1));
-          const c = e.deletionPosition._getCombined(n.sourcePosition, n.targetPosition), u = new z(a, 1, c, 0), d = u.getMovedRangeStart().path.slice();
+          n.howMany > 1 && (r.push(new $(n.sourcePosition, n.howMany - 1, n.targetPosition, 0)), a = a._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1), l = l._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1));
+          const c = e.deletionPosition._getCombined(n.sourcePosition, n.targetPosition), u = new $(a, 1, c, 0), d = u.getMovedRangeStart().path.slice();
           d.push(0);
           const h = new C(u.targetPosition.root, d);
           l = l._getTransformedByMove(a, c, 1);
-          const f = new z(l, e.howMany, h, 0);
+          const f = new $(l, e.howMany, h, 0);
           return r.push(u), r.push(f), r;
         }
       } else if (n.howMany == 1)
@@ -25534,7 +25534,7 @@ Read more: ${m1}#error-${n}`;
   });
   D(xe, me, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
   D(xe, oe, (n, e) => n.position.isEqual(e.deletionPosition) ? (n.position = e.graveyardPosition.clone(), n.position.stickiness = "toNext", [n]) : (n.position = n.position._getTransformedByMergeOperation(e), [n]));
-  D(xe, z, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
+  D(xe, $, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
   D(xe, xe, (n, e, t) => {
     if (n.position.isEqual(e.position))
       if (t.aIsStrong)
@@ -25570,7 +25570,7 @@ Read more: ${m1}#error-${n}`;
     }
     return n.splitPosition.hasSameParentAs(e.deletionPosition) && !n.splitPosition.isAfter(e.deletionPosition) && n.howMany--, n.splitPosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = G.getInsertionPosition(n.splitPosition), n.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
-  D(G, z, (n, e, t) => {
+  D(G, $, (n, e, t) => {
     const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     if (n.graveyardPosition) {
       const o = i.start.isEqual(n.graveyardPosition) || i.containsPosition(n.graveyardPosition);
@@ -25578,7 +25578,7 @@ Read more: ${m1}#error-${n}`;
         const r = n.splitPosition._getTransformedByMoveOperation(e), a = n.graveyardPosition._getTransformedByMoveOperation(e), l = a.path.slice();
         l.push(0);
         const c = new C(a.root, l);
-        return [new z(r, n.howMany, c, 0)];
+        return [new $(r, n.howMany, c, 0)];
       }
       n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e);
     }
@@ -25608,7 +25608,7 @@ Read more: ${m1}#error-${n}`;
       const i = n.splitPosition.root.rootName == "$graveyard", s = e.splitPosition.root.rootName == "$graveyard";
       if (s && !i || !(i && !s) && t.aIsStrong) {
         const l = [];
-        return e.howMany && l.push(new z(e.moveTargetPosition, e.howMany, e.splitPosition, 0)), n.howMany && l.push(new z(n.splitPosition, n.howMany, n.moveTargetPosition, 0)), l;
+        return e.howMany && l.push(new $(e.moveTargetPosition, e.howMany, e.splitPosition, 0)), n.howMany && l.push(new $(n.splitPosition, n.howMany, n.moveTargetPosition, 0)), l;
       } else
         return [new ce(0)];
     }
@@ -25617,7 +25617,7 @@ Read more: ${m1}#error-${n}`;
     if (e.splitPosition.isEqual(n.insertionPosition) && t.baRelation == "splitBefore") {
       const i = e.insertionPosition.path.slice();
       i.push(0);
-      const s = new C(e.insertionPosition.root, i), o = new z(n.insertionPosition, 1, s, 0);
+      const s = new C(e.insertionPosition.root, i), o = new $(n.insertionPosition, 1, s, 0);
       return [n, o];
     }
     return n.splitPosition.hasSameParentAs(e.splitPosition) && n.splitPosition.offset < e.splitPosition.offset && (n.howMany -= e.howMany), n.splitPosition = n.splitPosition._getTransformedBySplitOperation(e), n.insertionPosition = G.getInsertionPosition(n.splitPosition), [n];
@@ -25628,7 +25628,7 @@ Read more: ${m1}#error-${n}`;
   function Li(n, e) {
     const t = [];
     for (let i = 0; i < n.length; i++) {
-      const s = n[i], o = new z(s.start, s.end.offset - s.start.offset, e, 0);
+      const s = n[i], o = new $(s.start, s.end.offset - s.start.offset, e, 0);
       t.push(o);
       for (let r = i + 1; r < n.length; r++)
         n[r] = n[r]._getTransformedByMove(o.sourcePosition, o.targetPosition, o.howMany)[0];
@@ -27530,7 +27530,7 @@ Read more: ${m1}#error-${n}`;
         return;
       if (this._addOperationForAffectedMarkers("move", e), !tu(e.root, s.root))
         throw new g("writer-move-different-document", this);
-      const o = e.root.document ? e.root.document.version : null, r = new z(e.start, e.end.offset - e.start.offset, s, o);
+      const o = e.root.document ? e.root.document.version : null, r = new $(e.start, e.end.offset - e.start.offset, s, o);
       this.batch.addOperation(r), this.model.applyOperation(r);
     }
     /**
@@ -28081,7 +28081,7 @@ Read more: ${m1}#error-${n}`;
     let s;
     if (n.root.document) {
       const o = i.document, r = new C(o.graveyard, [0]);
-      s = new z(n, e, r, o.version);
+      s = new $(n, e, r, o.version);
     } else
       s = new iT(n, e);
     t.addOperation(s), i.applyOperation(s);
@@ -30388,7 +30388,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const N = {
+  const z = {
     bold: WE,
     cancel: Km,
     caption: dE,
@@ -30435,16 +30435,16 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const { threeVerticalDots: Ym } = N, JE = {
-    alignLeft: N.alignLeft,
-    bold: N.bold,
-    importExport: N.importExport,
-    paragraph: N.paragraph,
-    plus: N.plus,
-    text: N.text,
-    threeVerticalDots: N.threeVerticalDots,
-    pilcrow: N.pilcrow,
-    dragIndicator: N.dragIndicator
+  const { threeVerticalDots: Ym } = z, JE = {
+    alignLeft: z.alignLeft,
+    bold: z.bold,
+    importExport: z.importExport,
+    paragraph: z.paragraph,
+    plus: z.plus,
+    text: z.text,
+    threeVerticalDots: z.threeVerticalDots,
+    pilcrow: z.pilcrow,
+    dragIndicator: z.dragIndicator
   };
   class ja extends T {
     /**
@@ -34077,13 +34077,13 @@ Read more: ${m1}#error-${n}`;
         showIcon: !0,
         creator: Yn
       }, t);
-      super(e, s.creator), this.label = t.label, this._viewConfig = s, this._viewConfig.showIcon && (this.iconView = new lt(), this.iconView.content = N.loupe, this.fieldWrapperChildren.add(this.iconView, 0), this.extendTemplate({
+      super(e, s.creator), this.label = t.label, this._viewConfig = s, this._viewConfig.showIcon && (this.iconView = new lt(), this.iconView.content = z.loupe, this.fieldWrapperChildren.add(this.iconView, 0), this.extendTemplate({
         attributes: {
           class: "ck-search__query_with-icon"
         }
       })), this._viewConfig.showResetButton && (this.resetButtonView = new O(e), this.resetButtonView.set({
         label: i("Clear"),
-        icon: N.cancel,
+        icon: z.cancel,
         class: "ck-search__reset",
         isVisible: !1,
         tooltip: !0
@@ -35590,10 +35590,10 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const hs = /* @__PURE__ */ new Map([
-    ["left", N.alignLeft],
-    ["right", N.alignRight],
-    ["center", N.alignCenter],
-    ["justify", N.alignJustify]
+    ["left", z.alignLeft],
+    ["right", z.alignRight],
+    ["center", z.alignCenter],
+    ["justify", z.alignJustify]
   ]);
   class Px extends w {
     /**
@@ -36579,8 +36579,8 @@ Read more: ${m1}#error-${n}`;
         const _ = p.createPositionAt(d, 0), y = p.createPositionAt(d, m[0].length), v = new Oe(_, y);
         if (s({ match: m }) !== !1) {
           p.remove(v);
-          const L = n.model.document.selection.getFirstRange(), $ = p.createRangeIn(d);
-          d.isEmpty && !$.isEqual(L) && !$.containsRange(L, !0) && p.remove(d);
+          const L = n.model.document.selection.getFirstRange(), N = p.createRangeIn(d);
+          d.isEmpty && !N.isEqual(L) && !N.containsRange(L, !0) && p.remove(d);
         }
         v.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -36626,8 +36626,8 @@ Read more: ${m1}#error-${n}`;
       const h = c.focus, f = h.parent, { text: m, range: p } = Nx(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), y = Cu(p.start, _.format, l), v = Cu(p.start, _.remove, l);
       y.length && v.length && l.enqueueChange((P) => {
         if (i(P, y) !== !1) {
-          for (const $ of v.reverse())
-            P.remove($);
+          for (const N of v.reverse())
+            P.remove(N);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -36901,7 +36901,7 @@ Read more: ${m1}#error-${n}`;
         const s = e.commands.get($o), o = new O(i);
         return o.set({
           label: t("Bold"),
-          icon: N.bold,
+          icon: z.bold,
           keystroke: "CTRL+B",
           tooltip: !0,
           isToggleable: !0
@@ -37646,7 +37646,7 @@ Read more: ${m1}#error-${n}`;
         const s = e.commands.get("blockQuote"), o = new O(i);
         return o.set({
           label: t("Block quote"),
-          icon: N.quote,
+          icon: z.quote,
           tooltip: !0,
           isToggleable: !0
         }), o.bind("isOn", "isEnabled").to(s, "value", "isEnabled"), this.listenTo(o, "execute", () => {
@@ -39562,13 +39562,13 @@ Read more: ${m1}#error-${n}`;
      * Updates the horizontal drop target line.
      */
     _updateDropTargetLine(e) {
-      const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o), d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = S.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, y = new B(d).excludeScrollbarsAndBorders(), v = p ? p.bottom : y.top, P = _ ? _.top : y.bottom, L = S.window.getComputedStyle(d), $ = v <= P ? (v + P) / 2 : P;
-      if (h.top < $ && $ < h.bottom) {
+      const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o), d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = S.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, y = new B(d).excludeScrollbarsAndBorders(), v = p ? p.bottom : y.top, P = _ ? _.top : y.bottom, L = S.window.getComputedStyle(d), N = v <= P ? (v + P) / 2 : P;
+      if (h.top < N && N < h.bottom) {
         const A = y.left + parseFloat(L.paddingLeft), R = y.right - parseFloat(L.paddingRight), x = Math.max(A + f, h.left), Q = Math.min(R + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
           left: x,
-          top: $ + m,
+          top: N + m,
           width: Q - x
         });
       } else
@@ -40979,7 +40979,7 @@ Read more: ${m1}#error-${n}`;
     constructor(e) {
       super(e);
       const t = this.locale.t;
-      this.focusTracker = new ne(), this.keystrokes = new ue(), this.labeledInput = this._createLabeledInputView(), this.saveButtonView = this._createButton(t("Save"), N.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(t("Cancel"), N.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
+      this.focusTracker = new ne(), this.keystrokes = new ue(), this.labeledInput = this._createLabeledInputView(), this.saveButtonView = this._createButton(t("Save"), z.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(t("Cancel"), z.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -41117,7 +41117,7 @@ Read more: ${m1}#error-${n}`;
         const s = e.commands.get("imageTextAlternative"), o = new O(i);
         return o.set({
           label: t("Change image text alternative"),
-          icon: N.textAlternative,
+          icon: z.textAlternative,
           tooltip: !0
         }), o.bind("isEnabled").to(s, "isEnabled"), o.bind("isOn").to(s, "value", (r) => !!r), this.listenTo(o, "execute", () => {
           this._showForm();
@@ -42270,7 +42270,7 @@ Read more: ${m1}#error-${n}`;
       e.ui.componentFactory.add("toggleImageCaption", (o) => {
         const r = e.commands.get("toggleImageCaption"), a = new O(o);
         return a.set({
-          icon: N.caption,
+          icon: z.caption,
           tooltip: !0,
           isToggleable: !0
         }), a.bind("isOn", "isEnabled").to(r, "value", "isEnabled"), a.bind("label").to(r, "value", (l) => s(l ? "Toggle caption off" : "Toggle caption on")), this.listenTo(a, "execute", () => {
@@ -42685,7 +42685,7 @@ Read more: ${m1}#error-${n}`;
           acceptedType: a.map((c) => `image/${c}`).join(","),
           allowMultipleFiles: !0,
           label: t("Upload image from computer"),
-          icon: N.imageUpload,
+          icon: z.imageUpload,
           tooltip: !0
         }), o.bind("isEnabled").to(r), o.on("done", (c, u) => {
           const d = Array.from(u).filter((h) => l.test(h.type));
@@ -43180,10 +43180,10 @@ Read more: ${m1}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Jo = {
-    small: N.objectSizeSmall,
-    medium: N.objectSizeMedium,
-    large: N.objectSizeLarge,
-    original: N.objectSizeFull
+    small: z.objectSizeSmall,
+    medium: z.objectSizeMedium,
+    large: z.objectSizeLarge,
+    original: z.objectSizeFull
   };
   class k3 extends w {
     /**
@@ -43466,7 +43466,7 @@ Read more: ${m1}#error-${n}`;
    * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const { objectFullWidth: x3, objectInline: Zg, objectLeft: Yg, objectRight: Hr, objectCenter: Ur, objectBlockLeft: Qg, objectBlockRight: Xg } = N, Ps = {
+  const { objectFullWidth: x3, objectInline: Zg, objectLeft: Yg, objectRight: Hr, objectCenter: Ur, objectBlockLeft: Qg, objectBlockRight: Xg } = z, Ps = {
     // This style represents an image placed in the line of text.
     get inline() {
       return {
@@ -44727,7 +44727,7 @@ Read more: ${m1}#error-${n}`;
     constructor(e, t) {
       super(e), this.focusTracker = new ne(), this.keystrokes = new ue(), this._focusables = new ze();
       const i = e.t;
-      this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), N.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(i("Cancel"), N.cancel, "ck-button-cancel", "cancel"), this._manualDecoratorSwitches = this._createManualDecoratorSwitches(t), this.children = this._createFormChildren(t.manualDecorators), this._focusCycler = new $e({
+      this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), z.check, "ck-button-save"), this.saveButtonView.type = "submit", this.cancelButtonView = this._createButton(i("Cancel"), z.cancel, "ck-button-cancel", "cancel"), this._manualDecoratorSwitches = this._createManualDecoratorSwitches(t), this.children = this._createFormChildren(t.manualDecorators), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -44888,7 +44888,7 @@ Read more: ${m1}#error-${n}`;
     constructor(e) {
       super(e), this.focusTracker = new ne(), this.keystrokes = new ue(), this._focusables = new ze();
       const t = e.t;
-      this.previewButtonView = this._createPreviewButton(), this.unlinkButtonView = this._createButton(t("Unlink"), d4, "unlink"), this.editButtonView = this._createButton(t("Edit link"), N.pencil, "edit"), this.set("href", void 0), this._focusCycler = new $e({
+      this.previewButtonView = this._createPreviewButton(), this.unlinkButtonView = this._createButton(t("Unlink"), d4, "unlink"), this.editButtonView = this._createButton(t("Edit link"), z.pencil, "edit"), this.set("href", void 0), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -48077,8 +48077,8 @@ Read more: ${m1}#error-${n}`;
         }
         const h = r ? Math.max(s, a) : s, f = new q(e, { endRow: h }), m = new Array(c).fill(1);
         for (const { row: p, column: _, cellHeight: y, cellWidth: v, cell: P } of f) {
-          const L = p + y - 1, $ = p < s && s <= L, A = p <= a && a <= L;
-          $ ? (u.setAttribute("rowspan", y + o, P), m[_] = -v) : r && A && (m[_] = v);
+          const L = p + y - 1, N = p < s && s <= L, A = p <= a && a <= L;
+          N ? (u.setAttribute("rowspan", y + o, P), m[_] = -v) : r && A && (m[_] = v);
         }
         for (let p = 0; p < o; p++) {
           const _ = u.createElement("tableRow");
@@ -49670,7 +49670,7 @@ Read more: ${m1}#error-${n}`;
       for (const _ of c) {
         const { row: y, column: v } = _;
         v === s.firstColumn && (d = _.getPositionBefore());
-        const P = y - s.firstRow, L = v - s.firstColumn, $ = l[P % a][L % r], A = $ ? o.cloneElement($) : null, R = this._replaceTableSlotCell(_, A, d, o);
+        const P = y - s.firstRow, L = v - s.firstColumn, N = l[P % a][L % r], A = N ? o.cloneElement(N) : null, R = this._replaceTableSlotCell(_, A, d, o);
         R && (kp(R, y, v, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, p = s.firstColumn < f && f <= s.lastColumn;
@@ -56732,7 +56732,7 @@ $&
     constructor(e, t) {
       super(t);
       const i = t.t;
-      this.focusTracker = new ne(), this.keystrokes = new ue(), this.set("mediaURLInputValue", ""), this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), N.check, "ck-button-save"), this.saveButtonView.type = "submit", this.saveButtonView.bind("isEnabled").to(this, "mediaURLInputValue", (s) => !!s), this.cancelButtonView = this._createButton(i("Cancel"), N.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
+      this.focusTracker = new ne(), this.keystrokes = new ue(), this.set("mediaURLInputValue", ""), this.urlInputView = this._createUrlInput(), this.saveButtonView = this._createButton(i("Save"), z.check, "ck-button-save"), this.saveButtonView.type = "submit", this.saveButtonView.bind("isEnabled").to(this, "mediaURLInputValue", (s) => !!s), this.cancelButtonView = this._createButton(i("Cancel"), z.cancel, "ck-button-cancel", "cancel"), this._focusables = new ze(), this._focusCycler = new $e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -57316,8 +57316,8 @@ $&
       "selectAll",
       "|",
       "sourceEditing"
-    ] } = e, { allowHtmlSupport: r = !1 } = e, { value: a = "" } = e, { placeHolder: l = "" } = e, { lang: c = "en" } = e, { change: u = (v, P) => {
-    } } = e, { ready: d = (v, P) => {
+    ] } = e, { allowHtmlSupport: r = !1 } = e, { value: a = "" } = e, { placeHolder: l = "" } = e, { lang: c = "en" } = e, { valueChange: u = (v, P) => {
+    } } = e, { stateChange: d = (v, P) => {
     } } = e, { editor: h = null } = e, f;
     function m(v) {
       v.plugins.get("FileRepository").createUploadAdapter = (P) => new P8(P, i, s);
@@ -57327,10 +57327,10 @@ $&
         const L = R8(v, P, h.model.document.getRoot());
         if (L != null) {
           P.setSelection(P.createPositionBefore(L)), P.remove(L);
-          const $ = L.data.split(v);
-          P.insertText($[0], h.model.document.selection.getFirstPosition());
+          const N = L.data.split(v);
+          P.insertText(N[0], h.model.document.selection.getFirstPosition());
           const A = h.model.document.selection.getFirstPosition();
-          P.insertText($[1], h.model.document.selection.getFirstPosition()), P.setSelection(A);
+          P.insertText(N[1], h.model.document.selection.getFirstPosition()), P.setSelection(A);
         }
       }));
     }
@@ -57339,8 +57339,8 @@ $&
         let L = JSON.parse(v);
         if (L.root == null || L.path == null || L.stickiness == null)
           return;
-        let $ = h.model.document.getRoot(L.root);
-        $ != null && P.setSelection(P.createPositionFromPath($, L.path, L.stickiness));
+        let N = h.model.document.getRoot(L.root);
+        N != null && P.setSelection(P.createPositionFromPath(N, L.path, L.stickiness));
       }));
     }
     x8.create(a, {
@@ -57361,7 +57361,9 @@ $&
     }).then((v) => {
       t(1, h = v), f.appendChild(v.ui.view.element), v.model.document.on("change:data", (P, L) => {
         t(2, a = v.getData()), u(P, L);
-      }), d(null, null);
+      }), v.on("change:state", (P, L, N, A) => {
+        d(P, N);
+      }), d(null, "ready");
     }).catch((v) => {
       console.error(v.stack);
     });
@@ -57371,7 +57373,7 @@ $&
       });
     }
     return n.$$set = (v) => {
-      "insertImageServiceUrl" in v && t(3, i = v.insertImageServiceUrl), "getImageServiceUrl" in v && t(4, s = v.getImageServiceUrl), "items" in v && t(5, o = v.items), "allowHtmlSupport" in v && t(6, r = v.allowHtmlSupport), "value" in v && t(2, a = v.value), "placeHolder" in v && t(7, l = v.placeHolder), "lang" in v && t(8, c = v.lang), "change" in v && t(9, u = v.change), "ready" in v && t(10, d = v.ready), "editor" in v && t(1, h = v.editor);
+      "insertImageServiceUrl" in v && t(3, i = v.insertImageServiceUrl), "getImageServiceUrl" in v && t(4, s = v.getImageServiceUrl), "items" in v && t(5, o = v.items), "allowHtmlSupport" in v && t(6, r = v.allowHtmlSupport), "value" in v && t(2, a = v.value), "placeHolder" in v && t(7, l = v.placeHolder), "lang" in v && t(8, c = v.lang), "valueChange" in v && t(9, u = v.valueChange), "stateChange" in v && t(10, d = v.stateChange), "editor" in v && t(1, h = v.editor);
     }, n.$$.update = () => {
       n.$$.dirty & /*editor, placeHolder*/
       130 && h != null && h.editing.view.document.getRoot("main").placeholder != l && (h.editing.view.document.getRoot("main").placeholder = l);
@@ -57402,8 +57404,8 @@ $&
         value: 2,
         placeHolder: 7,
         lang: 8,
-        change: 9,
-        ready: 10,
+        valueChange: 9,
+        stateChange: 10,
         editor: 1,
         setCursorPositionAtPlaceholder: 11,
         setCursorPositionFromJSONString: 12
@@ -57451,17 +57453,17 @@ $&
     set lang(e) {
       this.$$set({ lang: e }), ve();
     }
-    get change() {
+    get valueChange() {
       return this.$$.ctx[9];
     }
-    set change(e) {
-      this.$$set({ change: e }), ve();
+    set valueChange(e) {
+      this.$$set({ valueChange: e }), ve();
     }
-    get ready() {
+    get stateChange() {
       return this.$$.ctx[10];
     }
-    set ready(e) {
-      this.$$set({ ready: e }), ve();
+    set stateChange(e) {
+      this.$$set({ stateChange: e }), ve();
     }
     get editor() {
       return this.$$.ctx[1];
@@ -57476,7 +57478,7 @@ $&
       return this.$$.ctx[12];
     }
   }
-  customElements.define("ckeditor5-classic", aa(Fp, { insertImageServiceUrl: {}, getImageServiceUrl: {}, items: {}, allowHtmlSupport: { type: "Boolean" }, value: {}, placeHolder: {}, lang: {}, change: {}, ready: {}, editor: {} }, [], ["setCursorPositionAtPlaceholder", "setCursorPositionFromJSONString"], !1));
+  customElements.define("ckeditor5-classic", aa(Fp, { insertImageServiceUrl: {}, getImageServiceUrl: {}, items: {}, allowHtmlSupport: { type: "Boolean" }, value: {}, placeHolder: {}, lang: {}, valueChange: {}, stateChange: {}, editor: {} }, [], ["setCursorPositionAtPlaceholder", "setCursorPositionFromJSONString"], !1));
   function ih(n, e, t) {
     const i = n.slice();
     return i[4] = e[t], i;
