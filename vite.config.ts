@@ -17,7 +17,7 @@ export default defineConfig({
             name: 'ComponentsLib',
             formats: ["es", "cjs"],
         },
-        emptyOutDir: false,
+        emptyOutDir: true,
         outDir: "dist",
         minify: 'esbuild',
         target: 'esnext'
