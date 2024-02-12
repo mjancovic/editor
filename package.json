@@ -1,8 +1,21 @@
 {
-  "name": "editor",
+  "name": "components-lib",
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "files": ["dist/*"],
+  "main": "./dist/components.cjs",
+  "module": "./dist/components.js",
+  "exports": {
+    ".": {
+      "import": "./dist/components.js",
+      "require": "./dist/components.cjs"
+    },
+    "./ckeditor": {
+      "import": "./dist/ckeditor.js",
+      "require": "./dist/ckeditor.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -10,10 +10,15 @@ const require = createRequire(import.meta.url);
 export default defineConfig({
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/main.ts'),
-            name: 'Editor',
-            fileName: 'editor'
+            entry: {
+                "components-lib": resolve(__dirname, 'src/main.ts'),
+                ckeditor: resolve(__dirname, 'src/ckeditor5.ts'),
+            },
+            name: 'ComponentsLib',
+            formats: ["es", "cjs"],
         },
+        emptyOutDir: false,
+        outDir: "dist",
         minify: 'esbuild',
         target: 'esnext'
     },

@@ -1,0 +1,1 @@
+export * from './lib/CKEditor5Classic/CKEditor5Classic.svelte';
