@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
-    export let buttons = [];
+    export let buttons: any[]  = [];
 
     function onHtml() {
         dispatch('html', {});
