@@ -1,32 +1,13 @@
-<svelte:options customElement={{tag: 'switchable-editor',shadow: 'none'}} />
-
 <script lang="ts">
-    import CKEditor from './lib/CKEditor5Classic.svelte'
-    import Buttons from "./lib/Buttons.svelte";
-
-    export let value = '';
-    export let buttons = [];
-    export let html = true;
-
-    function handleHtml() {
-        if (html) return;
-        html = true;
-    }
-
-    function handlePlain() {
-        if (!html) return;
-        value = value.replace(/<[^>]*>?/gm, '');
-        html = false;
-    }
+    import SwitchableEditor from "./lib/SwitchableEditor/SwitchableEditor.svelte";
+    import CKEditor5Classic from "./lib/CKEditor5Classic/CKEditor5Classic.svelte";
 </script>
 
 <main>
-    <div class="Editor">
-        {#if html}
-            <CKEditor bind:value/>
-        {:else}
-            <textarea bind:value/>
-        {/if}
+    <div class="SwitchableEditor">
+        <SwitchableEditor/>
     </div>
-    <Buttons on:html={handleHtml} on:plain={handlePlain} bind:buttons/>
+    <div class="CKEditor5Classic">
+        <CKEditor5Classic/>
+    </div>
 </main>
