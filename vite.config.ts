@@ -1,6 +1,6 @@
-import {resolve} from 'path'
-import {defineConfig} from 'vite'
-import {svelte} from '@sveltejs/vite-plugin-svelte'
+import {resolve} from 'path';
+import {defineConfig} from 'vite';
+import {svelte} from '@sveltejs/vite-plugin-svelte';
 import {createRequire} from 'node:module';
 import ckeditor5 from '@ckeditor/vite-plugin-ckeditor5';
 
@@ -11,10 +11,10 @@ export default defineConfig({
     build: {
         lib: {
             entry: {
-                "components-lib": resolve(__dirname, 'src/main.ts'),
+                "editor-lib": resolve(__dirname, 'src/main.ts'),
                 ckeditor: resolve(__dirname, 'src/ckeditor5.ts'),
             },
-            name: 'ComponentsLib',
+            name: 'Editor',
             formats: ["es", "cjs"],
         },
         emptyOutDir: true,

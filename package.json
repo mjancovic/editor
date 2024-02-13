@@ -1,15 +1,15 @@
 {
-  "name": "components-lib",
+  "name": "editor",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "files": ["dist/*"],
-  "main": "./dist/components.cjs",
-  "module": "./dist/components.js",
+  "main": "./dist/editor-lib.cjs",
+  "module": "./dist/editor-lib.js",
   "exports": {
     ".": {
-      "import": "./dist/components.js",
-      "require": "./dist/components.cjs"
+      "import": "./dist/editor-lib.js",
+      "require": "./dist/editor-lib.cjs"
     },
     "./ckeditor": {
       "import": "./dist/ckeditor.js",
