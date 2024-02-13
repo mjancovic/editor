@@ -20,7 +20,7 @@ import {HorizontalLine} from '@ckeditor/ckeditor5-horizontal-line';
 import {RemoveFormat} from '@ckeditor/ckeditor5-remove-format';
 import {SpecialCharacters, SpecialCharactersEssentials} from '@ckeditor/ckeditor5-special-characters';
 import {MediaEmbed} from '@ckeditor/ckeditor5-media-embed';
-import {UploadAdapter} from '@ckeditor/ckeditor5-adapter-ckfinder';
+import {CKFinderUploadAdapter} from '@ckeditor/ckeditor5-adapter-ckfinder';
 
 export default class CKEditor5Classic extends ClassicEditor {
     public static override builtinPlugins = [
@@ -59,7 +59,7 @@ export default class CKEditor5Classic extends ClassicEditor {
         SpecialCharacters,
         SpecialCharactersEssentials,
         MediaEmbed,
-        UploadAdapter
+        CKFinderUploadAdapter
     ];
 
     public static override defaultConfig = {

@@ -1,1 +1,1 @@
-import "./ckeditor5-12fb12ea.js";
+import "./ckeditor5-DMTIEzP4.js";
