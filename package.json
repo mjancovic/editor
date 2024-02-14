@@ -11,6 +11,7 @@
       "import": "./dist/editor-lib.js",
       "require": "./dist/editor-lib.cjs"
     },
+    "./style": "./dist/style.css",
     "./ckeditor": {
       "import": "./dist/ckeditor.js",
       "require": "./dist/ckeditor.cjs"
