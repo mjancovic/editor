@@ -15,6 +15,7 @@
     export let value = '';
     export let placeHolder = '';
     export let lang = 'en';
+    export let styleLink = '';
     export let valueChange = (evt: any, data: any) => {
     };
     export let stateChange = (evt: any, data: string) => {
@@ -129,5 +130,7 @@
             console.error(err.stack);
         });
 </script>
+
+<link rel="stylesheet" href="{styleLink}" />
 
 <div bind:this={editorElement}/>
