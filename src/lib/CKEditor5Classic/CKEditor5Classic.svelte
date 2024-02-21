@@ -1,4 +1,4 @@
-<svelte:options customElement={{tag: 'ckeditor5-classic',shadow: 'none'}}/>
+<svelte:options customElement={{tag: 'ckeditor5-classic'}}/>
 
 <script lang="ts">
     import CKEditor5Classic from './CKEditor5Classic.ts';

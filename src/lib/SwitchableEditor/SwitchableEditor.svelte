@@ -1,4 +1,4 @@
-<svelte:options customElement={{tag: 'switchable-editor',shadow: 'none'}} />
+<svelte:options customElement={{tag: 'switchable-editor'}} />
 
 <script lang="ts">
     import CKEditor from '../CKEditor5Classic/CKEditor5Classic.svelte'

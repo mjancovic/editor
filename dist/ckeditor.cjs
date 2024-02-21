@@ -1,1 +1,1 @@
-"use strict";require("./ckeditor5-EBIBA6Vx.cjs");
+"use strict";require("./ckeditor5-DVBgbObT.cjs");

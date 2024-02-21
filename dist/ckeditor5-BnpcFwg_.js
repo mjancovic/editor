@@ -58349,7 +58349,7 @@ class fV extends Xp {
     return this.$$.ctx[12];
   }
 }
-customElements.define("ckeditor5-classic", Qp(fV, { insertImageServiceUrl: {}, getImageServiceUrl: {}, items: {}, allowHtmlSupport: { type: "Boolean" }, value: {}, placeHolder: {}, lang: {}, valueChange: {}, stateChange: {}, editor: {} }, [], ["setCursorPositionAtPlaceholder", "setCursorPositionFromJSONString"], !1));
+customElements.define("ckeditor5-classic", Qp(fV, { insertImageServiceUrl: {}, getImageServiceUrl: {}, items: {}, allowHtmlSupport: { type: "Boolean" }, value: {}, placeHolder: {}, lang: {}, valueChange: {}, stateChange: {}, editor: {} }, [], ["setCursorPositionAtPlaceholder", "setCursorPositionFromJSONString"], !0));
 export {
   Zp as A,
   CV as B,
